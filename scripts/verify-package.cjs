@@ -18,14 +18,16 @@ module.exports = async context => {
   ];
   let files = 0;
   for (const name of entries) {
-    const stat = statFile(archive, name);
+    // ASAR's filesystem lookup splits on the host's native path separator.
+    const archiveName = name.split('/').join(path.sep);
+    const stat = statFile(archive, archiveName);
     if (stat.files) continue;
     assert.match(name, /^(?:(?:electron|lib|renderer)\/|package\.json$|LICENSE$)/,
       `Unexpected packaged file: ${name}`);
     assert(!/(?:^|\/)(?:\.env(?:\..*)?|garmin-key\.enc.*|\.git|secrets)(?:\/|$)|\.(?:sqlite(?:-\w+)?|db|pem|key|p12|pfx)$/i.test(name),
       `Private file in application package: ${name}`);
     if (/\.(?:cjs|js|json|html|css|svg|txt|md)$/.test(name)) {
-      const source = extractFile(archive, name).toString('utf8');
+      const source = extractFile(archive, archiveName).toString('utf8');
       assert(!secretPatterns.some(pattern => pattern.test(source)), `Credential found in packaged file: ${name}`);
     }
     files++;
