@@ -45,6 +45,9 @@ assert.ifError(ui.error&&new Error(`${ui.error.message}; last stage: ${JSON.stri
 const line=ui.stdout.split(/\r?\n/).find(value=>value.startsWith('{"packaged":true'));
 const report=progress?.stage==='complete'?progress.result:line?JSON.parse(line):null;
 assert.ok(report,`Missing packaged UI report: ${JSON.stringify(progress)}\n${ui.stdout}`);assert.equal(report.version,require('../package.json').version);assert.equal(report.rendererErrors,0);
+// Windows locks Chromium profile files until the process exits. Delete only the
+// synthetic profile reported by this invocation, after all app handles are gone.
+if(progress?.profile){assert.equal(path.resolve(path.dirname(progress.profile)),path.resolve(require('node:os').tmpdir()));assert.ok(path.basename(progress.profile).startsWith('stepquest-smoke-'));require('node:fs').rmSync(progress.profile,{recursive:true,force:true,maxRetries:10,retryDelay:100});}
 require('node:fs').mkdirSync('artifacts',{recursive:true});require('node:fs').writeFileSync(path.join('artifacts',`packaged-runtime-${process.platform}-${process.arch}.json`),JSON.stringify(report,null,2)+'\n');console.log('Packaged UI verified:',report);
 
 // Record a reproducible checkpoint and reject stale build output. package.json is

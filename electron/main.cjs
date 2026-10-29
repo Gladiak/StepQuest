@@ -22,7 +22,7 @@ const sessionTimer=setInterval(()=>flushSession(),15000);sessionTimer.unref();
 
 const APP_URL = 'stepquest://app/index.html';
 const smoke = process.argv.includes('--smoke-test');
-function smokeReport(stage,details={}){if(smoke&&process.env.STEPQUEST_SMOKE_REPORT)require('node:fs').writeFileSync(process.env.STEPQUEST_SMOKE_REPORT,JSON.stringify({stage,...details})+'\n');}
+function smokeReport(stage,details={}){if(smoke&&process.env.STEPQUEST_SMOKE_REPORT)require('node:fs').writeFileSync(process.env.STEPQUEST_SMOKE_REPORT,JSON.stringify({stage,profile:smokeDirectory,...details})+'\n');}
 if(smoke)app.disableHardwareAcceleration();
 protocol.registerSchemesAsPrivileged([{ scheme: 'stepquest', privileges: { standard: true, secure: true, supportFetchAPI: true } }]);
 app.setName('StepQuest');
@@ -164,7 +164,7 @@ function createWindow() {
   if (smoke) {
     smokeReport('window-created');
     let completed=false;app.on('before-quit',()=>{if(!completed){console.error('Electron smoke test stopped before completion.');app.exit(1);}});
-    require(app.isPackaged?'./packaged-smoke.cjs':process.argv.includes('--settlement')?'../scripts/settlement-smoke.cjs':process.argv.includes('--hero-layout')?'../scripts/hero-layout-smoke.cjs':process.argv.includes('--alchemy-layout')?'../scripts/alchemy-layout-smoke.cjs':'../scripts/electron-smoke.cjs')(window,app,smokeReport).then(()=>{completed=true;app.quit();}).catch(error=>{smokeReport('failed',{error:error.stack});console.error('Electron smoke test failed:',error.stack);app.exit(1);});
+    require(app.isPackaged?'./packaged-smoke.cjs':process.argv.includes('--settlement')?'../scripts/settlement-smoke.cjs':process.argv.includes('--hero-layout')?'../scripts/hero-layout-smoke.cjs':process.argv.includes('--alchemy-layout')?'../scripts/alchemy-layout-smoke.cjs':'../scripts/electron-smoke.cjs')(window,app,smokeReport).then(()=>{completed=true;if(process.platform==='win32'){closeStores();app.exit(0);}else app.quit();}).catch(error=>{smokeReport('failed',{error:error.stack});console.error('Electron smoke test failed:',error.stack);app.exit(1);});
   }
 }
 app.whenReady().then(async () => {
