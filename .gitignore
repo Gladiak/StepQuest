@@ -1,0 +1,47 @@
+# Dependencies and distribution packages
+node_modules/
+dist/
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+id_rsa*
+id_ed25519*
+garmin-key.enc*
+credentials.json
+secrets/
+
+# Personal profiles, health data, databases and backups
+*.sqlite*
+*.db
+*.db-*
+*.db3
+*.bak
+backups/
+exports/
+userData/
+
+# Generated reports, screenshots and development output
+artifacts/
+outputs/
+coverage/
+*.log
+*.tsbuildinfo
+docs/workbook/previews/
+docs/workbook/*.ndjson
+
+# Machine-specific settings
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.codex/
+.agents/
+.aws/

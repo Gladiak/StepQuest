@@ -1,0 +1,14 @@
+[
+  {
+    "id": "slime",
+    "prompt": "Use case: stylized-concept. Asset type: isolated enemy sprite for StepQuest, a dark warm medieval fantasy pixel art RPG. One small green forest slime monster, translucent emerald jelly body, tiny amber eyes, a few leaf fragments suspended inside, hostile but charming. Three quarter view facing left towards a hero. Crisp hand placed pixel art, SNES era limited palette, strong readable silhouette, chunky pixel clusters with dark outlines, consistent top-left lighting. Full creature centered in a square frame with 15% transparent padding all around, including bottom. No scenery, no text, no frame, no ground or cast shadow, no visible checkerboard, no animation strip, one creature only. Actual transparent background. Designed for a 96x96 game sprite shown around 150px."
+  },
+  {
+    "id": "wolf",
+    "prompt": "Use case: stylized-concept. Asset type: isolated enemy sprite for StepQuest, a dark warm medieval fantasy pixel art RPG. One hostile grey forest wolf in a low ready-to-pounce stance, all four paws visible, thick charcoal grey fur with silver highlights, amber eyes, mouth slightly open, no gore. Three quarter side view facing left towards a hero, tail visible. Crisp hand placed pixel art, SNES era limited palette, strong readable silhouette, chunky pixel clusters with dark outlines, consistent top-left lighting. Full creature centered in a square frame with 15% transparent padding all around, including paws and tail. No scenery, no text, no frame, no ground or cast shadow, no visible checkerboard, no animation strip, one creature only. Actual transparent background. Designed for a 96x96 game sprite shown around 150px."
+  },
+  {
+    "id": "raider",
+    "prompt": "Use case: stylized-concept. Asset type: isolated enemy sprite for StepQuest, a dark warm medieval fantasy pixel art RPG. One ruins bandit enemy, compact fantasy RPG proportions matching chibi heroic characters, worn dark iron shoulder armor over brown leather, tattered burgundy hood and scarf, short rusty sword and small round wooden buckler. Hostile three quarter pose facing left towards a hero. Full body including boots and weapon, no gore. Crisp hand placed pixel art, SNES era limited palette, strong readable silhouette, chunky pixel clusters with dark outlines, consistent top-left lighting. Full character centered in a square frame with 15% transparent padding all around. No scenery, no text, no frame, no ground or cast shadow, no visible checkerboard, no animation strip, one creature only. Actual transparent background. Designed for a 96x96 game sprite shown around 150px."
+  }
+]

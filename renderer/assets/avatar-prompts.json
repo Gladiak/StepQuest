@@ -1,0 +1,62 @@
+[
+  {
+    "file": "guardian-male.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Extract and clean ONLY ONE character from the attached reference sprite atlas: top row first, brown-haired man in silver armor with sword and blue shield. This is the male guardian. Preserve that exact character identity and pixel art design. Produce a SINGLE full-body isolated sprite on genuine TRANSPARENT alpha background. Absolutely NO other characters, NO fragments of neighbors, NO text, NO ground, NO shadow. The entire character including all weapons staff horns hat hair cloak and both feet must fit with 8% transparent padding on ALL sides of its own bounding box. Center the COMPLETE silhouette horizontally and vertically in the image. Do not use a grid or spritesheet; ONE character only. Keep the exact crisp pixel art style, colors, outfit, sex and characteristic equipment of the indicated hero."
+  },
+  {
+    "file": "guardian-female.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Extract and clean ONLY ONE character from the attached reference sprite atlas: bottom row first, blonde ponytail woman in silver armor, sword and shield. This is the female guardian. Preserve that exact character identity and pixel art design. Produce a SINGLE full-body isolated sprite on genuine TRANSPARENT alpha background. Absolutely NO other characters, NO fragments of neighbors, NO text, NO ground, NO shadow. The entire character including all weapons staff horns hat hair cloak and both feet must fit with 8% transparent padding on ALL sides of its own bounding box. Center the COMPLETE silhouette horizontally and vertically in the image. Do not use a grid or spritesheet; ONE character only. Keep the exact crisp pixel art style, colors, outfit, sex and characteristic equipment of the indicated hero."
+  },
+  {
+    "file": "arcanist-male.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Extract and clean ONLY ONE character from the attached reference sprite atlas: top row second, silver haired young man in purple wizard robes, large pointed hat and crystal staff. This is the male arcanist. Preserve that exact character identity and pixel art design. Produce a SINGLE full-body isolated sprite on genuine TRANSPARENT alpha background. Absolutely NO other characters, NO fragments of neighbors, NO text, NO ground, NO shadow. The entire character including all weapons staff horns hat hair cloak and both feet must fit with 8% transparent padding on ALL sides of its own bounding box. Center the COMPLETE silhouette horizontally and vertically in the image. Do not use a grid or spritesheet; ONE character only. Keep the exact crisp pixel art style, colors, outfit, sex and characteristic equipment of the indicated hero."
+  },
+  {
+    "file": "arcanist-female.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Extract and clean ONLY ONE character from the attached reference sprite atlas: bottom row second, silver haired woman in purple wizard robes pointed hat and violet crystal staff. This is the female arcanist. Preserve that exact character identity and pixel art design. Produce a SINGLE full-body isolated sprite on genuine TRANSPARENT alpha background. Absolutely NO other characters, NO fragments of neighbors, NO text, NO ground, NO shadow. The entire character including all weapons staff horns hat hair cloak and both feet must fit with 8% transparent padding on ALL sides of its own bounding box. Center the COMPLETE silhouette horizontally and vertically in the image. Do not use a grid or spritesheet; ONE character only. Keep the exact crisp pixel art style, colors, outfit, sex and characteristic equipment of the indicated hero."
+  },
+  {
+    "file": "ranger-male.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Extract and clean ONLY ONE character from the attached reference sprite atlas: top row third, short blond-haired man in green cloak with bow and quiver. This is the male ranger. Preserve that exact character identity and pixel art design. Produce a SINGLE full-body isolated sprite on genuine TRANSPARENT alpha background. Absolutely NO other characters, NO fragments of neighbors, NO text, NO ground, NO shadow. The entire character including all weapons staff horns hat hair cloak and both feet must fit with 8% transparent padding on ALL sides of its own bounding box. Center the COMPLETE silhouette horizontally and vertically in the image. Do not use a grid or spritesheet; ONE character only. Keep the exact crisp pixel art style, colors, outfit, sex and characteristic equipment of the indicated hero."
+  },
+  {
+    "file": "ranger-female.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Extract and clean ONLY ONE character from the attached reference sprite atlas: bottom row third, blonde ponytail woman in green cloak with bow and quiver. This is the female ranger. Preserve that exact character identity and pixel art design. Produce a SINGLE full-body isolated sprite on genuine TRANSPARENT alpha background. Absolutely NO other characters, NO fragments of neighbors, NO text, NO ground, NO shadow. The entire character including all weapons staff horns hat hair cloak and both feet must fit with 8% transparent padding on ALL sides of its own bounding box. Center the COMPLETE silhouette horizontally and vertically in the image. Do not use a grid or spritesheet; ONE character only. Keep the exact crisp pixel art style, colors, outfit, sex and characteristic equipment of the indicated hero."
+  },
+  {
+    "file": "rogue-male.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Extract and clean ONLY ONE character from the attached reference sprite atlas: top row fourth, dark-haired man in black hood leather armor red scarf and twin daggers. This is the male rogue. Preserve that exact character identity and pixel art design. Produce a SINGLE full-body isolated sprite on genuine TRANSPARENT alpha background. Absolutely NO other characters, NO fragments of neighbors, NO text, NO ground, NO shadow. The entire character including all weapons staff horns hat hair cloak and both feet must fit with 8% transparent padding on ALL sides of its own bounding box. Center the COMPLETE silhouette horizontally and vertically in the image. Do not use a grid or spritesheet; ONE character only. Keep the exact crisp pixel art style, colors, outfit, sex and characteristic equipment of the indicated hero."
+  },
+  {
+    "file": "rogue-female.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Extract and clean ONLY ONE character from the attached reference sprite atlas: bottom row fourth, dark-haired woman in black hood leather armor red scarf and twin daggers. This is the female rogue. Preserve that exact character identity and pixel art design. Produce a SINGLE full-body isolated sprite on genuine TRANSPARENT alpha background. Absolutely NO other characters, NO fragments of neighbors, NO text, NO ground, NO shadow. The entire character including all weapons staff horns hat hair cloak and both feet must fit with 8% transparent padding on ALL sides of its own bounding box. Center the COMPLETE silhouette horizontally and vertically in the image. Do not use a grid or spritesheet; ONE character only. Keep the exact crisp pixel art style, colors, outfit, sex and characteristic equipment of the indicated hero."
+  },
+  {
+    "file": "druid-male.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Extract and clean ONLY ONE character from the attached reference sprite atlas: top row fifth, brown-haired man with antler crown green white nature robes and turquoise staff. This is the male druid. Preserve that exact character identity and pixel art design. Produce a SINGLE full-body isolated sprite on genuine TRANSPARENT alpha background. Absolutely NO other characters, NO fragments of neighbors, NO text, NO ground, NO shadow. The entire character including all weapons staff horns hat hair cloak and both feet must fit with 8% transparent padding on ALL sides of its own bounding box. Center the COMPLETE silhouette horizontally and vertically in the image. Do not use a grid or spritesheet; ONE character only. Keep the exact crisp pixel art style, colors, outfit, sex and characteristic equipment of the indicated hero."
+  },
+  {
+    "file": "druid-female.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Extract and clean ONLY ONE character from the attached reference sprite atlas: bottom row fifth, long brown-haired woman with antler crown green white robes turquoise staff. This is the female druid. Preserve that exact character identity and pixel art design. Produce a SINGLE full-body isolated sprite on genuine TRANSPARENT alpha background. Absolutely NO other characters, NO fragments of neighbors, NO text, NO ground, NO shadow. The entire character including all weapons staff horns hat hair cloak and both feet must fit with 8% transparent padding on ALL sides of its own bounding box. Center the COMPLETE silhouette horizontally and vertically in the image. Do not use a grid or spritesheet; ONE character only. Keep the exact crisp pixel art style, colors, outfit, sex and characteristic equipment of the indicated hero."
+  },
+  {
+    "file": "berserker-male.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Extract and clean ONLY ONE character from the attached reference sprite atlas: top row sixth, muscular red-bearded man with fur armor and huge axe. This is the male berserker. Preserve that exact character identity and pixel art design. Produce a SINGLE full-body isolated sprite on genuine TRANSPARENT alpha background. Absolutely NO other characters, NO fragments of neighbors, NO text, NO ground, NO shadow. The entire character including all weapons staff horns hat hair cloak and both feet must fit with 8% transparent padding on ALL sides of its own bounding box. Center the COMPLETE silhouette horizontally and vertically in the image. Do not use a grid or spritesheet; ONE character only. Keep the exact crisp pixel art style, colors, outfit, sex and characteristic equipment of the indicated hero."
+  },
+  {
+    "file": "berserker-female.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Extract and clean ONLY ONE character from the attached reference sprite atlas: bottom row sixth, red ponytail woman with fur armor and huge axe. This is the female berserker. Preserve that exact character identity and pixel art design. Produce a SINGLE full-body isolated sprite on genuine TRANSPARENT alpha background. Absolutely NO other characters, NO fragments of neighbors, NO text, NO ground, NO shadow. The entire character including all weapons staff horns hat hair cloak and both feet must fit with 8% transparent padding on ALL sides of its own bounding box. Center the COMPLETE silhouette horizontally and vertically in the image. Do not use a grid or spritesheet; ONE character only. Keep the exact crisp pixel art style, colors, outfit, sex and characteristic equipment of the indicated hero."
+  }
+]

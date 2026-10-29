@@ -1,0 +1,66 @@
+[
+  {
+    "id": "sword",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Generate ONE small iron longsword, guardian class, diagonal pointing upper right, worn silver blade, tiny blue gem, muted antique gold crossguard and brown grip. True crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow, no shadow. Full isolated object centered with generous transparent padding 15% on all sides, square image, readable silhouette when rendered at 32px. No character, no text, no frame, no checkerboard. Save output as an image asset."
+  },
+  {
+    "id": "staff",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE slender wooden wizard staff, purple crystal at its tip, antique gold bands, arcanist class. Style: true crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow or shadow. Full isolated item centered with generous transparent padding 15% on every side, square image, large readable silhouette rendered at 32px. No character, no text, no frame, no checkerboard."
+  },
+  {
+    "id": "bow",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE curved forest recurve bow with visible taut bowstring, warm oak wood and green leather binding, ranger class. Style: true crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow or shadow. Full isolated item centered with generous transparent padding 15% on every side, square image, large readable silhouette rendered at 32px. No character, no text, no frame, no checkerboard."
+  },
+  {
+    "id": "daggers",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE matched pair of short crossed daggers, silver triangular blades, dark leather grips and tiny crimson pommels, rogue class. Style: true crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow or shadow. Full isolated item centered with generous transparent padding 15% on every side, square image, large readable silhouette rendered at 32px. No character, no text, no frame, no checkerboard."
+  },
+  {
+    "id": "nature-staff",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE gnarled druid staff with a curled oak top surrounding one green emerald and two leaves, druid class. Style: true crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow or shadow. Full isolated item centered with generous transparent padding 15% on every side, square image, large readable silhouette rendered at 32px. No character, no text, no frame, no checkerboard."
+  },
+  {
+    "id": "axe",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE heavy double edged battle axe, steel blade, brown wrapped handle, copper rivets, berserker class. Style: true crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow or shadow. Full isolated item centered with generous transparent padding 15% on every side, square image, large readable silhouette rendered at 32px. No character, no text, no frame, no checkerboard."
+  },
+  {
+    "id": "armor-plate",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE empty heavy steel breastplate with shoulder plates, silver metal, tiny blue enamel detail, no body, no head. Style: true crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow or shadow. Full isolated item centered with generous transparent padding 15% on every side, square image, readable silhouette rendered at 32px. No character, no text, no frame, no checkerboard."
+  },
+  {
+    "id": "armor-robe",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE empty folded silhouette of a purple mage robe with gold trim and hood, no person or mannequin. Style: true crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow or shadow. Full isolated item centered with generous transparent padding 15% on every side, square image, readable silhouette rendered at 32px. No character, no text, no frame, no checkerboard."
+  },
+  {
+    "id": "armor-leather",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE empty brown leather jerkin with shoulder straps, green cloth insert, brass buckles, no person or mannequin. Style: true crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow or shadow. Full isolated item centered with generous transparent padding 15% on every side, square image, readable silhouette rendered at 32px. No character, no text, no frame, no checkerboard."
+  },
+  {
+    "id": "boots",
+    "prompt": "Use case: stylized-concept. Asset type: one transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE matching pair of brown leather traveling boots, cuffs, simple buckles. True crisp 32x32 pixel art aesthetic, strong dark pixel outline, chunky pixel clusters, limited palette. Full isolated object centered with transparent padding 15% on every side, square image, readable silhouette at 32px. No person, no text, no frame, no checkerboard, no shadow."
+  },
+  {
+    "id": "ring",
+    "prompt": "Use case: stylized-concept. Asset type: one transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE thick copper ring set with a small warm amber stone. True crisp 32x32 pixel art aesthetic, strong dark pixel outline, chunky pixel clusters, limited palette. Full isolated object centered with transparent padding 15% on every side, square image, readable silhouette at 32px. No person, no text, no frame, no checkerboard, no shadow."
+  },
+  {
+    "id": "amulet",
+    "prompt": "Use case: stylized-concept. Asset type: one transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE leaf shaped green emerald pendant in a bronze setting on a short leather cord. True crisp 32x32 pixel art aesthetic, strong dark pixel outline, chunky pixel clusters, limited palette. Full isolated object centered with transparent padding 15% on every side, square image, readable silhouette at 32px. No person, no text, no frame, no checkerboard, no shadow."
+  },
+  {
+    "id": "potion-red",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE small round glass healing potion bottle filled with ruby red liquid, cork stopper, tiny cream label with NO writing. Style: true crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow or shadow. Full isolated item centered with generous transparent padding 15% on every side, square image, readable silhouette rendered at 32px. No character, no text, no frame, no checkerboard."
+  },
+  {
+    "id": "potion-blue",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE small round glass focus potion bottle filled with sapphire blue liquid, cork stopper, tiny cream label with NO writing. Style: true crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow or shadow. Full isolated item centered with generous transparent padding 15% on every side, square image, readable silhouette rendered at 32px. No character, no text, no frame, no checkerboard."
+  },
+  {
+    "id": "potion-green",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE small round glass antidote bottle filled with emerald green liquid, cork stopper, tiny cream label with NO writing. Style: true crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow or shadow. Full isolated item centered with generous transparent padding 15% on every side, square image, readable silhouette rendered at 32px. No character, no text, no frame, no checkerboard."
+  },
+  {
+    "id": "food",
+    "prompt": "Use case: stylized-concept. Asset type: single transparent inventory sprite for StepQuest fantasy pixel art RPG. Subject: ONE small travel ration: round rustic bread loaf and a wedge of yellow cheese together as a compact single inventory icon. Style: true crisp 32x32 pixel art aesthetic, strong dark pixel outline, hand placed chunky pixel clusters, limited palette, no smooth painting, no antialiasing, no glow or shadow. Full isolated item centered with generous transparent padding 15% on every side, square image, readable silhouette rendered at 32px. No character, no text, no frame, no checkerboard."
+  }
+]

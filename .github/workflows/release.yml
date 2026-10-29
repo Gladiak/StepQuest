@@ -1,0 +1,148 @@
+name: Build and release
+
+on:
+  push:
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: Offline tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Check release version
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: node -e "require('node:assert/strict').equal(process.env.RELEASE_TAG, 'v' + require('./package.json').version)"
+
+  build:
+    name: Build ${{ matrix.name }}
+    needs: test
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: mac-arm64
+            os: macos-15
+            command: npm run dist:mac -- --arm64
+            ui: true
+          - name: mac-x64
+            os: macos-15-intel
+            command: npm run dist:mac -- --x64
+          - name: windows-x64
+            os: windows-2022
+            command: npm run dist:win
+          - name: linux-x64
+            os: ubuntu-24.04
+            command: npm run dist:linux
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Electron UI checks with temporary profile
+        if: matrix.ui == true
+        run: npm run test:electron
+      - name: Install Linux packaging tools
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes rpm
+      - name: Build and inspect application package
+        run: ${{ matrix.command }}
+      - name: Verify packaged Electron and SQLite runtime
+        run: node scripts/verify-runtime.cjs
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: release-${{ matrix.name }}
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+          path: |
+            dist/*.zip
+            dist/*-portable.exe
+            dist/*.AppImage
+            dist/*.deb
+            dist/*.rpm
+
+  release:
+    name: Publish complete release
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: [test, build]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: release-*
+          path: release
+          merge-multiple: true
+      - name: Verify all six downloads and create checksums
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const assert = require('node:assert/strict');
+          const { createHash } = require('node:crypto');
+          const version = require('./package.json').version;
+          const files = [
+            `StepQuest-${version}-mac-arm64.zip`,
+            `StepQuest-${version}-mac-x64.zip`,
+            `StepQuest-${version}-windows-x64-portable.exe`,
+            `StepQuest-${version}-linux-x64.AppImage`,
+            `StepQuest-${version}-linux-x64.deb`,
+            `StepQuest-${version}-linux-x64.rpm`,
+          ].sort();
+          assert.deepEqual(fs.readdirSync('release').sort(), files);
+          const sums = files.map(file => {
+            const data = fs.readFileSync(`release/${file}`);
+            assert(data.length > 0, `Empty artifact: ${file}`);
+            return `${createHash('sha256').update(data).digest('hex')}  ${file}`;
+          });
+          fs.writeFileSync('release/SHA256SUMS.txt', sums.join('\n') + '\n');
+          NODE
+      - name: Upload assets and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" --verify-tag --draft --title "StepQuest $RELEASE_TAG" --notes-file "docs/release-notes-$RELEASE_TAG.md"
+          gh release upload "$RELEASE_TAG" release/*
+          gh release edit "$RELEASE_TAG" --draft=false --latest

@@ -1,0 +1,22 @@
+[
+  {
+    "file": "scene-home.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Create an original static pixel art fantasy RPG game environment background, landscape 16:10, 1280x800 composition. cozy medieval fantasy adventurer's stone cottage interior: fireplace with embers at left rear, wooden weapon rack and armor stand, workbench, worn rugs, chest and bed, warm amber lantern light. Main central floor area is open and clear for a hero sprite. Rich stone and timber detail at edges. Style: crisp hand-placed pixel clusters, detailed 32-bit era RPG, slightly top-down 3/4 view, muted olive greens and gold, dark earthy shadows, readable cozy epic atmosphere. Entire image is environment only, NO UI NO text NO lettering NO minimap NO interface NO characters. This will fill a desktop game screen, with opaque HUD panels over the lower quarter and upper corners. Keep the center uncluttered and usable. Not photorealistic, not painterly blur."
+  },
+  {
+    "file": "scene-market.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Create an original static pixel art fantasy RPG game environment background, landscape 16:10, 1280x800 composition. medieval fantasy town market square within stone walls: timber shopfronts, apothecary bottles under green awning, blacksmith's forge, cloth canopies, wooden merchant stalls along upper and right edges, warm afternoon light. Main center cobblestone square open for a hero sprite. No people. Style: crisp hand-placed pixel clusters, detailed 32-bit era RPG, slightly top-down 3/4 view, muted olive greens and gold, dark earthy shadows, readable cozy epic atmosphere. Entire image is environment only, NO UI NO text NO lettering NO minimap NO interface NO characters. This will fill a desktop game screen, with opaque HUD panels over the lower quarter and upper corners. Keep the center uncluttered and usable. Not photorealistic, not painterly blur."
+  },
+  {
+    "file": "scene-wilds.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Create an original static pixel art fantasy RPG game environment background, landscape 16:10, 1280x800 composition. outside a medieval fantasy city's stone walls: massive ancient gate visible in far upper right, grassy forest clearing with stone path, mossy ruins and luminous tiny blue crystals, distant pine woods and mountains, late afternoon green and gold light. Open central ground to place hero and enemy sprites. No characters or creatures. Style: crisp hand-placed pixel clusters, detailed 32-bit era RPG, slightly top-down 3/4 view, muted olive greens and gold, dark earthy shadows, readable cozy epic atmosphere. Entire image is environment only, NO UI NO text NO lettering NO minimap NO interface NO characters. This will fill a desktop game screen, with opaque HUD panels over the lower quarter and upper corners. Keep the center uncluttered and usable. Not photorealistic, not painterly blur."
+  },
+  {
+    "file": "scene-alchemy.png",
+    "tool": "ImageGen built-in",
+    "prompt": "Use case: stylized-concept. Asset type: original pixel-art background for StepQuest desktop fantasy RPG, landscape 16:10 composition for 1280x800. Scene: an atmospheric medieval alchemist's laboratory inside a vaulted stone tower, three-quarter slightly top-down view; shelves of small colored potion flasks and herb bundles, brass distillation apparatus and glowing teal glass vessels on a worn wooden workbench, old books and mortar, copper pipes, warm candlelight and cool emerald alchemical glow. Rich details in the upper background and room edges, quiet open central stone floor and low-contrast areas behind overlay panels. Cohesive detailed 32-bit RPG pixel art, crisp hand-placed pixel clusters, earthy olive green shadows and antique gold highlights matching an old parchment fantasy interface. Environment only: no characters, no monsters, no text, no lettering, no UI, no panels, no logo, no watermark. Avoid painterly blur, smooth photographic surfaces and modern technology. Finished game environment artwork."
+  }
+]

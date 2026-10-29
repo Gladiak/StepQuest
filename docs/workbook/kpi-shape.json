@@ -1,0 +1,16 @@
+[
+  {
+    "metric": "Tempo al primo credito",
+    "definition": "Minuti fra creazione profilo e primo accredito reale idoneo; il bonus iniziale è escluso.",
+    "hypothesis": "Mediana <5 minuti con dispositivo già sincronizzato.",
+    "test": "Log locale opt-in; separare ritardo Garmin dal tempo UI.",
+    "decision": "Se alto, migliorare spiegazione sync e giocabilità della prova gratuita."
+  },
+  {
+    "metric": "Comprensione economica",
+    "definition": "Utenti che distinguono totale passi e saldo spendibile / utenti del test.",
+    "hypothesis": "Almeno 80% dopo 5 minuti.",
+    "test": "Domanda aperta dopo un acquisto; non suggerire la risposta.",
+    "decision": "Se basso, eliminare una valuta e migliorare la ricevuta."
+  }
+]

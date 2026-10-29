@@ -1,0 +1,35 @@
+{
+  "gameKeys": [
+    "meta",
+    "decisions",
+    "loop",
+    "economy_parameters",
+    "economy_examples",
+    "economy_formulas",
+    "classes",
+    "combat",
+    "world",
+    "endless_system",
+    "data_and_ledger",
+    "future_schema",
+    "pixel_art_pipeline",
+    "roadmap",
+    "estimation_notes",
+    "kpis_and_experiments",
+    "risks",
+    "sources"
+  ],
+  "reviewKeys": [
+    "title",
+    "as_of",
+    "status",
+    "assumptions",
+    "rounding_review",
+    "scenarios",
+    "findings",
+    "ledger_policy",
+    "ledger_example",
+    "tests",
+    "validation_priorities"
+  ]
+}

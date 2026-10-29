@@ -1,0 +1,46 @@
+{
+  "baseline": {
+    "balance": 16871,
+    "upgrades": 4
+  },
+  "testedInputs": [
+    {
+      "steps": 1000,
+      "food": 1,
+      "balance": 4800,
+      "upgrades": 0
+    },
+    {
+      "steps": 8000,
+      "food": 1,
+      "balance": 134471,
+      "upgrades": 4
+    },
+    {
+      "steps": 0,
+      "food": 1,
+      "balance": 200,
+      "upgrades": 0
+    },
+    {
+      "steps": 1000,
+      "food": 0,
+      "balance": 6500,
+      "upgrades": 2
+    }
+  ],
+  "classesTested": 3,
+  "firstFloor": [
+    80,
+    12,
+    15,
+    34.72521739130435,
+    8.275862068965518,
+    3,
+    2,
+    16.551724137931036,
+    214.44827586206895,
+    0.0716524854455889,
+    "Sopravvive"
+  ]
+}

@@ -1,0 +1,700 @@
+{
+  "title": "StepQuest: revisione indipendente economia e ledger",
+  "as_of": "2026-10-28",
+  "status": "Simulazioni sintetiche di progetto. Non sono evidenze di aderenza, divertimento o aumento dei passi.",
+  "assumptions": {
+    "days": 28,
+    "credits_per_step": 1,
+    "initial_bonus_credits": 2000,
+    "completed_expeditions_per_day": 2,
+    "materials_per_completed_expedition": 3,
+    "food_unit_cost_credits": 900,
+    "desired_food_per_day": 1,
+    "upgrade_attempt_interval_days": 7,
+    "upgrade_base_price_credits": 10000,
+    "upgrade_price_growth_factor": 1.35,
+    "materials_per_upgrade": 35,
+    "order": "Accredito passi, entrata materiali, acquisto cibo se sostenibile, tentativo upgrade nei giorni 7/14/21/28, saldo finale.",
+    "expeditions_note": "Due spedizioni completate ogni giorno sono un input ipotetico uguale in tutti i profili. La simulazione non stima probabilità di vittoria né effetto del cibo.",
+    "integer_price_rule": "ROUND(10000 * 1.35 ^ upgrade_gia_acquistati, 0), arrotondamento al credito più vicino.",
+    "materials_rule": "Ogni acquisto consuma 35 materiali. Passi e materiali sono contabilizzati separatamente. Il livello XP non si compra.",
+    "failure_rule": "Non si spende se saldo o materiali insufficienti. Un tentativo mancato ritenta soltanto alla successiva cadenza settimanale del modello."
+  },
+  "rounding_review": {
+    "mathematical_prices_exact": [
+      10000,
+      13500,
+      18225,
+      24603.75
+    ],
+    "prices_used_integer": [
+      10000,
+      13500,
+      18225,
+      24604
+    ],
+    "upgrade_total_exact": 66328.75,
+    "upgrade_total_integer": 66329,
+    "precision_risk": "Math.ceil(10000*1.35**2) può dare 18226 per floating point. Usare una regola esplicita e verificata con interi/decimali; ROUND al credito più vicino è coerente con la tabella.",
+    "raw_exact_baseline_balance": 16871.25,
+    "integer_baseline_balance": 16871
+  },
+  "scenarios": [
+    {
+      "steps_per_day": 3800,
+      "desired_food_per_day": 1,
+      "step_credits": 106400,
+      "initial_bonus": 2000,
+      "food_spend": 25200,
+      "upgrade_spend": 66329,
+      "total_spend": 91529,
+      "upgrade_count": 4,
+      "upgrade_purchase_days": [
+        7,
+        14,
+        21,
+        28
+      ],
+      "wallet_end": 16871,
+      "materials_end": 28,
+      "unaffordable_food_units": 0,
+      "spend_share_of_step_credits": 0.860234962406015,
+      "checkpoints": [
+        {
+          "day": 7,
+          "wallet_before_daily_credit": 19400,
+          "step_credit": 3800,
+          "food_quantity": 1,
+          "upgrade_price": 10000,
+          "upgrade_purchased": true,
+          "wallet_end": 12300,
+          "materials_end": 7
+        },
+        {
+          "day": 14,
+          "wallet_before_daily_credit": 29700,
+          "step_credit": 3800,
+          "food_quantity": 1,
+          "upgrade_price": 13500,
+          "upgrade_purchased": true,
+          "wallet_end": 19100,
+          "materials_end": 14
+        },
+        {
+          "day": 21,
+          "wallet_before_daily_credit": 36500,
+          "step_credit": 3800,
+          "food_quantity": 1,
+          "upgrade_price": 18225,
+          "upgrade_purchased": true,
+          "wallet_end": 21175,
+          "materials_end": 21
+        },
+        {
+          "day": 28,
+          "wallet_before_daily_credit": 38575,
+          "step_credit": 3800,
+          "food_quantity": 1,
+          "upgrade_price": 24604,
+          "upgrade_purchased": true,
+          "wallet_end": 16871,
+          "materials_end": 28
+        }
+      ]
+    },
+    {
+      "steps_per_day": 1000,
+      "desired_food_per_day": 1,
+      "step_credits": 28000,
+      "initial_bonus": 2000,
+      "food_spend": 25200,
+      "upgrade_spend": 0,
+      "total_spend": 25200,
+      "upgrade_count": 0,
+      "upgrade_purchase_days": [],
+      "wallet_end": 4800,
+      "materials_end": 168,
+      "unaffordable_food_units": 0,
+      "spend_share_of_step_credits": 0.9,
+      "checkpoints": [
+        {
+          "day": 7,
+          "wallet_before_daily_credit": 2600,
+          "step_credit": 1000,
+          "food_quantity": 1,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 2700,
+          "materials_end": 42
+        },
+        {
+          "day": 14,
+          "wallet_before_daily_credit": 3300,
+          "step_credit": 1000,
+          "food_quantity": 1,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 3400,
+          "materials_end": 84
+        },
+        {
+          "day": 21,
+          "wallet_before_daily_credit": 4000,
+          "step_credit": 1000,
+          "food_quantity": 1,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 4100,
+          "materials_end": 126
+        },
+        {
+          "day": 28,
+          "wallet_before_daily_credit": 4700,
+          "step_credit": 1000,
+          "food_quantity": 1,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 4800,
+          "materials_end": 168
+        }
+      ]
+    },
+    {
+      "steps_per_day": 8000,
+      "desired_food_per_day": 1,
+      "step_credits": 224000,
+      "initial_bonus": 2000,
+      "food_spend": 25200,
+      "upgrade_spend": 66329,
+      "total_spend": 91529,
+      "upgrade_count": 4,
+      "upgrade_purchase_days": [
+        7,
+        14,
+        21,
+        28
+      ],
+      "wallet_end": 134471,
+      "materials_end": 28,
+      "unaffordable_food_units": 0,
+      "spend_share_of_step_credits": 0.40861160714285716,
+      "checkpoints": [
+        {
+          "day": 7,
+          "wallet_before_daily_credit": 44600,
+          "step_credit": 8000,
+          "food_quantity": 1,
+          "upgrade_price": 10000,
+          "upgrade_purchased": true,
+          "wallet_end": 41700,
+          "materials_end": 7
+        },
+        {
+          "day": 14,
+          "wallet_before_daily_credit": 84300,
+          "step_credit": 8000,
+          "food_quantity": 1,
+          "upgrade_price": 13500,
+          "upgrade_purchased": true,
+          "wallet_end": 77900,
+          "materials_end": 14
+        },
+        {
+          "day": 21,
+          "wallet_before_daily_credit": 120500,
+          "step_credit": 8000,
+          "food_quantity": 1,
+          "upgrade_price": 18225,
+          "upgrade_purchased": true,
+          "wallet_end": 109375,
+          "materials_end": 21
+        },
+        {
+          "day": 28,
+          "wallet_before_daily_credit": 151975,
+          "step_credit": 8000,
+          "food_quantity": 1,
+          "upgrade_price": 24604,
+          "upgrade_purchased": true,
+          "wallet_end": 134471,
+          "materials_end": 28
+        }
+      ]
+    },
+    {
+      "steps_per_day": 0,
+      "desired_food_per_day": 1,
+      "step_credits": 0,
+      "initial_bonus": 2000,
+      "food_spend": 1800,
+      "upgrade_spend": 0,
+      "total_spend": 1800,
+      "upgrade_count": 0,
+      "upgrade_purchase_days": [],
+      "wallet_end": 200,
+      "materials_end": 168,
+      "unaffordable_food_units": 26,
+      "spend_share_of_step_credits": null,
+      "checkpoints": [
+        {
+          "day": 7,
+          "wallet_before_daily_credit": 200,
+          "step_credit": 0,
+          "food_quantity": 0,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 200,
+          "materials_end": 42
+        },
+        {
+          "day": 14,
+          "wallet_before_daily_credit": 200,
+          "step_credit": 0,
+          "food_quantity": 0,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 200,
+          "materials_end": 84
+        },
+        {
+          "day": 21,
+          "wallet_before_daily_credit": 200,
+          "step_credit": 0,
+          "food_quantity": 0,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 200,
+          "materials_end": 126
+        },
+        {
+          "day": 28,
+          "wallet_before_daily_credit": 200,
+          "step_credit": 0,
+          "food_quantity": 0,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 200,
+          "materials_end": 168
+        }
+      ]
+    },
+    {
+      "steps_per_day": 3800,
+      "desired_food_per_day": 0,
+      "step_credits": 106400,
+      "initial_bonus": 2000,
+      "food_spend": 0,
+      "upgrade_spend": 66329,
+      "total_spend": 66329,
+      "upgrade_count": 4,
+      "upgrade_purchase_days": [
+        7,
+        14,
+        21,
+        28
+      ],
+      "wallet_end": 42071,
+      "materials_end": 28,
+      "unaffordable_food_units": 0,
+      "spend_share_of_step_credits": 0.6233928571428572,
+      "checkpoints": [
+        {
+          "day": 7,
+          "wallet_before_daily_credit": 24800,
+          "step_credit": 3800,
+          "food_quantity": 0,
+          "upgrade_price": 10000,
+          "upgrade_purchased": true,
+          "wallet_end": 18600,
+          "materials_end": 7
+        },
+        {
+          "day": 14,
+          "wallet_before_daily_credit": 41400,
+          "step_credit": 3800,
+          "food_quantity": 0,
+          "upgrade_price": 13500,
+          "upgrade_purchased": true,
+          "wallet_end": 31700,
+          "materials_end": 14
+        },
+        {
+          "day": 21,
+          "wallet_before_daily_credit": 54500,
+          "step_credit": 3800,
+          "food_quantity": 0,
+          "upgrade_price": 18225,
+          "upgrade_purchased": true,
+          "wallet_end": 40075,
+          "materials_end": 21
+        },
+        {
+          "day": 28,
+          "wallet_before_daily_credit": 62875,
+          "step_credit": 3800,
+          "food_quantity": 0,
+          "upgrade_price": 24604,
+          "upgrade_purchased": true,
+          "wallet_end": 42071,
+          "materials_end": 28
+        }
+      ]
+    },
+    {
+      "steps_per_day": 1000,
+      "desired_food_per_day": 0,
+      "step_credits": 28000,
+      "initial_bonus": 2000,
+      "food_spend": 0,
+      "upgrade_spend": 23500,
+      "total_spend": 23500,
+      "upgrade_count": 2,
+      "upgrade_purchase_days": [
+        14,
+        28
+      ],
+      "wallet_end": 6500,
+      "materials_end": 98,
+      "unaffordable_food_units": 0,
+      "spend_share_of_step_credits": 0.8392857142857143,
+      "checkpoints": [
+        {
+          "day": 7,
+          "wallet_before_daily_credit": 8000,
+          "step_credit": 1000,
+          "food_quantity": 0,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 9000,
+          "materials_end": 42
+        },
+        {
+          "day": 14,
+          "wallet_before_daily_credit": 15000,
+          "step_credit": 1000,
+          "food_quantity": 0,
+          "upgrade_price": 10000,
+          "upgrade_purchased": true,
+          "wallet_end": 6000,
+          "materials_end": 49
+        },
+        {
+          "day": 21,
+          "wallet_before_daily_credit": 12000,
+          "step_credit": 1000,
+          "food_quantity": 0,
+          "upgrade_price": 13500,
+          "upgrade_purchased": false,
+          "wallet_end": 13000,
+          "materials_end": 91
+        },
+        {
+          "day": 28,
+          "wallet_before_daily_credit": 19000,
+          "step_credit": 1000,
+          "food_quantity": 0,
+          "upgrade_price": 13500,
+          "upgrade_purchased": true,
+          "wallet_end": 6500,
+          "materials_end": 98
+        }
+      ]
+    },
+    {
+      "steps_per_day": 8000,
+      "desired_food_per_day": 0,
+      "step_credits": 224000,
+      "initial_bonus": 2000,
+      "food_spend": 0,
+      "upgrade_spend": 66329,
+      "total_spend": 66329,
+      "upgrade_count": 4,
+      "upgrade_purchase_days": [
+        7,
+        14,
+        21,
+        28
+      ],
+      "wallet_end": 159671,
+      "materials_end": 28,
+      "unaffordable_food_units": 0,
+      "spend_share_of_step_credits": 0.29611160714285717,
+      "checkpoints": [
+        {
+          "day": 7,
+          "wallet_before_daily_credit": 50000,
+          "step_credit": 8000,
+          "food_quantity": 0,
+          "upgrade_price": 10000,
+          "upgrade_purchased": true,
+          "wallet_end": 48000,
+          "materials_end": 7
+        },
+        {
+          "day": 14,
+          "wallet_before_daily_credit": 96000,
+          "step_credit": 8000,
+          "food_quantity": 0,
+          "upgrade_price": 13500,
+          "upgrade_purchased": true,
+          "wallet_end": 90500,
+          "materials_end": 14
+        },
+        {
+          "day": 21,
+          "wallet_before_daily_credit": 138500,
+          "step_credit": 8000,
+          "food_quantity": 0,
+          "upgrade_price": 18225,
+          "upgrade_purchased": true,
+          "wallet_end": 128275,
+          "materials_end": 21
+        },
+        {
+          "day": 28,
+          "wallet_before_daily_credit": 176275,
+          "step_credit": 8000,
+          "food_quantity": 0,
+          "upgrade_price": 24604,
+          "upgrade_purchased": true,
+          "wallet_end": 159671,
+          "materials_end": 28
+        }
+      ]
+    },
+    {
+      "steps_per_day": 0,
+      "desired_food_per_day": 0,
+      "step_credits": 0,
+      "initial_bonus": 2000,
+      "food_spend": 0,
+      "upgrade_spend": 0,
+      "total_spend": 0,
+      "upgrade_count": 0,
+      "upgrade_purchase_days": [],
+      "wallet_end": 2000,
+      "materials_end": 168,
+      "unaffordable_food_units": 0,
+      "spend_share_of_step_credits": null,
+      "checkpoints": [
+        {
+          "day": 7,
+          "wallet_before_daily_credit": 2000,
+          "step_credit": 0,
+          "food_quantity": 0,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 2000,
+          "materials_end": 42
+        },
+        {
+          "day": 14,
+          "wallet_before_daily_credit": 2000,
+          "step_credit": 0,
+          "food_quantity": 0,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 2000,
+          "materials_end": 84
+        },
+        {
+          "day": 21,
+          "wallet_before_daily_credit": 2000,
+          "step_credit": 0,
+          "food_quantity": 0,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 2000,
+          "materials_end": 126
+        },
+        {
+          "day": 28,
+          "wallet_before_daily_credit": 2000,
+          "step_credit": 0,
+          "food_quantity": 0,
+          "upgrade_price": 10000,
+          "upgrade_purchased": false,
+          "wallet_end": 2000,
+          "materials_end": 168
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "topic": "Baseline",
+      "observation": "A 3800 passi/giorno,1 cibo/giorno e 2 spedizioni completate, si acquistano 4 upgrade. Entrate 106400, spese 91529, saldo 16871.",
+      "implication": "Il prezzo proposto assorbe circa 86.0% delle entrate da passi nel primo mese. Non prova che il gioco sia equilibrato."
+    },
+    {
+      "topic": "Pochi passi",
+      "observation": "A 1000 passi/giorno il cibo assorbe 90% delle entrate e non si compra alcun upgrade in 28 giorni. Senza cibo si comprano 2 upgrade, giorni 14 e 28.",
+      "implication": "Il cibo non deve diventare obbligatorio. Offrire una scorta iniziale, alternative gratuite e un suggerimento di risparmio non prescrittivo."
+    },
+    {
+      "topic": "Molti passi",
+      "observation": "A 8000 passi/giorno il saldo finale è 134471 pur comprando gli stessi 4 upgrade. Si spende solo 40.9% delle entrate.",
+      "implication": "Per giocatori molto attivi servono scelte laterali e cosmetiche. Materiali, conoscenza delle meccaniche e boss devono impedire di comprare vittorie."
+    },
+    {
+      "topic": "Zero passi",
+      "observation": "Con 2000 crediti iniziali e 0 passi si possono comprare soltanto 2 cibi, restano 200 crediti. Senza cibo restano 2000 crediti.",
+      "implication": "Campi gratuiti, recupero e pratica devono restare disponibili anche a saldo 0. Non introdurre fame o danno offline."
+    },
+    {
+      "topic": "Effetto cibo non modellato",
+      "observation": "Tutti gli scenari completano 56 spedizioni e generano 168 materiali prima delle spese, indipendentemente dal cibo.",
+      "implication": "Senza modello del beneficio il confronto misura solo costo. Prima di decidere 900 crediti, playtestare aumento di sopravvivenza e convenienza rispetto al risparmio."
+    },
+    {
+      "topic": "Soglie",
+      "observation": "Con 1 cibo/giorno, primo upgrade al giorno 7 richiede almeno 2043 passi/giorno costanti. Un primo upgrade entro 28 giorni richiede almeno 1186. Quattro upgrade entro 28 giorni richiedono almeno 3198.",
+      "implication": "Sono soglie matematiche di questa ipotesi economica, non obiettivi di attività fisica. Personalizzare la difficoltà del gioco senza assegnare quote mediche."
+    },
+    {
+      "topic": "Cadenza artificiale",
+      "observation": "Il modello compra solo ogni 7 giorni. A 1000 passi e senza cibo il primo prezzo è accessibile dal giorno 8, ma l’acquisto viene rinviato al 14.",
+      "implication": "Nel gioco consentire acquisti quando disponibili. La cadenza settimanale serve al modello, non va imposta come negozio a tempo."
+    },
+    {
+      "topic": "Endless",
+      "observation": "La crescita geometrica dei prezzi non crea contenuto né scelte. Anche gli utenti attivi incontreranno un prezzo troppo alto mantenendo passi costanti.",
+      "implication": "Limitare i moltiplicatori dentro capitoli. Aggiungere affissi, build e percorsi; usare un prestigio volontario con ricompense laterali."
+    }
+  ],
+  "ledger_policy": {
+    "canonical_identity": "wallet legato a un profilo locale persistente associato a un ID Garmin verificato. La fingerprint della chiave può isolare l’attuale cache, ma non identifica una persona/account.",
+    "eligibility": "Accredito dal momento di onboarding scelto. Nessuna rimintatura automatica di tutto lo storico. Bonus iniziale con chiave idempotente per profilo.",
+    "target": "target_credits(date)=floor(eligible_steps(date)*conversion_rate_version). Non calcolare per singolo delta di passi con arrotondamenti ripetuti.",
+    "reconciliation": "delta=target_credits(date)-SUM(mint_or_correction_for_date). Se delta 0, non creare evento economico. Altrimenti appendere un evento firmato con riferimento al record osservato e alla versione delle regole.",
+    "idempotency": "Un transaction_id stabile e un vincolo UNIQUE su profile_id, source_revision_id, event_type impediscono duplicati dello stesso evento. Il confronto col totale netto della data evita anche rimintature da una risposta semanticamente uguale ma con revision_id nuova.",
+    "negative_correction": "Una rettifica negativa può rendere negativo il saldo contabile se i crediti sono già spesi. spendibile=max(0,saldo_contabile), debito=max(0,-saldo_contabile). Gli oggetti già ottenuti non vengono confiscati.",
+    "daily_recovery": "I futuri accrediti compensano il debito prima di riaprire le spese. La pratica e il campo gratuito rimangono accessibili. Mostrare il motivo della rettifica e separarla da una sanzione di gioco.",
+    "transaction": "BEGIN IMMEDIATE: registra osservazione, aggiorna target della data, inserisci evento economico e aggiorna materializzazione saldo. COMMIT. Acquisto: controllo saldo e requisiti, evento spesa e inventario nella medesima transazione.",
+    "current_day": "Il giorno corrente è parziale. Mostrare crediti provvisori oppure rinviare l’accredito spendibile alla chiusura scelta. Specificare il compromesso latenza/rischio di rettifica.",
+    "backup": "Backup e ripristino devono includere nello stesso snapshot dati Garmin, ledger, wallet, inventario e metadata regole. Non restaurare separatamente una cache fresca con un wallet vecchio.",
+    "key_rotation": "Nuova chiave dello stesso account si ricollega al profilo verificato e al ledger esistente. Con la sola fingerprint, bloccare la creazione automatica di un nuovo wallet con riaccredito storico e richiedere una migrazione esplicita.",
+    "single_player_limit": "SQLite locale è modificabile e un backup precedente può essere rigiocato. Senza autorità remota non si garantiscono anticheat, non ripudio né unicità globale. Accettabile per uso personale, inadatto a classifiche competitive con premi."
+  },
+  "ledger_example": [
+    {
+      "event": "mint",
+      "observed_steps": 10000,
+      "target_credits": 10000,
+      "date_net_minted_after": 10000,
+      "delta": 10000,
+      "wallet_after": 10000
+    },
+    {
+      "event": "purchase",
+      "observed_steps": null,
+      "target_credits": null,
+      "date_net_minted_after": 10000,
+      "delta": -9000,
+      "wallet_after": 1000
+    },
+    {
+      "event": "correction",
+      "observed_steps": 6000,
+      "target_credits": 6000,
+      "date_net_minted_after": 6000,
+      "delta": -4000,
+      "wallet_after": -3000
+    },
+    {
+      "event": "duplicate_observation",
+      "observed_steps": 6000,
+      "target_credits": 6000,
+      "date_net_minted_after": 6000,
+      "delta": 0,
+      "wallet_after": -3000
+    },
+    {
+      "event": "upward_revision",
+      "observed_steps": 8000,
+      "target_credits": 8000,
+      "date_net_minted_after": 8000,
+      "delta": 2000,
+      "wallet_after": -1000
+    }
+  ],
+  "tests": [
+    {
+      "case": "Risincronizzazione identica",
+      "setup": "Importa due volte 10000 passi stessa data e stessa revisione.",
+      "expected": "Un solo accredito netto 10000. Numero osservazioni/eventi conforme alla policy, saldo invariato al secondo import."
+    },
+    {
+      "case": "Stesso valore nuova revisione",
+      "setup": "Nuovo timestamp o nuova revisione con stessi 10000 passi.",
+      "expected": "Target invariato. Nessun credito aggiuntivo pur conservando la revisione se richiesta."
+    },
+    {
+      "case": "Incremento parziale",
+      "setup": "Giorno corrente 1000, poi 1500, poi 1500.",
+      "expected": "Accrediti 1000,+500,0. Il target finale è 1500."
+    },
+    {
+      "case": "Rettifica dopo spesa",
+      "setup": "Mint 10000, acquisto 9000, rettifica target 6000.",
+      "expected": "Saldo contabile-3000, spendibile 0, oggetti conservati, nessuna pratica bloccata."
+    },
+    {
+      "case": "Calo e recupero",
+      "setup": "Target 10000,6000,8000,10000.",
+      "expected": "Eventi+10000,-4000,+2000,+2000. Netto 10000, non 16000."
+    },
+    {
+      "case": "Acquisti concorrenti",
+      "setup": "Saldo 1000. Due richieste contemporanee di acquisto 900.",
+      "expected": "Uno solo riesce. Nessun saldo negativo da acquisto e un solo oggetto consegnato."
+    },
+    {
+      "case": "Crash a metà",
+      "setup": "Interrompi dopo inserimento spesa prima dell’inventario, poi riapri.",
+      "expected": "Rollback totale o transazione interamente presente. Mai saldo sottratto senza oggetto."
+    },
+    {
+      "case": "Replica comando",
+      "setup": "Ripeti lo stesso command_id di acquisto o ricompensa battaglia dopo timeout.",
+      "expected": "Ritorna lo stesso risultato. Una sola spesa e un solo oggetto/ricompensa."
+    },
+    {
+      "case": "Bonus onboarding",
+      "setup": "Riavvio, reinstallazione con DB conservato o tentativo di nuova chiave.",
+      "expected": "Bonus una sola volta per profilo persistente; nessun riaccredito storico automatico."
+    },
+    {
+      "case": "Cambio chiave",
+      "setup": "Chiave nuova riconducibile allo stesso ID Garmin.",
+      "expected": "Stesso profilo e stesso ledger. Se ID non verificabile, niente merge o mint automatico."
+    },
+    {
+      "case": "Fonte assente",
+      "setup": "Timeout o risposta 204 dopo dati validi.",
+      "expected": "Assenza non equivale a 0. Non generare rettifica economica automatica senza valore esplicito e policy fonte."
+    },
+    {
+      "case": "Ripristino backup",
+      "setup": "Acquisto completato, backup coerente, nuovi import, ripristino, replay delle stesse osservazioni.",
+      "expected": "Invarianti interne wallet/ledger/inventario ristabilite. Dichiarare che ripristinare un vecchio stato non può essere impedito completamente offline."
+    },
+    {
+      "case": "Cambio regole conversione",
+      "setup": "Ratev 1=1 e rate v2 diverso, sincronizza date vecchie.",
+      "expected": "Ogni data conserva versione assegnata o una migrazione esplicita genera differenze una sola volta. Nessuna rimintatura accidentale."
+    },
+    {
+      "case": "Confine giorno e fuso",
+      "setup": "Import vicino mezzanotte, ora legale e giorno parziale.",
+      "expected": "Uso della calendarDate Garmin e zona documentata. Nessun trasferimento implicito di credito tra date."
+    }
+  ],
+  "validation_priorities": [
+    "Misurare se il cibo aggiunge una scelta tattica utile. Non inferirlo dal tasso di spesa.",
+    "Separare retention dal numero passi. Attività iniziale diversa rende ingannevoli medie aggregate.",
+    "Provare con utenti dai profili di attività diversi e con settimane senza movimento. Nessuna quota obbligatoria di passi.",
+    "Avviare con un personaggio/bioma e tre archetipi nemici, verificare che una strategia migliore batta acquisti automatici.",
+    "Prima del wallet, chiudere identità e regole di revisione dei dati. La cache offline da sola non garantisce unicità economica."
+  ]
+}
