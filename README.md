@@ -38,11 +38,11 @@ Get the files from the [Releases page](https://github.com/Gladiak/StepQuest/rele
 | macOS — Apple Silicon | `StepQuest-1.0.0-mac-arm64.zip` |
 | macOS — Intel | `StepQuest-1.0.0-mac-x64.zip` |
 | Windows — x64 portable | `StepQuest-1.0.0-windows-x64-portable.exe` |
-| Linux — x64 AppImage | `StepQuest-1.0.0-linux-x64.AppImage` |
-| Debian / Ubuntu — x64 | `StepQuest-1.0.0-linux-x64.deb` |
-| Fedora / RPM distributions — x64 | `StepQuest-1.0.0-linux-x64.rpm` |
+| Linux — x64 AppImage | `StepQuest-1.0.0-linux-x86_64.AppImage` |
+| Debian / Ubuntu — x64 | `StepQuest-1.0.0-linux-amd64.deb` |
+| Fedora / RPM distributions — x64 | `StepQuest-1.0.0-linux-x86_64.rpm` |
 
-On macOS, extract the ZIP and move **StepQuest.app** to Applications. On Windows, run the portable executable. On Linux, install the DEB/RPM package or make the AppImage executable with `chmod +x StepQuest-1.0.0-linux-x64.AppImage` and run it. AppImage may require your distribution's FUSE compatibility package.
+On macOS, extract the ZIP and move **StepQuest.app** to Applications. On Windows, run the portable executable. On Linux, install the DEB/RPM package or make the AppImage executable with `chmod +x StepQuest-1.0.0-linux-x86_64.AppImage` and run it. AppImage may require your distribution's FUSE compatibility package.
 
 The v1.0.0 macOS and Windows builds are unsigned; macOS is also not notarized. Your operating system may display a security warning or require explicit approval before opening the app.
 

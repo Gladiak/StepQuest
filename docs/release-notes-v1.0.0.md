@@ -16,9 +16,9 @@ Turn your daily Garmin steps into a pixel-art fantasy adventure.
 | macOS Apple Silicon | `StepQuest-1.0.0-mac-arm64.zip` |
 | macOS Intel | `StepQuest-1.0.0-mac-x64.zip` |
 | Windows x64 portable | `StepQuest-1.0.0-windows-x64-portable.exe` |
-| Linux x64 AppImage | `StepQuest-1.0.0-linux-x64.AppImage` |
-| Debian / Ubuntu x64 | `StepQuest-1.0.0-linux-x64.deb` |
-| Fedora / RPM distributions x64 | `StepQuest-1.0.0-linux-x64.rpm` |
+| Linux x64 AppImage | `StepQuest-1.0.0-linux-x86_64.AppImage` |
+| Debian / Ubuntu x64 | `StepQuest-1.0.0-linux-amd64.deb` |
+| Fedora / RPM distributions x64 | `StepQuest-1.0.0-linux-x86_64.rpm` |
 
 SHA-256 hashes for all six files are provided in `SHA256SUMS.txt`.
 
