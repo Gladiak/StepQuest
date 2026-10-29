@@ -22,11 +22,14 @@ const sessionTimer=setInterval(()=>flushSession(),15000);sessionTimer.unref();
 
 const APP_URL = 'stepquest://app/index.html';
 const smoke = process.argv.includes('--smoke-test');
+function smokeReport(stage,details={}){if(smoke&&process.env.STEPQUEST_SMOKE_REPORT)require('node:fs').writeFileSync(process.env.STEPQUEST_SMOKE_REPORT,JSON.stringify({stage,...details})+'\n');}
+if(smoke)app.disableHardwareAcceleration();
 protocol.registerSchemesAsPrivileged([{ scheme: 'stepquest', privileges: { standard: true, secure: true, supportFetchAPI: true } }]);
 app.setName('StepQuest');
 let window, client, repository, stepsService, smokeDirectory, snapshot = null, busy = false, storage = 'session', storageNotice = '';
 // Chromium chooses its profile before ready; isolate browser preferences as well as SQLite.
 if(smoke){smokeDirectory=require('node:fs').mkdtempSync(path.join(os.tmpdir(),'stepquest-smoke-'));app.setPath('userData',smokeDirectory);app.setPath('sessionData',smokeDirectory);}
+smokeReport('startup');
 const ownsInstance=smoke||app.requestSingleInstanceLock();
 if(!ownsInstance)app.exit(0);
 app.on('second-instance',()=>{if(window){if(window.isMinimized())window.restore();window.show();window.focus();}});
@@ -151,19 +154,21 @@ function createWindow() {
   window = new BrowserWindow({
     width: 1280, height: 800, useContentSize: true, resizable: false, maximizable: false, fullscreenable: false,
     backgroundColor: '#171c1e', title: 'StepQuest', show: false, icon: path.join(__dirname,'../renderer/assets/app-icon.png'),
-    webPreferences: { preload: path.join(__dirname, 'preload.cjs'), contextIsolation: true, nodeIntegration: false, sandbox: true, webSecurity: true },
+    webPreferences: { preload: path.join(__dirname, 'preload.cjs'), contextIsolation: true, nodeIntegration: false, sandbox: true, webSecurity: true, backgroundThrottling: !smoke },
   });
   window.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
   window.webContents.on('will-navigate', (event, url) => { if (url !== APP_URL) event.preventDefault(); });
-  window.once('ready-to-show', () => { if (!smoke) window.show(); });
+  window.once('ready-to-show', () => { if (!smoke) window.show();else if(process.platform==='win32')window.showInactive(); });
   window.on('closed', () => { flushSession(true); window = null; });
   window.loadURL(APP_URL);
   if (smoke) {
+    smokeReport('window-created');
     let completed=false;app.on('before-quit',()=>{if(!completed){console.error('Electron smoke test stopped before completion.');app.exit(1);}});
-    require(app.isPackaged?'./packaged-smoke.cjs':process.argv.includes('--settlement')?'../scripts/settlement-smoke.cjs':process.argv.includes('--hero-layout')?'../scripts/hero-layout-smoke.cjs':process.argv.includes('--alchemy-layout')?'../scripts/alchemy-layout-smoke.cjs':'../scripts/electron-smoke.cjs')(window,app).then(()=>{completed=true;app.quit();}).catch(error=>{console.error('Electron smoke test failed:',error.stack);app.exit(1);});
+    require(app.isPackaged?'./packaged-smoke.cjs':process.argv.includes('--settlement')?'../scripts/settlement-smoke.cjs':process.argv.includes('--hero-layout')?'../scripts/hero-layout-smoke.cjs':process.argv.includes('--alchemy-layout')?'../scripts/alchemy-layout-smoke.cjs':'../scripts/electron-smoke.cjs')(window,app,smokeReport).then(()=>{completed=true;app.quit();}).catch(error=>{smokeReport('failed',{error:error.stack});console.error('Electron smoke test failed:',error.stack);app.exit(1);});
   }
 }
 app.whenReady().then(async () => {
+  smokeReport('ready');
   if(!ownsInstance)return;
   prepareSave(path.join(app.getPath('userData'),'stepquest.sqlite'),{version:require('../package.json').version});
   const assets = new Map([['/index.html', ['index.html', 'text/html']], ['/styles.css', ['styles.css', 'text/css']], ['/app.js', ['app.js', 'text/javascript']]]);
@@ -198,6 +203,7 @@ app.whenReady().then(async () => {
   registerHandlers(); createWindow();
   app.on('activate', () => { if (!window) createWindow(); });
 }).catch(async error => {
+  smokeReport('failed',{error:error.stack});
   console.error('Impossibile avviare StepQuest:',error.message);
   if(smoke){app.exit(1);return;}closeStores();
   const directory=app.getPath('userData'),filename=path.join(directory,'stepquest.sqlite');

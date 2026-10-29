@@ -35,11 +35,16 @@ console.log('Packaged runtime verified:', info);
 // Exercise the installed application itself, not the source checkout. This entry
 // point is shipped in electron/ and always uses an isolated temporary profile.
 const env={...process.env,GARMIN_API_KEY:''};delete env.ELECTRON_RUN_AS_NODE;
+const progressPath=path.resolve('artifacts',`packaged-progress-${process.platform}-${process.arch}.json`);
+require('node:fs').mkdirSync(path.dirname(progressPath),{recursive:true});
+require('node:fs').rmSync(progressPath,{force:true});env.STEPQUEST_SMOKE_REPORT=progressPath;
 const args=['--smoke-test'];if(process.platform==='linux'&&process.env.CI)args.push('--no-sandbox');
 const ui=spawnSync(executable,args,{env,encoding:'utf8',timeout:90000});
-if(ui.error)throw ui.error;assert.equal(ui.status,0,`Packaged UI failed: ${ui.stderr}\n${ui.stdout}`);
+const progress=require('node:fs').existsSync(progressPath)?JSON.parse(require('node:fs').readFileSync(progressPath,'utf8')):null;
+assert.ifError(ui.error&&new Error(`${ui.error.message}; last stage: ${JSON.stringify(progress)}; stderr: ${ui.stderr}; stdout: ${ui.stdout}`));assert.equal(ui.status,0,`Packaged UI failed: ${JSON.stringify(progress)}\n${ui.stderr}\n${ui.stdout}`);
 const line=ui.stdout.split(/\r?\n/).find(value=>value.startsWith('{"packaged":true'));
-assert.ok(line,`Missing packaged UI report: ${ui.stdout}`);const report=JSON.parse(line);assert.equal(report.version,require('../package.json').version);assert.equal(report.rendererErrors,0);
+const report=progress?.stage==='complete'?progress.result:line?JSON.parse(line):null;
+assert.ok(report,`Missing packaged UI report: ${JSON.stringify(progress)}\n${ui.stdout}`);assert.equal(report.version,require('../package.json').version);assert.equal(report.rendererErrors,0);
 require('node:fs').mkdirSync('artifacts',{recursive:true});require('node:fs').writeFileSync(path.join('artifacts',`packaged-runtime-${process.platform}-${process.arch}.json`),JSON.stringify(report,null,2)+'\n');console.log('Packaged UI verified:',report);
 
 // Record a reproducible checkpoint and reject stale build output. package.json is

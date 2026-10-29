@@ -52,10 +52,10 @@
           "arena"
         ],
         "backgrounds": 3,
-        "sha256": "677c5184f2c2fbf8000412894ab93c61370786eef5c29d64834e03fc7fd3f3b5",
+        "sha256": "4705719e4482f3b1aabb5764ac2fd41fcde6527cffc2f9e1ddab2851ceac7e9a",
         "sourceCheckpoint": {
           "files": 105,
-          "sha256": "b53f897a4aeaead3529a5d13d306551699d0c8236acb274f8d41673f81909e64"
+          "sha256": "2d7725ff8fe98db3244badf20c2d28bd35d18a2a3826e6a52fb7666a55190466"
         }
       },
       "mac-x64": {
@@ -80,13 +80,14 @@
   "notes": [
     "Previously saved mining plans retain their fixed rewards; corrected production applies to new plans.",
     "Benchmark responses still contain the full inventory; metadata batching reduces backend work without changing the wire contract.",
-    "No real Garmin request or personal save was used by the checks."
+    "No real Garmin request or personal save was used by the checks.",
+    "CI smoke checks preserve temporary toast visibility during contrast capture and use a file report for Windows GUI executables."
   ],
   "source": {
     "state": "Pre-publication verification snapshot; the source fingerprint identifies the locally verified application.",
     "fingerprint": {
       "files": 105,
-      "sha256": "b53f897a4aeaead3529a5d13d306551699d0c8236acb274f8d41673f81909e64"
+      "sha256": "2d7725ff8fe98db3244badf20c2d28bd35d18a2a3826e6a52fb7666a55190466"
     }
   }
 }

@@ -3,7 +3,12 @@ const assert = require('node:assert/strict');
 
 // Misura il colore del testo contro lo sfondo realmente renderizzato, incluse texture e gradienti.
 module.exports = async function auditContrast(window, label) {
+  // A toast can expire between measuring its text and capturing its background.
+  // Hold its existing visibility only for this snapshot, without changing colors.
+  const visibilityKey=await window.webContents.insertCSS('#toast[data-contrast-visible]{display:block!important}');
+  try {
   const runs = await window.webContents.executeJavaScript(`(()=>{
+    const toast=document.getElementById('toast');if(toast&&!toast.hidden)toast.setAttribute('data-contrast-visible','');
     const result=[],walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
     for(let node;node=walker.nextNode();){
       const text=node.textContent.trim(),element=node.parentElement;
@@ -74,4 +79,8 @@ module.exports = async function auditContrast(window, label) {
   if(failures.length)require('node:fs').writeFileSync(require('node:path').join(__dirname,'../artifacts/contrast-background.png'),picture.toPNG());
   assert.deepEqual(failures, [], `${label}: contrasto inferiore a 4.5:1`);
   return { screen:label,textRuns:runs.length,minimumContrast:Number(lowest.toFixed(2)) };
+  } finally {
+    await window.webContents.executeJavaScript("document.getElementById('toast')?.removeAttribute('data-contrast-visible')");
+    await window.webContents.removeInsertedCSS(visibilityKey);
+  }
 };
