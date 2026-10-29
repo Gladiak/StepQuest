@@ -71,7 +71,6 @@ Congeda il tuo eroe|Dismiss your hero|Congédier votre héros|Despide a tu héro
 Scrivi il nome esatto del personaggio|Type the character’s exact name|Saisissez le nom exact du personnage|Escribe el nombre exacto del personaje|Gib den genauen Charakternamen ein|キャラクター名を正確に入力
 L’eliminazione è definitiva. Lo storico Garmin rimane nel tuo archivio.|Deletion is permanent. Your Garmin history stays in your archive.|La suppression est définitive. L’historique Garmin reste dans vos archives.|La eliminación es definitiva. El historial de Garmin permanece en tu archivo.|Das Löschen ist endgültig. Dein Garmin-Verlauf bleibt im Archiv.|削除は取り消せません。Garminの履歴は保存されます。
 Elimina personaggio|Delete character|Supprimer le personnage|Eliminar personaje|Charakter löschen|キャラクターを削除
-Stai per eliminare {0}, equipaggiamento e progressi. I passi già assegnati non saranno riscattabili di nuovo. Questa storia non potrà essere recuperata.|You are about to delete {0}, their equipment and progress. Assigned steps cannot be claimed again. This story cannot be recovered.|Vous allez supprimer {0}, son équipement et sa progression. Les pas attribués ne pourront plus être réclamés. Cette histoire sera perdue.|Vas a eliminar a {0}, su equipo y su progreso. Los pasos asignados no podrán recuperarse. Esta historia se perderá.|Du löschst {0}, Ausrüstung und Fortschritt. Bereits zugewiesene Schritte können nicht erneut eingelöst werden. Diese Geschichte geht verloren.|{0}と装備、進行状況を削除します。使用済みの歩数は再取得できません。この物語は復元できません。
 Il rifugio è pronto. Importa i passi di oggi e preparati al viaggio.|Your refuge is ready. Import today’s steps and prepare for the journey.|Votre refuge est prêt. Importez les pas du jour et préparez le voyage.|Tu refugio está listo. Importa los pasos de hoy y prepara el viaje.|Deine Zuflucht ist bereit. Importiere heutige Schritte und bereite dich vor.|拠点の準備ができました。今日の歩数を取り込み、旅に備えましょう。
 Il rifugio del viandante|The wanderer’s refuge|Le refuge du voyageur|El refugio del viajero|Die Zuflucht des Wanderers|旅人の拠点
 Prepara la tua prossima avventura.|Prepare your next adventure.|Préparez votre prochaine aventure.|Prepara tu próxima aventura.|Bereite dein nächstes Abenteuer vor.|次の冒険に備えよう。
@@ -833,7 +832,7 @@ Vendi per rarità|Sell by rarity|Vendre par rareté|Vender por rareza|Nach Selte
 Modalità di vendita|Sale mode|Mode de vente|Modo de venta|Verkaufsmodus|売却モード
 Rarità da vendere|Rarity to sell|Rareté à vendre|Rareza para vender|Zu verkaufende Seltenheit|売却するレア度
 Includi cibo e pozioni|Include food and potions|Inclure nourriture et potions|Incluir comida y pociones|Essen und Tränke einschließen|食料・ポーションを含める
-Esclusi equipaggiati, incantati e pezzi con una preparazione alchemica in sospeso. La selezione comprende anche set, oggetti migliori e di livello futuro.|Excludes equipped, enchanted and pending alchemy items. Includes sets, upgrades and higher-level items.|Exclut les objets équipés, enchantés et en préparation alchimique. Inclut ensembles, améliorations et objets de niveau supérieur.|Excluye equipados, encantados y preparaciones alquímicas pendientes. Incluye conjuntos, mejoras y objetos de nivel futuro.|Angelegte, verzauberte und für Alchemie reservierte Gegenstände bleiben. Enthält auch Sets, Verbesserungen und höhere Stufen.|装備中・付与済み・調合待ちの品は除外。セット、より強い品、高レベル品も売却対象になります。
+Esclusi equipaggiati, incantati, rifiniti e pezzi con una preparazione alchemica in sospeso. La selezione comprende anche set, oggetti migliori e di livello futuro.|Excludes equipped, enchanted, refined and pending alchemy items. Includes sets, upgrades and higher-level items.|Exclut les objets équipés, enchantés, affinés et en préparation alchimique. Inclut ensembles, améliorations et objets de niveau supérieur.|Excluye equipados, encantados, refinados y preparaciones alquímicas pendientes. Incluye conjuntos, mejoras y objetos de nivel futuro.|Angelegte, verzauberte, veredelte und für Alchemie reservierte Gegenstände bleiben. Enthält auch Sets, Verbesserungen und höhere Stufen.|装備中・付与済み・強化済み・調合待ちの品は除外。セット、より強い品、高レベル品も売却対象になります。
 Nessun oggetto vendibile per questa rarità.|No sellable items of this rarity.|Aucun objet vendable de cette rareté.|No hay objetos vendibles de esta rareza.|Keine verkaufbaren Gegenstände dieser Seltenheit.|このレア度の売却対象はありません。
 Filtro di rarità non valido.|Invalid rarity filter.|Filtre de rareté invalide.|Filtro de rareza no válido.|Ungültiger Seltenheitsfilter.|レア度の指定が無効です。
 Venduti {0} oggetti · +{1} monete.|Sold {0} items · +{1} coins.|{0} objets vendus · +{1} pièces.|{0} objetos vendidos · +{1} monedas.|{0} Gegenstände verkauft · +{1} Münzen.|{0}個を売却 · {1}コイン獲得。
@@ -859,4 +858,188 @@ Scegli esplicitamente le rarità da tenere. Le altre verranno vendute a fine com
 Filtro bottino: venduti {0} oggetti · +{1} monete.|Loot filter: sold {0} items · +{1} coins.|Filtre de butin : {0} objets vendus · +{1} pièces.|Filtro de botín: {0} objetos vendidos · +{1} monedas.|Beutefilter: {0} Gegenstände verkauft · +{1} Münzen.|戦利品フィルター：{0}個を売却 · {1}コイン獲得。
 Spedizione completata. Il filtro bottino ha venduto il premio finale.|Expedition completed. The loot filter sold the final reward.|Expédition terminée. Le filtre de butin a vendu la récompense finale.|Expedición completada. El filtro de botín vendió el premio final.|Expedition abgeschlossen. Der Beutefilter hat die Abschlussbelohnung verkauft.|遠征完了。最終報酬は戦利品フィルターで売却されました。
 Spedizione completata! +{0} monete. Premio venduto dal filtro bottino.|Expedition completed! +{0} coins. Final reward sold by the loot filter.|Expédition terminée ! +{0} pièces. Récompense finale vendue par le filtre de butin.|¡Expedición completada! +{0} monedas. Premio vendido por el filtro de botín.|Expedition abgeschlossen! +{0} Münzen. Abschlussbelohnung vom Beutefilter verkauft.|遠征完了！{0}コイン獲得。最終報酬は戦利品フィルターで売却されました。
+Rifinitura|Refinement|Affinage|Refinado|Veredelung|強化
+Incantamenti|Enchantments|Enchantements|Encantamientos|Verzauberungen|エンチャント
+Rifinitura {0} / {1}|Refinement {0} / {1}|Affinage {0} / {1}|Refinado {0} / {1}|Veredelung {0} / {1}|強化 {0} / {1}
+Statistiche di base e affissi positivi +{0}%.|Base stats and positive affixes +{0}%.|Stats de base et affixes positifs +{0} %.|Estadísticas base y afijos positivos +{0}%.|Grundwerte und positive Affixe +{0} %.|基礎能力とプラス効果 +{0}%。
+Il grado resta sul pezzo. Incantamenti e malus restano invariati.|The rank stays on this item. Enchantments and penalties remain unchanged.|Le grade reste sur cet objet. Enchantements et malus restent inchangés.|El grado queda en esta pieza. Encantamientos y penalizaciones se mantienen.|Der Rang bleibt am Gegenstand. Verzauberungen und Mali bleiben erhalten.|強化段階はアイテムに保存されます。エンチャントとマイナス効果は変わりません。
+Scegli il pezzo su cui investire i passi|Choose an item to invest your steps in|Choisissez où investir vos pas|Elige la pieza en la que invertir pasos|Wähle einen Gegenstand für deine Schritte|歩数を使って強化する装備を選択
+Potere garantito|Guaranteed power|Puissance garantie|Poder garantizado|Garantierte Stärke|確実な強化
+Cinque gradi, nessun tiro casuale|Five ranks, no random rolls|Cinq grades, sans hasard|Cinco grados, sin azar|Fünf Ränge, ohne Zufall|5段階、ランダム要素なし
+Ogni grado aggiunge il 6% alle statistiche di base e agli affissi positivi, fino al 30%. Il costo cresce con grado e livello del pezzo.|Each rank adds 6% to base stats and positive affixes, up to 30%. Cost rises with item rank and level.|Chaque grade ajoute 6 % aux stats de base et affixes positifs, jusqu’à 30 %. Le coût augmente avec le grade et le niveau de l’objet.|Cada grado añade un 6% a las estadísticas base y afijos positivos, hasta el 30%. El coste aumenta con el grado y nivel de la pieza.|Jeder Rang erhöht Grundwerte und positive Affixe um 6 %, bis 30 %. Kosten steigen mit Rang und Gegenstandsstufe.|各段階で基礎能力とプラス効果が6%増加（最大30%）。費用は強化段階と装備レベルに応じて増えます。
+Questo pezzo ha raggiunto il grado massimo.|This item has reached the maximum rank.|Cet objet a atteint le grade maximal.|Esta pieza ha alcanzado el grado máximo.|Dieser Gegenstand hat den höchsten Rang erreicht.|この装備は最大強化段階です。
+Questo pezzo non ha statistiche positive da rifinire.|This item has no positive stats to refine.|Cet objet n’a aucune statistique positive à affiner.|Esta pieza no tiene estadísticas positivas que refinar.|Dieser Gegenstand hat keine positiven Werte zum Veredeln.|強化できるプラスの能力がありません。
+Grado massimo|Maximum rank|Grade maximal|Grado máximo|Höchster Rang|最大強化
+Rifinisci · {0} passi|Refine · {0} steps|Affiner · {0} pas|Refinar · {0} pasos|Veredeln · {0} Schritte|強化 · {0}歩
+Conferma rifinitura|Confirm refinement|Confirmer l’affinage|Confirmar refinado|Veredelung bestätigen|強化を確認
+Spenderai {0} passi. Il miglioramento è garantito e resta su questo pezzo.|Spend {0} steps. The improvement is guaranteed and stays on this item.|Vous dépensez {0} pas. L’amélioration est garantie et reste sur cet objet.|Gastarás {0} pasos. La mejora está garantizada y queda en esta pieza.|Du zahlst {0} Schritte. Die Verbesserung ist garantiert und bleibt am Gegenstand.|{0}歩を消費。確実に強化され、この装備に効果が保存されます。
+Applica rifinitura|Apply refinement|Appliquer l’affinage|Aplicar refinado|Veredelung anwenden|強化を実行
+Rifinitura applicata.|Refinement applied.|Affinage appliqué.|Refinado aplicado.|Veredelung angewendet.|強化しました。
+Grado {0}|Rank {0}|Grade {0}|Grado {0}|Rang {0}|段階 {0}
+I pezzi rifiniti sono esclusi dalla vendita in blocco. Puoi venderli singolarmente, senza recuperare i passi investiti.|Refined items are excluded from bulk sales. You can sell them individually; invested steps are not refunded.|Les objets affinés sont exclus des ventes groupées. Vente individuelle possible, sans remboursement des pas.|Las piezas refinadas se excluyen de la venta en bloque. Puedes venderlas individualmente sin recuperar los pasos.|Veredelte Gegenstände sind vom Sammelverkauf ausgeschlossen. Einzelverkauf erstattet keine investierten Schritte.|強化済み装備は一括売却の対象外です。個別に売却できますが、消費した歩数は戻りません。
+Richiesta di rifinitura non valida.|Invalid refinement request.|Demande d’affinage invalide.|Solicitud de refinado no válida.|Ungültige Veredelungsanfrage.|強化リクエストが無効です。
+Indossa il pezzo prima di rifinirlo.|Equip the item before refining it.|Équipez l’objet avant de l’affiner.|Equipa la pieza antes de refinarla.|Lege den Gegenstand vor dem Veredeln an.|装備してから強化してください。
+Il grado è cambiato. Riapri la rifinitura.|The rank has changed. Reopen refinement.|Le grade a changé. Rouvrez l’affinage.|El grado ha cambiado. Abre de nuevo el refinado.|Der Rang hat sich geändert. Öffne die Veredelung erneut.|強化段階が変わりました。強化画面を開き直してください。
+Ricerca mirata|Targeted expedition|Recherche ciblée|Búsqueda dirigida|Gezielte Suche|目標探索
+Ricerca|Research|Recherche|Búsqueda|Suche|探索
+Scegli uno slot o un set ordinario e uno dei due premi finali.|Choose a slot or standard set, then one of two final rewards.|Choisissez un emplacement ou un ensemble ordinaire, puis un des deux prix finaux.|Elige una ranura o conjunto ordinario y uno de los dos premios finales.|Wähle einen Platz oder ein gewöhnliches Set und eine von zwei Endbelohnungen.|装備部位か通常セットを指定し、2つの最終報酬から1つを選択。
+Slot desiderato|Desired slot|Emplacement souhaité|Ranura deseada|Gewünschter Platz|装備部位を指定
+Set ordinario|Standard set|Ensemble ordinaire|Conjunto ordinario|Gewöhnliches Set|通常セット
+Tipo di ricerca|Research type|Type de recherche|Tipo de búsqueda|Suchart|探索の種類
+Obiettivo|Target|Objectif|Objetivo|Ziel|探索目標
+Due proposte finali, scegli un solo pezzo. Almeno Raro dal livello 4, Non comune prima. I set Unici restano drop rari del custode.|Two final options; choose one item. At least Rare from level 4, Uncommon before. Unique sets remain rare guardian drops.|Deux propositions finales, un objet à choisir. Au moins Rare dès le niveau 4, Peu commun avant. Les ensembles uniques restent des butins rares du gardien.|Dos propuestas finales, elige una pieza. Al menos Raro desde nivel 4, Poco común antes. Los conjuntos únicos siguen siendo botín raro del guardián.|Zwei Endangebote, ein Gegenstand. Ab Stufe 4 mindestens Selten, davor Ungewöhnlich. Einzigartige Sets bleiben seltene Wächterbeute.|最終候補2つから1つを選択。レベル4以上はレア以上、それ以前はアンコモン。ユニークセットは守護者の希少ドロップ限定です。
+Il filtro bottino resta attivo anche sul premio scelto.|The loot filter also applies to the chosen reward.|Le filtre de butin s’applique aussi au prix choisi.|El filtro de botín también se aplica al premio elegido.|Der Beutefilter gilt auch für die gewählte Belohnung.|選んだ報酬にも戦利品フィルターが適用されます。
+La spedizione di ricerca ha inizio.|The targeted expedition begins.|La recherche ciblée commence.|Comienza la búsqueda dirigida.|Die gezielte Suche beginnt.|目標探索を開始しました。
+Il premio appartiene al set scelto della tua classe.|The reward belongs to the chosen set for your class.|Le prix appartient à l’ensemble choisi de votre classe.|El premio pertenece al conjunto elegido de tu clase.|Die Belohnung gehört zum gewählten Set deiner Klasse.|自分のクラスの指定セットが報酬になります。
+Entrambe le proposte occupano lo slot scelto e sono adatte alla tua classe.|Both options fit the chosen slot and your class.|Les deux propositions correspondent à l’emplacement choisi et à votre classe.|Ambas propuestas encajan en la ranura elegida y tu clase.|Beide Angebote passen zum gewählten Platz und deiner Klasse.|どちらの候補も指定部位とクラスに適合します。
+Costo totale: {0} passi · Quattro tappe|Total cost: {0} steps · Four stages|Coût total : {0} pas · Quatre étapes|Coste total: {0} pasos · Cuatro etapas|Gesamtkosten: {0} Schritte · Vier Etappen|合計費用：{0}歩 · 4つの行程
+Scegli cosa cercare prima di partire. I passi pagano il controllo sul premio finale.|Choose what to seek before departing. Steps buy control over the final reward.|Choisissez quoi chercher avant de partir. Les pas donnent le contrôle sur le prix final.|Elige qué buscar antes de partir. Los pasos permiten controlar el premio final.|Wähle vor dem Aufbruch dein Ziel. Schritte geben Kontrolle über die Endbelohnung.|出発前に探索目標を選択。歩数を使い、最終報酬の種類を指定できます。
+Scegli il premio della ricerca|Choose your research reward|Choisissez le prix de recherche|Elige el premio de búsqueda|Suchbelohnung wählen|探索報酬を選択
+Le proposte sono salvate. Riceverai un solo oggetto.|Options are saved. You will receive one item.|Les propositions sont sauvegardées. Vous recevrez un seul objet.|Las propuestas se guardan. Recibirás un solo objeto.|Angebote sind gespeichert. Du erhältst einen Gegenstand.|候補は保存されます。受け取れる装備は1つです。
+Il filtro bottino venderà questo premio.|The loot filter will sell this reward.|Le filtre de butin vendra ce prix.|El filtro de botín venderá este premio.|Der Beutefilter wird diese Belohnung verkaufen.|この報酬は戦利品フィルターで売却されます。
+Il premio selezionato viene aggiunto allo zaino.|The chosen reward is added to your backpack.|Le prix choisi rejoint votre sac.|El premio elegido se añade a tu mochila.|Die gewählte Belohnung kommt in deinen Rucksack.|選択した報酬を所持品に追加します。
+Scegli questo premio|Choose this reward|Choisir ce prix|Elegir este premio|Diese Belohnung wählen|この報酬を選ぶ
+Premio della ricerca riscattato.|Research reward claimed.|Prix de recherche récupéré.|Premio de búsqueda recibido.|Suchbelohnung erhalten.|探索報酬を受け取りました。
+Ricerca completata. Scegli uno dei due premi.|Research complete. Choose one of two rewards.|Recherche terminée. Choisissez un des deux prix.|Búsqueda completada. Elige uno de los dos premios.|Suche abgeschlossen. Wähle eine von zwei Belohnungen.|探索完了。2つの報酬から1つを選んでください。
+Obiettivo di ricerca non valido.|Invalid research target.|Objectif de recherche invalide.|Objetivo de búsqueda no válido.|Ungültiges Suchziel.|探索目標が無効です。
+Obiettivo di ricerca non disponibile.|Research target unavailable.|Objectif de recherche indisponible.|Objetivo de búsqueda no disponible.|Suchziel nicht verfügbar.|この探索目標は選べません。
+Ricerca non trovata.|Research not found.|Recherche introuvable.|Búsqueda no encontrada.|Suche nicht gefunden.|探索が見つかりません。
+Scelta di ricerca non valida.|Invalid research choice.|Choix de recherche invalide.|Elección de búsqueda no válida.|Ungültige Suchauswahl.|探索報酬の選択が無効です。
+Premio di ricerca non disponibile.|Research reward unavailable.|Prix de recherche indisponible.|Premio de búsqueda no disponible.|Suchbelohnung nicht verfügbar.|探索報酬を受け取れません。
+Premio di ricerca già scelto.|Research reward already chosen.|Prix de recherche déjà choisi.|Premio de búsqueda ya elegido.|Suchbelohnung bereits gewählt.|探索報酬はすでに選択済みです。
+Scegli prima il premio della ricerca completata.|Choose the completed research reward first.|Choisissez d’abord le prix de la recherche terminée.|Elige primero el premio de la búsqueda completada.|Wähle zuerst die Belohnung der abgeschlossenen Suche.|完了した探索の報酬を先に選択してください。
+Livello {0} · Profondità {1}|Level {0} · Depth {1}|Niveau {0} · Profondeur {1}|Nivel {0} · Profundidad {1}|Stufe {0} · Tiefe {1}|レベル {0} · 深度 {1}
+Accreditati automaticamente {0} passi di oggi.|Automatically credited {0} of today’s steps.|{0} pas du jour crédités automatiquement.|Se han acreditado automáticamente {0} pasos de hoy.|{0} heutige Schritte automatisch gutgeschrieben.|今日の歩数を{0}歩、自動で付与しました。
+Non ci sono nuovi passi da riscattare. I passi già assegnati a questo eroe non si duplicano.|No new steps to claim. Steps already credited to this hero cannot be credited again.|Aucun nouveau pas à récupérer. Les pas déjà crédités à ce héros ne sont pas recrédités.|No hay pasos nuevos que reclamar. Los ya asignados a este héroe no se duplican.|Keine neuen Schritte verfügbar. Bereits diesem Helden gutgeschriebene Schritte werden nicht doppelt vergeben.|受け取れる新しい歩数はありません。この英雄が受領済みの歩数は重複付与されません。
+Stai per eliminare {0}, equipaggiamento e progressi. Il saldo passi di questo eroe verrà eliminato. Gli altri personaggi non sono coinvolti. Questa storia non potrà essere recuperata.|You are about to delete {0}, their equipment and progress. This hero’s step balance will be deleted. Other characters are unaffected. This story cannot be recovered.|Vous allez supprimer {0}, son équipement et sa progression. Le solde de pas de ce héros sera supprimé. Les autres personnages ne sont pas concernés. Cette histoire sera irrécupérable.|Vas a eliminar a {0}, su equipo y progreso. Se eliminará el saldo de pasos de este héroe. Los demás personajes no se verán afectados. Esta historia no se podrá recuperar.|Du löschst {0}, Ausrüstung und Fortschritt. Das Schritteguthaben dieses Helden wird gelöscht. Andere Charaktere sind nicht betroffen. Diese Geschichte kann nicht wiederhergestellt werden.|{0}とその装備・進行状況を削除します。この英雄の歩数残高も削除されます。他のキャラクターには影響しません。この物語は復元できません。
+Miniera|Mine|Mine|Mina|Mine|鉱山
+Fabbro|Blacksmith|Forgeron|Herrero|Schmied|鍛冶屋
+Arena|Arena|Arène|Arena|Arena|闘技場
+La miniera delle brume|The Mist Mine|La mine des brumes|La mina de las brumas|Die Nebelmine|霧の鉱山
+Una squadra al lavoro, anche mentre sei lontano.|A crew at work, even while you are away.|Une équipe travaille même en votre absence.|Una cuadrilla trabaja incluso cuando estás fuera.|Ein Team arbeitet auch in deiner Abwesenheit.|留守の間も採掘隊が働きます。
+La fucina del viandante|The Wanderer’s Forge|La forge du voyageur|La forja del caminante|Die Schmiede des Wanderers|旅人の鍛冶場
+Minerali, maestria e nuove possibilità.|Ore, mastery and new possibilities.|Minerais, maîtrise et nouvelles possibilités.|Minerales, maestría y nuevas posibilidades.|Erze, Handwerkskunst und neue Möglichkeiten.|鉱石と熟練が新たな可能性を生みます。
+Il cortile dell’Arena|The Arena Courtyard|La cour de l’arène|El patio de la arena|Der Arenahof|闘技場の訓練場
+Allenati e cresci anche senza passi.|Train and grow even without steps.|Entraînez-vous et progressez même sans pas.|Entrena y progresa incluso sin pasos.|Trainiere und wachse auch ohne Schritte.|歩数がなくても訓練して成長できます。
+Livello massimo|Maximum level|Niveau maximum|Nivel máximo|Höchststufe|最大レベル
+Deposito materiali|Material storage|Stock de matériaux|Depósito de materiales|Materiallager|素材倉庫
+Risorse personali del tuo eroe|Your hero’s own resources|Les ressources de votre héros|Recursos propios de tu héroe|Die Ressourcen deines Helden|この英雄専用の資源
+I materiali non occupano lo zaino e non vengono venduti dal filtro bottino.|Materials use no backpack slots and are never sold by the loot filter.|Les matériaux ne prennent aucune place et ne sont pas vendus par le filtre.|Los materiales no ocupan la mochila ni los vende el filtro de botín.|Materialien belegen keine Rucksackplätze und werden nicht vom Beutefilter verkauft.|素材はバッグを圧迫せず、戦利品フィルターで売却されません。
+Ultimo carico|Last haul|Dernière récolte|Última carga|Letzte Ausbeute|前回の収穫
+Piani sotterranei|Underground floors|Étages souterrains|Pisos subterráneos|Unterirdische Ebenen|地下階層
+Migliora attrezzi|Upgrade tools|Améliorer les outils|Mejorar herramientas|Werkzeuge verbessern|道具を強化
+Ogni grado aggiunge il 10% alla produzione di minerale dei prossimi viaggi.|Each rank adds 10% to ore output on future trips.|Chaque rang ajoute 10 % de minerai aux prochains voyages.|Cada rango añade un 10% de mineral en viajes futuros.|Jeder Rang erhöht den Erzertrag künftiger Reisen um 10%.|各段階で次回以降の鉱石生産量が10%増えます。
+Conferma|Confirm|Confirmer|Confirmar|Bestätigen|確定
+Attrezzatura migliorata.|Tools upgraded.|Outils améliorés.|Herramientas mejoradas.|Werkzeuge verbessert.|道具を強化しました。
+Squadra mineraria|Mining crew|Équipe minière|Cuadrilla minera|Bergbauteam|採掘隊
+Lavora anche mentre il gioco è chiuso|Works even when the game is closed|Travaille même lorsque le jeu est fermé|Trabaja incluso con el juego cerrado|Arbeitet auch bei geschlossenem Spiel|ゲームを閉じていても働きます
+Carico pronto|Haul ready|Récolte prête|Carga lista|Ausbeute bereit|収穫の準備完了
+Ripetizione automatica · deposito massimo 24 ore|Auto-repeat · storage up to 24 hours|Répétition automatique · stockage de 24 h|Repetición automática · depósito de 24 horas|Automatische Wiederholung · Lager für 24 Stunden|自動反復・最大24時間分を保管
+Spedizione singola|Single expedition|Expédition unique|Expedición única|Einzelne Expedition|単発の遠征
+Carico accumulato: {0} minuti|Stored haul: {0} minutes|Récolte stockée : {0} minutes|Carga acumulada: {0} minutos|Gespeicherte Ausbeute: {0} Minuten|蓄積した収穫：{0}分
+Riparti dopo il ritiro|Restart after collection|Repartir après la récolte|Reiniciar tras recoger|Nach Abholung neu starten|受け取り後に再出発
+Ritira il carico|Collect haul|Récupérer la récolte|Recoger carga|Ausbeute abholen|収穫を受け取る
+Carico ritirato. I materiali sono nel deposito.|Haul collected. Materials are in storage.|Récolte récupérée. Les matériaux sont en stock.|Carga recogida. Los materiales están en el depósito.|Ausbeute abgeholt. Materialien sind im Lager.|収穫を受け取り、素材を倉庫に保管しました。
+La produzione si ferma quando il deposito raggiunge 24 ore. Il carico rimane al sicuro fino al ritiro.|Production pauses at 24 hours of storage. Your haul stays safe until collection.|La production s’arrête après 24 h de stock. La récolte reste disponible.|La producción se pausa a las 24 horas acumuladas. La carga permanece segura.|Bei 24 Stunden Lagerbestand pausiert die Produktion. Die Ausbeute bleibt sicher.|24時間分に達すると生産は停止します。収穫は受け取るまで保管されます。
+Durata della spedizione|Expedition duration|Durée de l’expédition|Duración de la expedición|Expeditionsdauer|遠征時間
+{0} minuti|{0} minutes|{0} minutes|{0} minutos|{0} Minuten|{0}分
+Ripetizione automatica|Auto-repeat|Répétition automatique|Repetición automática|Automatische Wiederholung|自動反復
+Preparazione · {0} passi · +{1}% minerale|Preparation · {0} steps · +{1}% ore|Préparation · {0} pas · +{1}% de minerai|Preparación · {0} pasos · +{1}% de mineral|Vorbereitung · {0} Schritte · +{1}% Erz|準備・{0}歩・鉱石+{1}%
+La preparazione vale solo per il primo viaggio. Le ripetizioni successive sono gratuite.|Preparation applies only to the first trip. Further repeats are free.|La préparation concerne le premier voyage. Les répétitions sont gratuites.|La preparación solo afecta al primer viaje. Las repeticiones son gratis.|Die Vorbereitung gilt nur für die erste Reise. Wiederholungen sind kostenlos.|準備の効果は最初の遠征のみです。その後の反復は無料です。
+Avvia estrazione|Start mining|Lancer l’extraction|Iniciar extracción|Abbau starten|採掘を開始
+La squadra è al lavoro.|The crew is at work.|L’équipe est au travail.|La cuadrilla está trabajando.|Das Team ist bei der Arbeit.|採掘隊が作業を開始しました。
+L’estrazione ordinaria è gratuita. La squadra non impegna il tuo eroe.|Standard mining is free. The crew does not occupy your hero.|L’extraction normale est gratuite et ne mobilise pas votre héros.|La extracción normal es gratuita y no ocupa a tu héroe.|Normaler Abbau ist kostenlos und bindet deinen Helden nicht.|通常の採掘は無料で、英雄の行動を制限しません。
+Ferro delle brume|Mist iron|Fer des brumes|Hierro de las brumas|Nebeleisen|霧の鉄
+Argento lunare|Moon silver|Argent lunaire|Plata lunar|Mondsilber|月銀
+Adamantite|Adamantite|Adamantite|Adamantita|Adamantit|アダマンタイト
+Gemma dell’aurora|Dawn gem|Gemme de l’aube|Gema del alba|Morgenrotstein|暁の宝石
+Opale del vuoto|Void opal|Opale du vide|Ópalo del vacío|Leerenopal|虚空のオパール
+Gallerie superficiali|Surface tunnels|Galeries de surface|Galerías superficiales|Oberflächenstollen|浅層の坑道
+Vene lunari|Moon veins|Filons lunaires|Vetas lunares|Mondadern|月の鉱脈
+Fosse cristalline|Crystal pits|Fosses cristallines|Fosas cristalinas|Kristallgruben|結晶の採掘坑
+Abisso adamantino|Adamant abyss|Abîme adamantin|Abismo adamantino|Adamantabgrund|金剛の深淵
+Cuore della montagna|Heart of the mountain|Cœur de la montagne|Corazón de la montaña|Herz des Berges|山の心臓
+Creazione|Crafting|Fabrication|Fabricación|Herstellung|製作
+Riforgiatura|Reforging|Reforge|Reforja|Neuschmieden|再鍛造
+Ricalcola gli attributi mantenendo rarità, modello, set, incantamento e rifinitura.|Reroll attributes while keeping rarity, model, set, enchantment and refinement.|Relancez les attributs en conservant rareté, modèle, ensemble, enchantement et finition.|Recalcula atributos conservando rareza, modelo, conjunto, encantamiento y refinamiento.|Werte neu auswürfeln; Seltenheit, Modell, Set, Verzauberung und Veredelung bleiben.|レア度・型・セット・付与・強化を保ち、能力を再抽選します。
+Una nuova combinazione per lo stesso pezzo|A new combination for the same piece|Une nouvelle combinaison pour la même pièce|Una nueva combinación para la misma pieza|Eine neue Kombination für dasselbe Stück|同じ装備に新たな能力の組み合わせ
+Esamina equipaggiamento|Inspect equipment|Examiner l’équipement|Examinar equipo|Ausrüstung ansehen|装備を確認
+Riforgia equipaggiamento|Reforge equipment|Reforger l’équipement|Reforjar equipo|Ausrüstung neu schmieden|装備を再鍛造
+Conferma riforgiatura|Confirm reforging|Confirmer la reforge|Confirmar reforja|Neuschmieden bestätigen|再鍛造を確定
+Gli attributi verranno sostituiti e possono peggiorare. Il risultato è definitivo; rarità e miglioramenti restano sul pezzo.|Attributes are replaced and may worsen. The result is final; rarity and upgrades remain.|Les attributs sont remplacés et peuvent empirer. Résultat définitif ; rareté et améliorations restent.|Los atributos se sustituyen y pueden empeorar. El resultado es definitivo; rareza y mejoras se conservan.|Werte werden ersetzt und können schlechter werden. Das Ergebnis ist endgültig; Seltenheit und Aufwertungen bleiben.|能力が置き換わり、弱くなる場合があります。結果は確定し、レア度と強化は維持されます。
+Riforgia|Reforge|Reforger|Reforjar|Neu schmieden|再鍛造
+Equipaggiamento riforgiato.|Equipment reforged.|Équipement reforgé.|Equipo reforjado.|Ausrüstung neu geschmiedet.|装備を再鍛造しました。
+Nessun equipaggiamento disponibile.|No equipment available.|Aucun équipement disponible.|No hay equipo disponible.|Keine Ausrüstung verfügbar.|利用できる装備がありません。
+La riforgiatura non assegna esperienza al Fabbro.|Reforging grants no blacksmith experience.|La reforge ne donne pas d’expérience au forgeron.|La reforja no da experiencia al herrero.|Neuschmieden gibt keine Schmiedeerfahrung.|再鍛造では鍛冶経験値を獲得できません。
+Crea equipaggiamento|Craft equipment|Fabriquer de l’équipement|Fabricar equipo|Ausrüstung herstellen|装備を製作
+Scegli lo slot e i materiali|Choose a slot and materials|Choisissez l’emplacement et les matériaux|Elige la ranura y los materiales|Platz und Materialien wählen|装備枠と素材を選択
+Livello dell’oggetto|Item level|Niveau de l’objet|Nivel del objeto|Gegenstandsstufe|装備レベル
+Materiale|Material|Matériau|Material|Material|素材
+Usa una Gemma dell’aurora · esclude Comune|Use a Dawn gem · excludes Common|Utiliser une gemme de l’aube · exclut Commun|Usar gema del alba · excluye Común|Morgenrotstein nutzen · schließt Gewöhnlich aus|暁の宝石を使用・コモンを除外
+Conferma creazione|Confirm crafting|Confirmer la fabrication|Confirmar fabricación|Herstellung bestätigen|製作を確定
+L’oggetto è garantito. Rarità e attributi vengono estratti alla creazione.|An item is guaranteed. Rarity and attributes are rolled when crafted.|L’objet est garanti. Rareté et attributs sont tirés à la fabrication.|El objeto está garantizado. La rareza y atributos se sortean al fabricar.|Ein Gegenstand ist garantiert. Seltenheit und Werte werden bei Herstellung ausgewürfelt.|装備は必ず完成し、製作時にレア度と能力を抽選します。
+Crea|Craft|Fabriquer|Fabricar|Herstellen|製作
+Equipaggiamento creato.|Equipment crafted.|Équipement fabriqué.|Equipo fabricado.|Ausrüstung hergestellt.|装備を製作しました。
+Qualità di lavorazione|Crafting quality|Qualité de fabrication|Calidad de fabricación|Handwerksqualität|製作品質
+Probabilità effettive del Fabbro|Actual blacksmith probabilities|Probabilités effectives du forgeron|Probabilidades reales del herrero|Tatsächliche Schmiedechancen|鍛冶屋の実際の確率
+Creare assegna XP al Fabbro. Le ricette troppo semplici danno meno XP, fino a zero.|Crafting grants blacksmith XP. Easy recipes give less XP, down to zero.|La fabrication donne de l’XP au forgeron. Les recettes simples en donnent moins, jusqu’à zéro.|Fabricar da XP al herrero. Las recetas fáciles dan menos XP, hasta cero.|Herstellung gibt Schmiede-XP. Einfache Rezepte geben weniger, bis zu null.|製作で鍛冶経験値を獲得します。簡単すぎるレシピは減少し、最終的に0になります。
+Set e Unici restano ricompense delle avventure. I materiali avanzati riducono le quantità richieste.|Sets and Uniques remain adventure rewards. Advanced materials reduce required quantities.|Ensembles et Uniques restent des récompenses d’aventure. Les matériaux avancés réduisent les quantités.|Conjuntos y Únicos siguen como premios de aventura. Los materiales avanzados reducen cantidades.|Sets und Einzigartige bleiben Abenteuerbeute. Höhere Materialien senken die benötigte Menge.|セットとユニークは冒険の報酬です。上位素材なら必要数が減ります。
+Completa lo scontro o rientra dalla spedizione.|Finish the battle or return from the expedition.|Terminez le combat ou rentrez de l’expédition.|Termina el combate o vuelve de la expedición.|Beende den Kampf oder kehre von der Expedition zurück.|戦闘を終えるか遠征から帰還してください。
+Prove dell’Arena|Arena challenges|Épreuves de l’arène|Pruebas de la arena|Arenaprüfungen|闘技場の試練
+Vita separata, nessun consumabile|Separate health, no consumables|Vie séparée, aucun consommable|Vida separada, sin consumibles|Separate Lebenspunkte, keine Verbrauchsgegenstände|独立した体力・消耗品なし
+Allenamento libero|Free practice|Entraînement libre|Entrenamiento libre|Freies Training|自由訓練
+Allenamento iniziato.|Practice started.|Entraînement commencé.|Entrenamiento iniciado.|Training begonnen.|訓練を開始しました。
+Gratuite|Free|Gratuites|Gratuitas|Kostenlos|無料
+Aggiuntive|Additional|Supplémentaires|Adicionales|Zusätzlich|追加
+Pagamento|Payment|Paiement|Pago|Zahlung|支払い
+Completata|Completed|Terminée|Completada|Abgeschlossen|完了
+Riprova gratis|Retry free|Réessayer gratuitement|Reintentar gratis|Kostenlos wiederholen|無料で再挑戦
+La prova ha inizio.|The challenge begins.|L’épreuve commence.|Comienza la prueba.|Die Prüfung beginnt.|試練を開始しました。
+Cortile d’addestramento|Training courtyard|Cour d’entraînement|Patio de entrenamiento|Übungshof|訓練場
+Scegli una prova per cominciare|Choose a challenge to begin|Choisissez une épreuve pour commencer|Elige una prueba para comenzar|Wähle eine Prüfung zum Starten|試練を選んで開始
+Vita della prova|Practice health|Vie de l’épreuve|Vida de la prueba|Prüfungsleben|試練の体力
+Vita avversario|Opponent health|Vie adverse|Vida del rival|Gegnerleben|相手の体力
+Interrompi|Stop|Arrêter|Interrumpir|Abbrechen|中断
+Prova completata: +{0} XP.|Challenge completed: +{0} XP.|Épreuve terminée : +{0} XP.|Prueba completada: +{0} XP.|Prüfung abgeschlossen: +{0} XP.|試練完了：+{0} XP。
+Prova aggiornata.|Challenge updated.|Épreuve mise à jour.|Prueba actualizada.|Prüfung aktualisiert.|試練を更新しました。
+Puoi riprovare la prova.|You can retry the challenge.|Vous pouvez réessayer l’épreuve.|Puedes reintentar la prueba.|Du kannst die Prüfung wiederholen.|試練に再挑戦できます。
+Allenati senza limiti oppure completa le tre prove gratuite di oggi per far crescere il personaggio.|Practise freely or complete today’s three free challenges to grow your hero.|Entraînez-vous librement ou terminez les trois épreuves gratuites du jour.|Entrena libremente o completa las tres pruebas gratuitas de hoy para progresar.|Trainiere frei oder schließe die drei kostenlosen Tagesprüfungen für deinen Helden ab.|自由に訓練するか、今日の無料試練3つで英雄を成長させましょう。
+Progressione giornaliera|Daily progression|Progression quotidienne|Progresión diaria|Täglicher Fortschritt|毎日の成長
+Tre prove gratuite e tre aggiuntive|Three free and three additional challenges|Trois épreuves gratuites et trois supplémentaires|Tres pruebas gratuitas y tres adicionales|Drei kostenlose und drei zusätzliche Prüfungen|無料試練3つと追加試練3つ
+Prove gratuite completate|Free challenges completed|Épreuves gratuites terminées|Pruebas gratuitas completadas|Kostenlose Prüfungen abgeschlossen|完了した無料試練
+Ogni prova gratuita dà il 10% degli XP del livello. Le tre prove aggiuntive danno il 5% ciascuna.|Free challenges grant 10% of level XP each. Three additional challenges grant 5% each.|Chaque épreuve gratuite donne 10 % de l’XP du niveau. Les trois autres donnent 5 % chacune.|Cada prueba gratuita da un 10% de XP del nivel. Las tres adicionales dan un 5% cada una.|Kostenlose Prüfungen geben je 10% der Stufen-XP. Drei zusätzliche geben je 5%.|無料試練は各10%、追加試練3つは各5%のレベル経験値を獲得します。
+Il budget resta fisso per tutta la giornata. Sconfitte e interruzioni non consumano il premio.|The budget stays fixed all day. Defeats and stops do not consume the reward.|Le budget reste fixe toute la journée. Défaites et interruptions ne consomment pas la récompense.|El presupuesto se fija para todo el día. Derrotas e interrupciones no consumen el premio.|Das Budget bleibt den ganzen Tag gleich. Niederlagen und Abbrüche verbrauchen die Belohnung nicht.|経験値枠は一日固定です。敗北や中断で報酬を失うことはありません。
+Nessun bottino, moneta o avanzamento della profondità. La vita reale resta invariata.|No loot, coins or depth advancement. Your real health stays unchanged.|Aucun butin, pièce ou progression de profondeur. Votre vie réelle reste intacte.|Sin botín, monedas ni avance de profundidad. Tu vida real no cambia.|Keine Beute, Münzen oder Tiefenfortschritte. Deine echten Lebenspunkte bleiben gleich.|戦利品・通貨・深度の進行はなく、実際の体力も変わりません。
+Guardia del cortile|Courtyard guard|Garde de la cour|Guardia del patio|Hofwache|庭の衛兵
+Sentinella corazzata|Armoured sentinel|Sentinelle cuirassée|Centinela acorazado|Gepanzerter Wächter|重装の歩哨
+Veterano delle cariche|Charging veteran|Vétéran des charges|Veterano de las cargas|Sturmveteran|突撃の古参兵
+La prova usa vita separata e non consuma oggetti.|The challenge uses separate health and no items.|L’épreuve utilise une vie séparée et aucun objet.|La prueba usa vida separada y no consume objetos.|Die Prüfung nutzt separate Lebenspunkte und keine Gegenstände.|試練は独立した体力を使い、アイテムを消費しません。
+Prova terminata. La vita del tuo eroe resta invariata.|Challenge ended. Your hero’s health is unchanged.|Épreuve terminée. La vie de votre héros reste intacte.|Prueba terminada. La vida de tu héroe no cambia.|Prüfung beendet. Die Lebenspunkte deines Helden bleiben gleich.|試練終了。英雄の実際の体力は変わりません。
+Prova interrotta. Nessuna risorsa persa.|Challenge stopped. No resources lost.|Épreuve interrompue. Aucune ressource perdue.|Prueba interrumpida. No se pierden recursos.|Prüfung abgebrochen. Keine Ressourcen verloren.|試練を中断しました。追加の資源損失はありません。
+Allenamento completato. Nessuna ricompensa.|Practice completed. No reward.|Entraînement terminé. Aucune récompense.|Entrenamiento completado. Sin recompensa.|Training abgeschlossen. Keine Belohnung.|訓練完了。報酬はありません。
+Limite di turni raggiunto. Puoi riprovare la prova.|Turn limit reached. You can retry the challenge.|Limite de tours atteinte. Vous pouvez réessayer.|Límite de turnos alcanzado. Puedes reintentar.|Rundenlimit erreicht. Du kannst die Prüfung wiederholen.|ターン上限に達しました。再挑戦できます。
+Materiali insufficienti.|Not enough materials.|Matériaux insuffisants.|Materiales insuficientes.|Nicht genug Materialien.|素材が足りません。
+La squadra è già al lavoro.|The crew is already working.|L’équipe travaille déjà.|La cuadrilla ya está trabajando.|Das Team arbeitet bereits.|採掘隊はすでに作業中です。
+La squadra è ancora al lavoro.|The crew is still working.|L’équipe travaille encore.|La cuadrilla sigue trabajando.|Das Team arbeitet noch.|採掘隊はまだ作業中です。
+La gemma non migliora questa ricetta.|The gem does not improve this recipe.|La gemme n’améliore pas cette recette.|La gema no mejora esta receta.|Der Edelstein verbessert dieses Rezept nicht.|この宝石はレシピを改善しません。
+Premio già ottenuto.|Reward already claimed.|Récompense déjà obtenue.|Premio ya obtenido.|Belohnung bereits erhalten.|報酬は受領済みです。
+Rifinisci|Refine|Affiner|Refinar|Veredeln|強化
+Riposo · disponibile dopo la prova|Rest · available after the challenge|Repos · disponible après l’épreuve|Descanso · disponible tras la prueba|Ruhe · nach der Prüfung verfügbar|休息・試練終了後に利用可能
+Riservato a lavorazioni future.|Reserved for future crafting.|Réservé aux futures fabrications.|Reservado para futuras elaboraciones.|Für künftige Herstellung reserviert.|今後の製作用に保管されます。
+Ferro ogni 30 minuti: {0} → {1}|Iron per 30 minutes: {0} → {1}|Fer par 30 minutes : {0} → {1}|Hierro cada 30 minutos: {0} → {1}|Eisen pro 30 Minuten: {0} → {1}|30分あたりの鉄：{0} → {1}
+Configura prossimo viaggio|Configure next trip|Configurer le prochain voyage|Configurar próximo viaje|Nächste Reise planen|次の遠征を設定
+Prossimo viaggio|Next trip|Prochain voyage|Próximo viaje|Nächste Reise|次の遠征
+Le nuove scelte si applicano al ritiro. I blocchi di lavoro già completati restano sul piano attuale; il tempo residuo viene conservato.|Changes apply at collection. Completed work stays on the current floor; remaining time is retained.|Les choix s’appliquent à la récolte. Le travail terminé reste à l’étage actuel ; le temps restant est conservé.|Los cambios se aplican al recoger. El trabajo terminado conserva el piso actual y el tiempo restante se mantiene.|Änderungen gelten bei Abholung. Fertige Arbeit bleibt auf der aktuellen Ebene; Restzeit bleibt erhalten.|受け取り時に変更を適用します。完了した作業は現在の階層で計算し、残り時間を引き継ぎます。
+Salva configurazione|Save configuration|Enregistrer la configuration|Guardar configuración|Konfiguration speichern|設定を保存
+Prossimo viaggio configurato.|Next trip configured.|Prochain voyage configuré.|Próximo viaje configurado.|Nächste Reise konfiguriert.|次の遠征を設定しました。
+Proprietà conservate|Preserved properties|Propriétés conservées|Propiedades conservadas|Erhaltene Eigenschaften|維持する特性
+La rarità non viene estratta di nuovo|Rarity is not rerolled|La rareté n’est pas relancée|La rareza no se vuelve a sortear|Die Seltenheit wird nicht neu gewürfelt|レア度は再抽選されません
+Modello, livello, slot, set, incantamento e rifinitura rimangono sul pezzo.|Model, level, slot, set, enchantment and refinement stay on the piece.|Modèle, niveau, emplacement, ensemble, enchantement et finition sont conservés.|Se conservan modelo, nivel, ranura, conjunto, encantamiento y refinamiento.|Modell, Stufe, Platz, Set, Verzauberung und Veredelung bleiben erhalten.|型・レベル・枠・セット・付与・強化はそのまま維持されます。
+Attributi ricalcolati: {0}|Rerolled attributes: {0}|Attributs relancés : {0}|Atributos recalculados: {0}|Neu gewürfelte Werte: {0}|再抽選する能力：{0}
+Calcolo preventivo…|Calculating quote…|Calcul du devis…|Calculando presupuesto…|Angebot wird berechnet…|見積もりを計算中…
+XP Fabbro: +{0}|Blacksmith XP: +{0}|XP forgeron : +{0}|XP del herrero: +{0}|Schmiede-XP: +{0}|鍛冶経験値：+{0}
+Il preventivo comprende tutti i materiali e gli XP della lavorazione.|The quote includes all materials and crafting XP.|Le devis inclut tous les matériaux et l’XP de fabrication.|El presupuesto incluye todos los materiales y la XP de fabricación.|Das Angebot enthält alle Materialien und Herstellungs-XP.|見積もりには全素材と製作経験値が含まれます。
+Preventivo non disponibile. Riapri la creazione.|Quote unavailable. Reopen crafting.|Devis indisponible. Rouvrez la fabrication.|Presupuesto no disponible. Abre de nuevo la fabricación.|Angebot nicht verfügbar. Herstellung erneut öffnen.|見積もりを取得できません。製作画面を開き直してください。
+Il preventivo è cambiato. Riapri la creazione.|The quote changed. Reopen crafting.|Le devis a changé. Rouvrez la fabrication.|El presupuesto ha cambiado. Abre de nuevo la fabricación.|Das Angebot hat sich geändert. Herstellung erneut öffnen.|見積もりが変更されました。製作画面を開き直してください。
+Affissi ricalcolati: {0}|Rerolled affixes: {0}|Affixes relancés : {0}|Afijos recalculados: {0}|Neu gewürfelte Affixe: {0}|再抽選する付加効果：{0}
 `.trim().split('\n').map(row=>row.split('|'));

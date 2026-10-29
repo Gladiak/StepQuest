@@ -1,0 +1,92 @@
+{
+  "version": "1.1.0",
+  "date": "2026-10-29",
+  "status": "local-candidate-verified; remaining platform builds run in CI",
+  "checks": {
+    "unitAndIntegrationTests": {
+      "passed": 201,
+      "failed": 0
+    },
+    "renderer": {
+      "layoutScreens": 371,
+      "contrastScreens": 371,
+      "rendererErrors": 0,
+      "languages": [
+        "it",
+        "en",
+        "fr",
+        "es",
+        "de",
+        "ja"
+      ]
+    },
+    "legacyMigration": {
+      "origin": "v1.0.0",
+      "syntheticScenarios": [
+        "home",
+        "battle",
+        "expedition",
+        "enchantment"
+      ],
+      "preserved": true
+    },
+    "saveSafety": {
+      "consistentWalBackup": true,
+      "integrityChecked": true,
+      "restorePreservesOriginal": true
+    },
+    "economy": {
+      "checkpoints": 24,
+      "craftResaleChecks": 30,
+      "negativeBalances": 0,
+      "report": "release-economy-v1.1.0.json",
+      "ciEnabled": true
+    },
+    "packaged": {
+      "mac-arm64": {
+        "verified": true,
+        "version": "1.1.0",
+        "areas": [
+          "mine",
+          "smith",
+          "arena"
+        ],
+        "backgrounds": 3,
+        "sha256": "677c5184f2c2fbf8000412894ab93c61370786eef5c29d64834e03fc7fd3f3b5",
+        "sourceCheckpoint": {
+          "files": 105,
+          "sha256": "b53f897a4aeaead3529a5d13d306551699d0c8236acb274f8d41673f81909e64"
+        }
+      },
+      "mac-x64": {
+        "verified": false,
+        "status": "CI configured; not executed on this host"
+      },
+      "windows-x64": {
+        "verified": false,
+        "status": "CI configured; not executed on this host"
+      },
+      "linux-x64": {
+        "verified": false,
+        "status": "CI configured with Xvfb; not executed on this host"
+      }
+    }
+  },
+  "publication": {
+    "tagCreated": false,
+    "published": false,
+    "snapshot": "Recorded before the release commit, tag and publication; consult GitHub for current release status."
+  },
+  "notes": [
+    "Previously saved mining plans retain their fixed rewards; corrected production applies to new plans.",
+    "Benchmark responses still contain the full inventory; metadata batching reduces backend work without changing the wire contract.",
+    "No real Garmin request or personal save was used by the checks."
+  ],
+  "source": {
+    "state": "Pre-publication verification snapshot; the source fingerprint identifies the locally verified application.",
+    "fingerprint": {
+      "files": 105,
+      "sha256": "b53f897a4aeaead3529a5d13d306551699d0c8236acb274f8d41673f81909e64"
+    }
+  }
+}

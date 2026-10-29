@@ -26,7 +26,7 @@ Per una nuova installazione, crea `.env` a partire da `.env.example`, imposta `G
 - Impostazioni con lingua dell’interfaccia (italiano, inglese, francese, spagnolo, tedesco e giapponese) e token Garmin Personal API. La lingua si applica e si salva subito su questo computer; il token si verifica e si salva separatamente nel database SQLite locale.
 - Avamposto del personaggio selezionato. Il tempo viene salvato ogni 15 secondi e quando si esce dal personaggio.
 
-Passi e monete dei nuovi personaggi iniziano da zero: il riscatto assegna soltanto passi non ancora accreditati ad altri eroi. Il portafoglio è attivo e separato dallo storico Garmin. Le tabelle `characters` e `character_migrations` condividono il database con l’archivio passi. Il limite di tre personaggi è verificato transazionalmente. La creazione e selezione funzionano senza rete.
+Passi e monete dei nuovi personaggi iniziano da zero: ogni eroe riceve indipendentemente il massimo giornaliero Garmin, senza ripristinare i passi già spesi dallo stesso eroe. Il portafoglio è attivo e separato dallo storico Garmin. Le tabelle `characters` e `character_migrations` condividono il database con l’archivio passi. Il limite di tre personaggi è verificato transazionalmente. La creazione e selezione funzionano senza rete.
 
 La precedente dashboard passi rimane archiviata nei sorgenti `renderer/dashboard.*`. Nel gioco resta un solo comando «Importa i nuovi passi di oggi da Garmin»: scarica il totale della giornata e aggiunge all’eroe selezionato soltanto l’incremento rispetto al totale già accreditato oggi. Per esempio, dopo un import di 3.000 passi, un totale Garmin di 3.800 aggiunge 800 passi, anche se quelli precedenti sono già stati spesi. Non si importano giorni precedenti. Il comando separato «Riscatta passi» è stato rimosso. Se Garmin non risponde vengono usati solo i dati di oggi già salvati, con un avviso esplicito; ripetere l’importazione senza nuovi passi non duplica valuta. Le API di esportazione rimangono disponibili nel processo principale.
 
@@ -140,7 +140,7 @@ Melma, lupo e predone hanno [sprite originali e prompt](../renderer/assets/monst
 
 ## Due anelli, amuleto e barra compatta
 
-È possibile indossare due anelli e un amuleto contemporaneamente. Il dettaglio di un anello confronta separatamente i due slot e permette di scegliere quale sostituire. Gli accessori dei salvataggi precedenti vengono migrati alla posizione corretta senza rigenerare le istanze. La libreria include anche 18 anelli di set, per un totale di 345 modelli.
+È possibile indossare due anelli e un amuleto contemporaneamente. Il dettaglio di un anello confronta separatamente i due slot e permette di scegliere quale sostituire. Gli accessori dei salvataggi precedenti vengono migrati alla posizione corretta senza rigenerare le istanze. La libreria include anche 18 anelli di set, per un totale corrente di 405 modelli.
 
 Attributi e set si aprono dall’icona accanto al titolo Equipaggiamento. La barra inferiore è alta 64 pixel, si adatta alla larghezza delle icone e usa descrizioni all’hover/focus. Non contiene indicatori vita/esperienza né vuoti tra i gruppi. Il libro apre il taccuino e la legenda. Dettagli su migrazione, confronti e conteggio dei set in [docs/game-loop.md](game-loop.md).
 
@@ -151,7 +151,7 @@ La barra usa icone native 32×32 più dettagliate e ha un’altezza di 64 pixel.
 
 ## Spedizioni e scelte
 
-I sentieri si aprono sulle spedizioni di quattro tappe: bivio, campo o benedizione, evento narrativo variabile e custode finale. Tre itinerari hanno costi e rischi diversi. Si può proseguire per il premio finale oppure rientrare con la sacca; la cura completa premia il completamento del viaggio. Cibo, pozioni e bonus temporanei aiutano a completare il viaggio. Piano e stato sono salvati in SQLite e riprendono alla riapertura. Lo scontro singolo resta disponibile nella scheda accanto.
+I sentieri si aprono sullo scontro singolo; la scheda Spedizioni offre quattro tappe: bivio, campo o benedizione, evento narrativo variabile e custode finale. Tre itinerari hanno costi e rischi diversi. Si può proseguire per il premio finale oppure rientrare con la sacca; la cura completa premia il completamento del viaggio. Cibo, pozioni e bonus temporanei aiutano a completare il viaggio. Piano e stato sono salvati in SQLite e riprendono alla riapertura. Lo scontro singolo resta disponibile nella scheda accanto.
 
 Regole, premi e limiti della prima versione in [docs/game-loop.md](game-loop.md). La simulazione offline di bilanciamento si esegue con `node --experimental-sqlite scripts/expedition-balance.cjs` e salva `artifacts/expedition-balance.json` (output locale escluso da Git).
 
@@ -196,3 +196,7 @@ Il laboratorio dispone di uno sfondo in pixel art dedicato (`renderer/assets/sce
 Nel comando **Vendita in blocco** dello zaino è disponibile **Vendi per rarità**, con checkbox per selezionare più rarità insieme, anteprima e ricavo. Esclude sempre equipaggiati, incantati e preparazioni in sospeso; cibo e pozioni richiedono l’opzione esplicita. Il Laboratorio alchemico propone nella select solo gli oggetti attualmente equipaggiati e non incantati.
 
 Nella stessa gestione inventario, **Filtro bottino** apre un popup per scegliere le rarità da conservare, con una soglia rapida e selezione personalizzata. È disattivato inizialmente e si salva per eroe. Le altre rarità dei nuovi drop (anche consumabili) vengono vendute automaticamente dopo la vittoria al normale prezzo di vendita, con ricavo nel resoconto. Il filtro vale anche per pattuglie, custodi e premio finale delle spedizioni. Zaino attuale e reagenti restano invariati. Il rinnovo del mercato è immediato con un solo clic sul pulsante che espone il costo.
+
+## Release v1.1.0
+
+Miniera automatica, Fabbro e Arena PvE sono descritti nelle [regole aggiornate](game-loop.md#stabilizzazione-v110). I preventivi sono autorevoli nel backend; i salvataggi vengono copiati prima delle migrazioni e possono essere ripristinati dal dialogo di recupero. `npm run test:release` aggiorna la simulazione corrente in `artifacts/release-audit.json`; il riferimento versionato è [release-economy-v1.1.0.json](release-economy-v1.1.0.json). La verifica del pacchetto reale usa `node scripts/verify-runtime.cjs` dopo la build. La pipeline esegue questa verifica su ciascuna piattaforma, oltre al collaudo grafico completo su macOS ARM64.

@@ -18,5 +18,23 @@
     "file": "scene-alchemy.png",
     "tool": "ImageGen built-in",
     "prompt": "Use case: stylized-concept. Asset type: original pixel-art background for StepQuest desktop fantasy RPG, landscape 16:10 composition for 1280x800. Scene: an atmospheric medieval alchemist's laboratory inside a vaulted stone tower, three-quarter slightly top-down view; shelves of small colored potion flasks and herb bundles, brass distillation apparatus and glowing teal glass vessels on a worn wooden workbench, old books and mortar, copper pipes, warm candlelight and cool emerald alchemical glow. Rich details in the upper background and room edges, quiet open central stone floor and low-contrast areas behind overlay panels. Cohesive detailed 32-bit RPG pixel art, crisp hand-placed pixel clusters, earthy olive green shadows and antique gold highlights matching an old parchment fantasy interface. Environment only: no characters, no monsters, no text, no lettering, no UI, no panels, no logo, no watermark. Avoid painterly blur, smooth photographic surfaces and modern technology. Finished game environment artwork."
+  },
+  {
+    "file": "scene-mine.png",
+    "tool": "ImageGen built-in",
+    "date": "2026-10-29",
+    "prompt": "Use case: stylized-concept. Asset type: background for a 1280 by 800 desktop fantasy RPG. Create one wide landscape image, approximately 16:10. An underground fantasy mine, ancient timber supports, narrow rails and a mine cart, veins of luminous blue and violet ore, warm lanterns, a deep tunnel and pickaxes. Detailed crisp pixel art consistent with a classic fantasy RPG, earthy low saturation colors, dramatic warm illumination, stone and wood textures. Elevated three-quarter view; broad open unobstructed floor in the center and foreground, most props against the perimeter, suitable for overlaying dark game panels. Full bleed environment, no UI, no frame, no letters, no logos, no characters."
+  },
+  {
+    "file": "scene-smith.png",
+    "tool": "ImageGen built-in",
+    "date": "2026-10-29",
+    "prompt": "Use case: stylized-concept. Asset type: background for a 1280 by 800 desktop fantasy RPG. Create one wide landscape image, approximately 16:10. A medieval fantasy blacksmith forge interior, large glowing orange furnace on the back wall, anvils, iron tools, weapon racks, ingots and a water barrel, amber sparks against dark stone. Detailed crisp pixel art consistent with a classic fantasy RPG, earthy low saturation colors, dramatic warm illumination, stone and wood textures. Elevated three-quarter view; broad open unobstructed floor in the center and foreground, most props against the perimeter, suitable for overlaying dark game panels. Full bleed environment, no UI, no frame, no letters, no logos, no characters."
+  },
+  {
+    "file": "scene-arena.png",
+    "tool": "ImageGen built-in",
+    "date": "2026-10-29",
+    "prompt": "Use case: stylized-concept. Asset type: background for a 1280 by 800 desktop fantasy RPG. Create one wide landscape image, approximately 16:10. A peaceful medieval fantasy training courtyard, sand floor, stone archways, wooden training dummies, shields and weapon racks, green banners, warm afternoon light. No crowd or fighters. Detailed crisp pixel art consistent with a classic fantasy RPG, earthy low saturation colors, dramatic warm illumination, stone and wood textures. Elevated three-quarter view; broad open unobstructed floor in the center and foreground, most props against the perimeter, suitable for overlaying dark game panels. Full bleed environment, no UI, no frame, no letters, no logos, no characters."
   }
 ]

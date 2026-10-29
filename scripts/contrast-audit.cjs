@@ -33,6 +33,7 @@ module.exports = async function auditContrast(window, label) {
     }
     for(const input of document.querySelectorAll('input:not([type=range]):not([type=checkbox])')){
       const rect=input.getBoundingClientRect();if(!rect.width||!rect.height||input.closest('dialog:not([open])'))continue;
+      if(document.elementFromPoint(rect.left+rect.width/2,rect.top+rect.height/2)!==input)continue;
       const style=getComputedStyle(input),placeholder=getComputedStyle(input,'::placeholder');
       result.push({text:'input: '+(input.value?'valore':'placeholder'),color:input.value?style.color:placeholder.color,
         rect:{x:rect.x+parseFloat(style.paddingLeft)+4,y:rect.y+rect.height/2-4,width:Math.max(8,rect.width-60),height:8}});

@@ -25,3 +25,5 @@ Lo smoke test Electron verifica che tutti e dodici i PNG siano caricabili, abbia
 ## Ambientazioni statiche
 
 `scene-home.png`, `scene-market.png` e `scene-wilds.png` sono fondali originali generati con il tool integrato ImageGen: rifugio medievale, piazza del mercato e bosco fuori dalle mura. I prompt completi sono in `scene-prompts.json`. Gli scenari non comprendono mappe, NPC o animazioni e sono inclusi nel pacchetto per l’uso offline.
+
+Gli sfondi `scene-mine.png`, `scene-smith.png` e `scene-arena.png` sono stati creati il 29 ottobre 2026 con ImageGen integrato per Miniera, Fabbro e Arena PvE. Sono asset originali salvati nel progetto; scene e prompt completi sono registrati in [scene-prompts.json](scene-prompts.json).

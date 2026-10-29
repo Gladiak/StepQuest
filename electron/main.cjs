@@ -1,5 +1,5 @@
 'use strict';
-const { app, BrowserWindow, ipcMain, protocol, session, dialog, Menu } = require('electron');
+const { app, BrowserWindow, ipcMain, protocol, session, dialog, Menu, shell } = require('electron');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const os = require('node:os');
@@ -12,6 +12,7 @@ const { createGameStepsService } = require('../lib/game-steps-service.cjs');
 const { createCharactersRepository, CharacterError } = require('../lib/characters.cjs');
 const { createCredentialsRepository } = require('../lib/credentials-repository.cjs');
 const { createGameRepository, GameError } = require('../lib/game-repository.cjs');
+const {prepareSave,restoreSave}=require('../lib/save-protection.cjs');
 let characters, credentials, game, activeCharacter=null, sessionStarted=0;
 function flushSession(stop=false){
   if(activeCharacter){const seconds=Math.floor((performance.now()-sessionStarted)/1000);if(seconds>0){characters.addTime(activeCharacter,seconds);sessionStarted+=seconds*1000;}}
@@ -26,6 +27,9 @@ app.setName('StepQuest');
 let window, client, repository, stepsService, smokeDirectory, snapshot = null, busy = false, storage = 'session', storageNotice = '';
 // Chromium chooses its profile before ready; isolate browser preferences as well as SQLite.
 if(smoke){smokeDirectory=require('node:fs').mkdtempSync(path.join(os.tmpdir(),'stepquest-smoke-'));app.setPath('userData',smokeDirectory);app.setPath('sessionData',smokeDirectory);}
+const ownsInstance=smoke||app.requestSingleInstanceLock();
+if(!ownsInstance)app.exit(0);
+app.on('second-instance',()=>{if(window){if(window.isMinimized())window.restore();window.show();window.focus();}});
 
 const buildClient = apiKey => createGarminClient({ apiKey, fetchImpl: (...args) => globalThis.fetch(...args) });
 async function persistKey(key) {
@@ -83,16 +87,19 @@ function registerHandlers() {
   handle('characters:list',()=>{flushSession();return characters.list();});
   handle('characters:create',input=>characters.create(input));
   handle('characters:delete',input=>{if(typeof input?.id!=='string')throw new CharacterError('Personaggio non valido.');const c=characters.get(input.id);if(input.name!==c.name)throw new CharacterError('Il nome digitato non corrisponde.');if(activeCharacter===input.id)flushSession(true);characters.remove(input.id,input.name);return characters.list();});
-  handle('characters:select',id=>{if(typeof id!=='string')throw new CharacterError('Personaggio non valido.');const c=characters.get(id);flushSession(true);activeCharacter=c.id;sessionStarted=performance.now();return c;});
+  handle('characters:select',id=>{if(typeof id!=='string')throw new CharacterError('Personaggio non valido.');const c=characters.get(id);flushSession(true);activeCharacter=c.id;sessionStarted=performance.now();const stepsImport=gameSteps.claimCached();return {...characters.get(c.id),stepsImport};});
   handle('characters:leave',()=>{flushSession(true);return true;});
   const actor=()=>{if(!activeCharacter)throw new GameError('Seleziona prima un personaggio.');return activeCharacter;};
+  handle('game:smith-quote',input=>game.previewCraft(actor(),input));
   handle('game:state',()=>game.state(actor()));
+  handle('game:refine-item',input=>game.refineItem(actor(),input));
+  handle('game:research-reward',input=>game.chooseResearchReward(actor(),input));
   handle('game:save-loot-filter',input=>game.saveLootFilter(actor(),input));
   handle('game:preview-rarity-sale',input=>game.previewRaritySale(actor(),input));
   handle('game:sell-rarity',input=>game.sellRarity(actor(),input));
   handle('game:preview-junk-sale',()=>game.previewJunkSale(actor()));
   handle('game:sell-junk',input=>game.sellJunk(actor(),input));
-  for(const [channel,method]of [['enchant-prepare','prepareEnchantment'],['enchant-apply','applyEnchantment'],['expedition-start','startExpedition'],['expedition-choose','chooseExpedition'],['expedition-return','returnExpedition'],['equip','equip'],['buy-equip','buyAndEquip'],['unequip','unequip'],['buy','buy'],['sell','sell'],['use-item','useItem'],['start-battle','startBattle'],['act','act'],['auto-battle','autoBattle'],['auto-start-battle','startAutoBattle']])handle('game:'+channel,input=>game[method](actor(),input));
+  for(const [channel,method]of [['mine-next','queueMining'],['mine-start','startMining'],['mine-collect','collectMining'],['mine-upgrade','upgradeMine'],['smith-craft','craftItem'],['smith-reforge','reforgeItem'],['arena-start','startArena'],['arena-action','arenaAction'],['enchant-prepare','prepareEnchantment'],['enchant-apply','applyEnchantment'],['expedition-start','startExpedition'],['expedition-choose','chooseExpedition'],['expedition-return','returnExpedition'],['equip','equip'],['buy-equip','buyAndEquip'],['unequip','unequip'],['buy','buy'],['sell','sell'],['use-item','useItem'],['start-battle','startBattle'],['act','act'],['auto-battle','autoBattle'],['auto-start-battle','startAutoBattle']])handle('game:'+channel,input=>game[method](actor(),input));
   handle('game:rest',()=>game.rest(actor()));
   handle('game:refresh-merchant',()=>game.refreshMerchant(actor()));
   handle('game:exchange',amount=>game.exchange(actor(),amount));
@@ -153,17 +160,19 @@ function createWindow() {
   window.loadURL(APP_URL);
   if (smoke) {
     let completed=false;app.on('before-quit',()=>{if(!completed){console.error('Electron smoke test stopped before completion.');app.exit(1);}});
-    require(process.argv.includes('--alchemy-layout')?'../scripts/alchemy-layout-smoke.cjs':'../scripts/electron-smoke.cjs')(window,app).then(()=>{completed=true;app.quit();}).catch(error=>{console.error('Electron smoke test failed:',error.stack);app.exit(1);});
+    require(app.isPackaged?'./packaged-smoke.cjs':process.argv.includes('--settlement')?'../scripts/settlement-smoke.cjs':process.argv.includes('--hero-layout')?'../scripts/hero-layout-smoke.cjs':process.argv.includes('--alchemy-layout')?'../scripts/alchemy-layout-smoke.cjs':'../scripts/electron-smoke.cjs')(window,app).then(()=>{completed=true;app.quit();}).catch(error=>{console.error('Electron smoke test failed:',error.stack);app.exit(1);});
   }
 }
 app.whenReady().then(async () => {
+  if(!ownsInstance)return;
+  prepareSave(path.join(app.getPath('userData'),'stepquest.sqlite'),{version:require('../package.json').version});
   const assets = new Map([['/index.html', ['index.html', 'text/html']], ['/styles.css', ['styles.css', 'text/css']], ['/app.js', ['app.js', 'text/javascript']]]);
   for(const monster of ['slime','wolf','raider'])assets.set(`/assets/monsters/${monster}.png`,[`assets/monsters/${monster}.png`,'image/png']);
   assets.set('/locales.js',['locales.js','text/javascript']);assets.set('/i18n.js',['i18n.js','text/javascript']);
   assets.set('/items.js',['items.js','text/javascript']);
   for(const item of ['sword','staff','bow','daggers','nature-staff','axe','armor-plate','armor-robe','armor-leather','boots','ring','amulet','potion-red','potion-blue','potion-green','food'])assets.set(`/assets/items/${item}.png`,[`assets/items/${item}.png`,'image/png']);
   assets.set('/action-icons.js',['action-icons.js','text/javascript']);assets.set('/game.js',['game.js','text/javascript']);assets.set('/game.css',['game.css','text/css']);
-  for(const scene of ['home','market','wilds','alchemy'])assets.set(`/assets/scene-${scene}.png`,[`assets/scene-${scene}.png`,'image/png']);
+  for(const scene of ['home','market','wilds','alchemy','mine','smith','arena'])assets.set(`/assets/scene-${scene}.png`,[`assets/scene-${scene}.png`,'image/png']);
   for(const font of ['CinzelDecorative-Regular','Cinzel','IMFellEnglish']) assets.set(`/assets/fonts/${font}.ttf`,[`assets/fonts/${font}.ttf`,'font/ttf']);
   for(const svg of ['frame','parchment','seal']) assets.set(`/assets/ui/${svg}.svg`,[`assets/ui/${svg}.svg`,'image/svg+xml']);
   protocol.handle('stepquest', async request => {
@@ -180,19 +189,25 @@ app.whenReady().then(async () => {
   Menu.setApplicationMenu(Menu.buildFromTemplate(require('../lib/ui-menu.cjs').menuTemplate()));
   repository = createStepsRepository(path.join(app.getPath('userData'), 'stepquest.sqlite'));
   characters = createCharactersRepository(path.join(app.getPath('userData'), 'stepquest.sqlite'));
-  game = createGameRepository(path.join(app.getPath('userData'), 'stepquest.sqlite'),smoke?{rng:()=>.5}:{});
-  if(smoke)require('../scripts/game-smoke-fixture.cjs').seedSteps(repository);
+  game = createGameRepository(path.join(app.getPath('userData'), 'stepquest.sqlite'),smoke?{rng:()=>.5,today:()=>app.__testDay||today()}:{});
+  if(smoke&&!app.isPackaged)require('../scripts/game-smoke-fixture.cjs').seedSteps(repository);
   credentials = createCredentialsRepository(path.join(app.getPath('userData'), 'stepquest.sqlite'));
   const apiKey = await loadKey();
   client = buildClient(apiKey);
   stepsService = createStepsService({ repository, client, apiKey });
   registerHandlers(); createWindow();
   app.on('activate', () => { if (!window) createWindow(); });
-}).catch(() => { console.error('Impossibile avviare StepQuest.'); app.exit(1); });
+}).catch(async error => {
+  console.error('Impossibile avviare StepQuest:',error.message);
+  if(smoke){app.exit(1);return;}closeStores();
+  const directory=app.getPath('userData'),filename=path.join(directory,'stepquest.sqlite');
+  const result=await dialog.showMessageBox({type:'error',title:'StepQuest · Recupero salvataggio',message:'Impossibile aprire il salvataggio.',detail:'I dati originali sono conservati. Puoi ripristinare un backup oppure aprire la cartella dei salvataggi.\n\n'+error.message,buttons:['Ripristina un backup','Apri cartella salvataggi','Esci'],defaultId:2,cancelId:2});
+  if(result.response===0){const selected=await dialog.showOpenDialog({title:'Scegli un backup StepQuest',defaultPath:path.join(directory,'backups'),properties:['openFile'],filters:[{name:'Salvataggi SQLite',extensions:['sqlite','db']}]});if(!selected.canceled){try{restoreSave(filename,selected.filePaths[0]);app.relaunch();app.exit(0);return;}catch(recoveryError){await dialog.showMessageBox({type:'error',title:'StepQuest',message:'Ripristino non riuscito. Il salvataggio originale è conservato.',detail:recoveryError.message});}}}
+  if(result.response===1)await shell.openPath(directory);app.exit(1);
+});
 app.on('window-all-closed', () => { if (process.platform !== 'darwin') app.quit(); });
+function closeStores(){clearInterval(sessionTimer);flushSession(true);for(const store of [characters,credentials,game,repository])try{store?.close();}catch{}characters=credentials=game=repository=null;}
 app.on('will-quit', () => {
-  clearInterval(sessionTimer);flushSession(true);characters?.close();
-  credentials?.close();game?.close();
-  repository?.close();
+  closeStores();
   if (smokeDirectory) require('node:fs').rmSync(smokeDirectory, { recursive: true, force: true });
 });

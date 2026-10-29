@@ -1,0 +1,12 @@
+'use strict';
+const assert=require('node:assert/strict'),path=require('node:path'),{DatabaseSync}=require('node:sqlite');
+module.exports=async({app,js,waitFor,capture,checkContrast})=>{
+ const before=(await js('window.stepquest.gameState()')).value,heroes=(await js('window.stepquest.characters()')).value,other=heroes.find(hero=>hero.id!==before.hero.id);assert.ok(other);
+ const db=new DatabaseSync(path.join(app.getPath('userData'),'stepquest.sqlite'),{readOnly:true});let dailyTotal,previous;
+ try{const scope=db.prepare("SELECT value FROM app_state WHERE name='active_scope'").get().value,day=require('../lib/dates.cjs').today();dailyTotal=db.prepare('SELECT steps FROM daily_steps WHERE scope_id=? AND calendar_date=?').get(scope,day).steps;previous=db.prepare('SELECT credited_steps FROM hero_step_claims WHERE character_id=? AND scope_id=? AND calendar_date=?').get(other.id,scope,day)?.credited_steps||0;}finally{db.close();}
+ await js("document.getElementById('back').click()");await waitFor("document.body.dataset.screen==='welcome'");await js("document.getElementById('continue-button').click()");await waitFor("document.body.dataset.screen==='selection'");
+ for(const hero of heroes){const source=`Livello ${hero.level} · Profondità ${hero.stage}`;assert.equal(await js(`document.querySelector('.hero-card[data-id="${hero.id}"] .hero-progress').textContent`),await js(`window.StepQuestI18n.translate(${JSON.stringify(source)})`));}
+ await capture('character-progress-selection');await checkContrast('character-progress-selection');
+ await js(`document.querySelector('.hero-card[data-id="${other.id}"] .choose').click()`);await waitFor("document.body.dataset.screen==='game'");const selected=(await js('window.stepquest.gameState()')).value;assert.equal(selected.hero.id,other.id);assert.equal(selected.hero.steps,other.steps+Math.max(0,dailyTotal-previous));assert.equal((await js('window.stepquest.characters()')).value.find(hero=>hero.id===before.hero.id).steps,before.hero.steps);await capture('independent-hero-steps');await checkContrast('independent-hero-steps');
+ await js("document.getElementById('back').click()");await waitFor("document.body.dataset.screen==='welcome'");await js("document.getElementById('continue-button').click()");await waitFor("document.body.dataset.screen==='selection'");await js(`document.querySelector('.hero-card[data-id="${before.hero.id}"] .choose').click()`);await waitFor("document.body.dataset.screen==='game'");assert.equal((await js('window.stepquest.gameState()')).value.hero.steps,before.hero.steps);
+};

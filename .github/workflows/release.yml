@@ -43,6 +43,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - run: npm run test:release
       - name: Check release version
         if: startsWith(github.ref, 'refs/tags/')
         env:
@@ -89,11 +90,23 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install --yes rpm
+          sudo apt-get install --yes rpm xvfb
       - name: Build and inspect application package
         run: ${{ matrix.command }}
       - name: Verify packaged Electron and SQLite runtime
-        run: node scripts/verify-runtime.cjs
+        run: |
+          if [ "${{ runner.os }}" = "Linux" ]; then
+            xvfb-run -a node scripts/verify-runtime.cjs
+          else
+            node scripts/verify-runtime.cjs
+          fi
+      - name: Preserve packaged-app verification report
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: checks-${{ matrix.name }}
+          if-no-files-found: error
+          retention-days: 14
+          path: artifacts/packaged-runtime-*.json
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: release-${{ matrix.name }}

@@ -1,7 +1,7 @@
 {
   "title": "StepQuest: revisione indipendente economia e ledger",
   "as_of": "2026-10-28",
-  "status": "Simulazioni sintetiche di progetto. Non sono evidenze di aderenza, divertimento o aumento dei passi.",
+  "status": "Modello storico di progetto del 28 ottobre 2026: non rappresenta le regole della release v1.1.0. Conservato per il workbook originale; per il gioco attuale usare release-economy-v1.1.0.json.",
   "assumptions": {
     "days": 28,
     "credits_per_step": 1,
@@ -696,5 +696,7 @@
     "Provare con utenti dai profili di attività diversi e con settimane senza movimento. Nessuna quota obbligatoria di passi.",
     "Avviare con un personaggio/bioma e tre archetipi nemici, verificare che una strategia migliore batta acquisti automatici.",
     "Prima del wallet, chiudere identità e regole di revisione dei dati. La cache offline da sola non garantisce unicità economica."
-  ]
+  ],
+  "historical": true,
+  "superseded_by": "release-economy-v1.1.0.json"
 }

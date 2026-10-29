@@ -31,3 +31,23 @@ assert.equal(info.platform, process.platform);
 assert.equal(info.arch, process.arch);
 assert.equal(info.sqlite, true);
 console.log('Packaged runtime verified:', info);
+
+// Exercise the installed application itself, not the source checkout. This entry
+// point is shipped in electron/ and always uses an isolated temporary profile.
+const env={...process.env,GARMIN_API_KEY:''};delete env.ELECTRON_RUN_AS_NODE;
+const args=['--smoke-test'];if(process.platform==='linux'&&process.env.CI)args.push('--no-sandbox');
+const ui=spawnSync(executable,args,{env,encoding:'utf8',timeout:90000});
+if(ui.error)throw ui.error;assert.equal(ui.status,0,`Packaged UI failed: ${ui.stderr}\n${ui.stdout}`);
+const line=ui.stdout.split(/\r?\n/).find(value=>value.startsWith('{"packaged":true'));
+assert.ok(line,`Missing packaged UI report: ${ui.stdout}`);const report=JSON.parse(line);assert.equal(report.version,require('../package.json').version);assert.equal(report.rendererErrors,0);
+require('node:fs').mkdirSync('artifacts',{recursive:true});require('node:fs').writeFileSync(path.join('artifacts',`packaged-runtime-${process.platform}-${process.arch}.json`),JSON.stringify(report,null,2)+'\n');console.log('Packaged UI verified:',report);
+
+// Record a reproducible checkpoint and reject stale build output. package.json is
+// normalized by electron-builder, so its version is checked above instead.
+const fs=require('node:fs'),{createHash}=require('node:crypto'),{listPackage,statFile,extractFile}=require('@electron/asar');
+const resources=process.platform==='darwin'?path.resolve(path.dirname(executable),'../Resources'):path.join(path.dirname(executable),'resources'),archive=path.join(resources,'app.asar'),digest=createHash('sha256');let sourceFiles=0;
+for(const name of listPackage(archive).map(n=>n.replaceAll('\\','/').replace(/^\//,'')).sort()){
+ const archiveName=name.split('/').join(path.sep);if(statFile(archive,archiveName).files||name==='package.json')continue;
+ const built=extractFile(archive,archiveName),source=fs.readFileSync(path.resolve(name));assert.ok(built.equals(source),`Packaged source differs from workspace: ${name}`);digest.update(name+'\0');digest.update(createHash('sha256').update(source).digest());sourceFiles++;
+}
+const checkpoint={files:sourceFiles,sha256:digest.digest('hex')};report.sourceCheckpoint=checkpoint;fs.writeFileSync(path.join('artifacts',`packaged-runtime-${process.platform}-${process.arch}.json`),JSON.stringify(report,null,2)+'\n');console.log('Packaged source checkpoint:',checkpoint);

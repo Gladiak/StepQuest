@@ -152,17 +152,6 @@ body[data-screen=game] #toast{bottom:155px}
 .game-bottom .icon-action .pixel-action-icon{width:32px;height:32px}
 .game-shell .game-bottom .icon-action{width:44px;height:44px;padding:2px;border-width:4px}
 .game-bottom .action-buttons{gap:0}
-.quick-inventory-summary{font-size:15px;line-height:22px;margin:0 0 12px}
-.quick-inventory-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-.game-dialog .quick-inventory-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:0;height:85px;padding:6px;border-width:5px;background:linear-gradient(#344032,#17211c)}
-.quick-inventory-item .item-sprite{width:32px;height:32px}
-.quick-inventory-item>span.rarity-text{display:block;max-width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:12px/16px var(--text);color:var(--item-color-dark)!important}
-.quick-inventory-item .equipped-marker{right:5px;bottom:25px}
-.quick-inventory-item .upgrade-badge{right:4px;top:4px}
-.game-dialog .quick-inventory .inventory-pager{margin-top:12px}
-.quick-inventory-item:focus-visible{outline-color:#42280f}
-.quick-inventory-item>span.rarity-text{background:#15201a;text-shadow:none}
-.quick-inventory-item .upgrade-badge{bottom:auto}
 /* Spedizioni: quattro decisioni, senza mappa né animazioni. */
 .wild-mode-tabs{position:absolute;top:159px;left:354px;width:560px;display:flex;justify-content:center;gap:10px}
 .wild-mode-tabs button{min-height:34px;font:10px/14px var(--rune);padding:4px 12px}
@@ -207,17 +196,13 @@ body[data-screen=game] #toast{bottom:155px}
 .expedition-panel .auto-option{margin:7px 0;font-size:11px;line-height:16px}
 
 /* La rarità resta riconoscibile anche quando lo sprite è condiviso. */
-.inventory-cell[data-rarity]:after,.quick-inventory-item[data-rarity]:after{content:'';position:absolute;left:4px;right:4px;bottom:2px;height:3px;background:var(--item-color-dark);pointer-events:none;box-shadow:0 1px 1px #000}
+.inventory-cell[data-rarity]:after{content:'';position:absolute;left:4px;right:4px;bottom:2px;height:3px;background:var(--item-color-dark);pointer-events:none;box-shadow:0 1px 1px #000}
 .shop-offer-value{display:flex;align-items:center;gap:8px}
 .shop-row .upgrade-badge{position:static;flex:none}
 
 .inventory-panel .game-panel-heading{position:relative;padding-right:36px}
 .game-shell .inventory-panel .inventory-sale{position:absolute;right:0;top:0;width:32px;height:32px;padding:1px;border-width:4px}
 .inventory-panel .inventory-sale .pixel-action-icon{width:24px;height:24px}
-.inventory-tools{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
-.inventory-tools .quick-inventory-summary{margin:0;flex:1}
-.inventory-tools .inventory-sale{flex:none;min-width:110px;height:38px;padding:4px 7px;border-width:4px;font:500 10px/14px var(--rune)}
-.inventory-tools .inventory-sale .pixel-action-icon{width:28px;height:28px}
 .junk-sale-preview>.help{margin-top:12px}.junk-sale-list{list-style:none;padding:0;margin:14px 0}
 .junk-sale-list li{display:flex;align-items:baseline;gap:16px;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--surface-rule);font:14px/19px var(--text)}
 .junk-sale-list li>span{min-width:0;overflow-wrap:anywhere}.junk-sale-list strong{flex:none;font-weight:400;color:var(--surface-text)}
@@ -256,7 +241,7 @@ html[lang=ja] .game-shell .expedition-choice strong{font-size:11px}
 .alchemy-equipment{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:10px;align-items:center;margin:2px 0 10px}
 .alchemy-bench label{letter-spacing:0;font:600 11px/16px var(--rune);margin:0}
 /* Il focus resta dentro il campo: l’outline esterno veniva tagliato dal banco. */
-.alchemy-bench select{appearance:none;-webkit-appearance:none;min-width:0;max-width:100%;border:1px solid #765128;border-radius:0;padding:7px 32px 7px 11px;font:14px/20px var(--text);color:#35230f;background-color:#ecd4a0;background-image:linear-gradient(45deg,transparent 50%,#42280f 50%),linear-gradient(135deg,#42280f 50%,transparent 50%);background-position:calc(100% - 15px) center,calc(100% - 10px) center;background-size:5px 5px;background-repeat:no-repeat;box-shadow:inset 1px 2px 4px #50341c33;outline:none;cursor:pointer;white-space:nowrap;text-overflow:ellipsis}
+.alchemy-bench select{min-width:0;max-width:100%;padding:7px 42px 7px 11px;font:14px/20px var(--text);box-shadow:inset 1px 2px 4px #50341c33;outline:none}
 .alchemy-bench select:focus,.alchemy-bench select:focus-visible{border-color:#42280f;box-shadow:inset 0 0 0 2px #42280f;outline:none}
 .alchemy-bench select:disabled{color:#59452c;background-color:#d9c18f;cursor:not-allowed}
 .alchemy-mix{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(0,1fr);gap:10px;align-items:start}
@@ -316,3 +301,25 @@ html[lang=ja] .game-shell .expedition-choice strong{font-size:11px}
 .loot-threshold select{min-width:0;font-size:16px;outline-offset:0}
 .loot-filter-summary{padding:8px 10px;border:1px solid #927644;background:#e8cc91}.loot-filter-summary p{margin:3px 0;font-size:16px}
 .auto-sale-rewards{color:#f1d183;font-size:16px;line-height:1.25}
+.laboratory-modes{display:flex;gap:5px;margin-bottom:8px}.game-shell .laboratory-modes button{flex:1;min-width:0;font:9px/14px var(--rune);padding:5px 3px;border-width:4px}
+.laboratory-modes button[aria-pressed=true]{box-shadow:inset 0 0 0 1px #e7cf94;background:linear-gradient(#665432,#322c20)}
+.game-shell .refinement-target{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;text-align:left;width:100%;gap:6px;margin:5px 0;padding:6px;border-width:4px;font:12px/17px var(--text)}
+.refinement-target strong{font:11px/16px var(--rune);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.refinement-target[aria-pressed=true]{box-shadow:inset 0 0 0 2px #afd5ea;background:linear-gradient(#394a4a,#18292e)}
+.refinement-bench .game-panel-heading h2{overflow-wrap:anywhere;font-size:15px}.refinement-row{display:grid;grid-template-columns:1fr auto;gap:8px;border-bottom:1px solid #82663e66;padding:7px 0;font:14px/19px var(--text);color:#35230f}.refinement-row strong{font-weight:400}
+.game-shell #refine-item{margin-top:12px;width:100%;font-size:11px;line-height:16px}
+.refinement-costs{width:100%;border-collapse:collapse;margin:12px 0;font:13px/20px var(--text);color:#e7d5ad}.refinement-costs th,.refinement-costs td{padding:6px 2px;border-bottom:1px solid #89714366;text-align:right;font-weight:400}.refinement-costs th{text-align:left}.current-refinement{background:#294145}
+.refinement-details{padding:9px;margin:10px 0;border:1px solid #a4c7eb;background:#182c3a}.refinement-details h4,.refinement-details p,.refinement-details .help{color:#d3e7fa!important;font:14px/19px var(--text);margin:3px 0}
+.game-shell .research-entry{width:100%;margin-bottom:4px;padding:5px;font-size:11px;line-height:16px}.expedition-panel:has(.research-entry) .expedition-route{min-height:74px;margin:5px 0;gap:2px}.expedition-panel:has(.research-entry) .expedition-hint{margin-top:5px}
+.research-settings{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:9px 14px;align-items:center}.research-settings label{letter-spacing:0;margin:0;font:600 12px/18px var(--rune)}.research-settings select{min-width:0;font-size:16px;outline-offset:0}.research-settings p{grid-column:1/-1;margin:5px 0}.research-cost{font-weight:600}
+.game-shell .research-reward{display:grid;grid-template-columns:38px 1fr;gap:5px 10px;text-align:left;width:100%;margin:12px 0;padding:12px}.research-reward .item-sprite{grid-row:span 2}.research-reward strong{font:12px/18px var(--rune);overflow-wrap:anywhere}.research-reward>span{font:14px/20px var(--text)}.research-reward .upgrade-badge{grid-column:2}
+.expedition-panel:has(.research-entry) .game-panel-heading{padding-bottom:7px;margin-bottom:7px}
+.expedition-panel:has(.research-entry) .expedition-route small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:11px;line-height:15px}
+.expedition-panel:has(.research-entry) .expedition-hint{font-size:11px;line-height:15px}
+/* Production, crafting and isolated PvE training. */
+.game-shell[data-location=mine]{background-image:url('assets/scene-mine.png')}.game-shell[data-location=smith]{background-image:url('assets/scene-smith.png')}.game-shell[data-location=arena]{background-image:url('assets/scene-arena.png')}
+.game-shell:is([data-location=mine],[data-location=smith],[data-location=arena]) .world-hero{display:none}.game-shell:is([data-location=mine],[data-location=smith],[data-location=arena]) .action-status{top:159px;bottom:auto}
+.settlement-layout{position:absolute;left:28px;right:28px;top:211px;height:462px;display:grid;grid-template-columns:280px minmax(0,1fr) 300px;gap:18px}.settlement-layout>section{min-width:0;min-height:0;max-height:100%;padding:13px;overflow:auto;overscroll-behavior:contain}.settlement-layout .game-panel-heading h2{font-size:18px;line-height:1.35;margin:0 0 4px}.settlement-layout .game-panel-heading p{font-size:14px}.settlement-layout .game-panel-heading{margin-bottom:12px}.settlement-layout p{font-size:15px;line-height:1.4}.settlement-layout .settlement-muted{font-size:13px;line-height:1.45;color:#cbbb98;margin:10px 0}.settlement-layout .settlement-subtitle{font:14px/1.4 var(--rune);color:#f0dcb0;margin:15px 0 9px}.settlement-layout .settlement-job-title{font:18px/1.4 var(--rune);color:#f1d798;margin:12px 0}.settlement-layout label{font:12px/1.4 var(--text);text-transform:none;letter-spacing:0;color:#ead5ae;margin:11px 0 5px}.settlement-layout select,.settlement-layout input[type=number]{font-size:15px;min-height:36px;padding-top:6px;padding-bottom:6px}.settlement-layout button{min-height:36px;max-width:100%;font-size:10px;line-height:1.5;white-space:normal}.settlement-layout .settlement-bench>button{margin-top:13px;width:100%}.settlement-layout .settlement-check{display:flex;align-items:center;gap:9px;cursor:pointer;margin:12px 0}.settlement-check input{width:17px;height:17px;padding:0;flex:none;accent-color:#bb9659}.settlement-layout progress{display:block;width:100%;height:10px;accent-color:#c8a85d}.settlement-layout .settlement-choice{display:flex;width:100%;justify-content:space-between;align-items:center;gap:5px;margin:6px 0;text-align:left}.settlement-choice small{font:11px var(--text)}.settlement-choice[aria-pressed=true]{box-shadow:inset 0 0 0 1px #e7cf94;background:linear-gradient(#665432,#322c20)}.settlement-layout #upgrade-mine{margin-top:14px;width:100%}.material-row{display:grid;grid-template-columns:25px 1fr auto;align-items:center;gap:9px;border-bottom:1px solid #8d754355;padding:12px 0;font:14px/1.4 var(--text);color:#ecd7aa}.material-row strong{font:18px var(--text);color:#f5dda8}.material-stone{width:20px;height:18px;background:#829ba2;clip-path:polygon(20% 0,75% 0,100% 30%,100% 70%,70% 100%,15% 100%,0 70%,0 25%);box-shadow:inset 5px 3px #b9c6c3,inset -5px -5px #40535e}.material-stone[data-material=moon_silver]{background:#a8b5df;box-shadow:inset 5px 3px #e5e5fc,inset -5px -5px #586487}.material-stone[data-material=adamantite]{background:#658674;box-shadow:inset 5px 3px #a0c998,inset -5px -5px #385748}.material-stone.gem{clip-path:polygon(25% 0,75% 0,100% 35%,50% 100%,0 35%);background:#d99e55;box-shadow:inset 5px 3px #ffe2a0,inset -5px -5px #946044}.material-stone[data-material=void_opal]{background:#9d80c9;box-shadow:inset 5px 3px #e5bcff,inset -5px -5px #564375}.mine-countdown{font:30px/1.5 var(--rune)!important;color:#f4d79a!important;font-variant-numeric:tabular-nums;margin:15px 0!important}.rarity-chance{display:flex;justify-content:space-between;border-bottom:1px solid #8d754355;padding:10px 0;font:15px var(--text);gap:12px}.craft-summary{margin:12px 0;color:#f1d798!important}.settlement-layout .laboratory-modes{margin:14px 0}.settlement-layout .laboratory-modes button{font-size:9px;padding:6px 3px}.arena-challenge{display:flex;width:100%;flex-direction:column;align-items:flex-start;text-align:left;gap:4px;margin:9px 0}.arena-challenge strong{font:12px/1.4 var(--rune)}.arena-challenge small{font:13px/1.4 var(--text)}.arena-opponent{display:block;width:72px;height:72px;object-fit:contain;margin:0 auto 8px}.arena-meter{display:grid;grid-template-columns:1fr auto;gap:4px;font:13px/1.4 var(--text);color:#ead5ae;margin:8px 0}.arena-meter progress{grid-column:1/-1}.arena-actions{display:flex;gap:5px;flex-wrap:wrap;margin:12px 0}.arena-actions button{flex:1;min-width:75px;padding:6px}.arena-log{max-height:130px;overflow:auto;border-top:1px solid #8d754355;padding-top:8px}.arena-log p{font-size:13px;margin:4px 0}.arena-result{color:#efce83!important;margin:9px 0!important}.settlement-layout #arena-practice{width:100%}
+.game-shell[data-location=smith] .refinement-layout{grid-template-columns:280px minmax(0,1fr) 280px}.game-shell[data-location=smith] .laboratory-modes button{min-height:40px;overflow-wrap:anywhere}
+.game-shell[data-location=mine] .settlement-choice{min-height:34px;padding:3px 7px;margin:4px 0}
+.game-shell[data-location=smith] .settlement-bench label{margin-top:6px}.game-shell[data-location=smith] .settlement-bench .settlement-check{margin:8px 0}.game-shell[data-location=smith] .settlement-bench select,.game-shell[data-location=smith] .settlement-bench input[type=number]{min-height:32px;padding-top:4px;padding-bottom:4px}.game-shell[data-location=smith] .craft-summary{margin:7px 0}.game-shell[data-location=smith] .craft-summary p{font-size:14px;line-height:1.35}.game-shell[data-location=mine] .settlement-bench #configure-mining{margin-top:7px}.game-shell[data-location=mine] .mine-countdown{margin:8px 0!important}

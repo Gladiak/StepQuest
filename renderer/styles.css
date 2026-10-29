@@ -30,14 +30,16 @@ input:focus-visible,dialog button:focus-visible,.creator button:focus-visible{ou
 .top{background:#111914;padding:8px 12px;border-top:1px solid #9b804566;border-bottom:1px solid #9b804566}
 
 /* Nomi dei personaggi su due righe, con spazio riservato nella scheda. */
-.hero-card .sprite{height:208px}
+.hero-card .sprite{height:200px}
 .hero-card h3{font-size:22px;line-height:27px;min-height:54px;max-height:54px;overflow:hidden;overflow-wrap:anywhere;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .hero-card .stats{margin-top:14px;margin-bottom:14px}
+.hero-card .hero-progress{font:600 12px/18px var(--rune);color:var(--surface-title);margin:9px 0 0;letter-spacing:0}
+.hero-card:has(.hero-progress) .stats{margin-top:9px;margin-bottom:10px;padding:10px 2px}
 dialog{max-height:calc(100vh - 48px);overflow:auto}
 #toast{max-width:calc(100vw - 80px);white-space:normal;text-align:center;overflow-wrap:anywhere;line-height:21px}
 
 /* Allow translated labels to wrap; use native Japanese glyphs instead of decorative Latin faces. */
-select{width:100%;padding:9px 12px;background:#ecd4a0;border:1px solid #765128;color:#35230f;font:17px var(--text)}
+select{appearance:none;-webkit-appearance:none;width:100%;padding:9px 42px 9px 12px;background-color:#ecd4a0;background-image:linear-gradient(45deg,transparent 50%,#42280f 50%),linear-gradient(135deg,#42280f 50%,transparent 50%);background-position:calc(100% - 21px) center,calc(100% - 16px) center;background-size:5px 5px;background-repeat:no-repeat;border:1px solid #765128;border-radius:0;color:#35230f;font:17px var(--text);white-space:nowrap;text-overflow:ellipsis;cursor:pointer}
 select:focus-visible{outline:2px solid #42280f;outline-offset:3px}
 .creator:before{content:attr(data-creator-caption)}
 :lang(ja){--title:'Hiragino Mincho ProN','Yu Mincho',serif;--rune:'Hiragino Sans','Yu Gothic',sans-serif;--text:'Hiragino Sans','Yu Gothic',sans-serif}

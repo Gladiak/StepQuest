@@ -1,6 +1,9 @@
 'use strict';
 // Icone originali native: griglia 32×32, profili a gradino e palette con luce/ombra.
 window.StepQuestActionIcons=Object.freeze({
+ mine:[['#272124','M3 7h20v3h5v6h-4v-4h-7l-4 4-8 13H1l11-17H3z'],['#b2c1be','M4 8h18v3h5v3h-2v-2h-9l-4 3-2-2 3-3H4z'],['#b58a50','M14 12h3L5 29H2z'],['#ecce85','M15 12h1L4 28H3z'],['#8bd6dd','M23 20h5v3h3v5h-3v3h-5v-3h-3v-5h3z'],['#d4fcf0','M24 21h3v3h-3z']],
+ smith:[['#261d19','M3 16h26v5h-5l-4 4v3h5v3H7v-3h5v-3l-5-4H3zM9 2h13v7H9zM14 9h4v8h-4z'],['#a8b8b6','M4 17h24v3h-5l-4 4h-6l-5-4H4zM8 29h16v1H8z'],['#e1ebe0','M5 17h22v1H5z'],['#b58a50','M15 9h2v8h-2z'],['#c2d0ca','M10 3h11v5H10z'],['#eff2d4','M11 3h9v1h-9z']],
+ arena:[['#2b2520','M3 3h5l18 21v5h-5L3 8zM24 3h5v5L11 29H6v-5z'],['#b8c9cd','M4 4h3l18 21v2h-3L4 7zM25 4h3v3L10 27H8v-2z'],['#f0e6b7','M5 4h2l17 20h-2zM26 4h2L10 25H8z'],['#bf8b44','M2 20h5l5 6v4H8v-4zM20 29v-4l6-6h4v4h-4l-6 7z'] ],
  alchemy:[['#172723','M11 2h10v5h-2v6l9 13v4H4v-4l9-13V7h-2z'],['#9be8e1','M13 4h6v2h-6zM15 8h2v7l8 11v2H7v-2l8-11z'],['#387c77','M12 20h8l5 7H7z'],['#d7fff0','M11 23h3v2h-3zM17 18h2v2h-2zM8 26h2v1H8z'],['#dbc482','M11 2h10v2H11z']],
  home:[['#211b18','M2 14h2v-2h2v-2h2V8h2V6h2V4h8v2h2v2h2v2h2v2h2v2h2v4h-4v11H6V18H2z'],['#8f5234','M4 14h2v-2h2v-2h2V8h2V6h8v2h2v2h2v2h2v2h2v2H4z'],['#d28c4e','M6 14h2v-2h2v-2h2V8h8v2h2v2h2v2H6z'],['#f1bd6a','M11 9h2V7h6v2h-6v2h-2v2H9v-2h2z'],['#d9c296','M8 17h16v10H8z'],['#99764e','M8 23h16v4H8z'],['#4b3830','M13 19h6v8h-6zM9 18h3v4H9zM20 18h3v4h-3z'],['#eab756','M10 19h1v2h-1zM21 19h1v2h-1zM17 23h1v1h-1z'],['#d5d5c2','M23 4h4v7h-2V9h-2z']],
  shop:[['#211b18','M4 5h24v7h2v7h-3v10H5V19H2v-7h2z'],['#b3854b','M6 17h20v10H6z'],['#e2ba72','M7 18h18v3H7zM7 25h18v2H7z'],['#83412e','M5 7h22v4H5zM3 13h26v5H3z'],['#d15c45','M5 8h4v8H4v-4h1zM13 8h4v9h-4zM21 8h4v4h2v4h-6z'],['#edcf99','M9 8h4v9H9zM17 8h4v9h-4z'],['#533d2b','M8 21h7v5H8zM18 21h6v5h-6z'],['#e7ba61','M9 22h5v2H9zM19 22h4v2h-4z'],['#f8deb1','M5 6h22v1H5zM6 18h20v1H6z']],

@@ -1,9 +1,20 @@
 'use strict';
 const { contextBridge, ipcRenderer } = require('electron');
 contextBridge.exposeInMainWorld('stepquest', Object.freeze({
+  previewCraft: input => ipcRenderer.invoke('game:smith-quote', input),
+  queueMining: input => ipcRenderer.invoke('game:mine-next', input),
+  startMining: input => ipcRenderer.invoke('game:mine-start', input),
+  collectMining: input => ipcRenderer.invoke('game:mine-collect', input),
+  upgradeMine: input => ipcRenderer.invoke('game:mine-upgrade', input),
+  craftItem: input => ipcRenderer.invoke('game:smith-craft', input),
+  reforgeItem: input => ipcRenderer.invoke('game:smith-reforge', input),
+  startArena: input => ipcRenderer.invoke('game:arena-start', input),
+  arenaAction: input => ipcRenderer.invoke('game:arena-action', input),
+  refineItem: input => ipcRenderer.invoke('game:refine-item', input),
+  chooseResearchReward: input => ipcRenderer.invoke('game:research-reward', input),
   prepareEnchantment: input => ipcRenderer.invoke('game:enchant-prepare', input),
   applyEnchantment: input => ipcRenderer.invoke('game:enchant-apply', input),
-  startExpedition: (route,requestId) => ipcRenderer.invoke('game:expedition-start', {route,requestId}),
+  startExpedition: (route,requestId,target) => ipcRenderer.invoke('game:expedition-start', {route,requestId,target}),
   chooseExpedition: input => ipcRenderer.invoke('game:expedition-choose', input),
   returnExpedition: input => ipcRenderer.invoke('game:expedition-return', input),
   gameState: () => ipcRenderer.invoke('game:state'),

@@ -32,7 +32,7 @@ module.exports = async context => {
     }
     files++;
   }
-  for (const required of ['electron/main.cjs', 'electron/preload.cjs', 'renderer/index.html', 'renderer/assets/app-icon.png', 'package.json', 'LICENSE']) {
+  for (const required of ['electron/main.cjs', 'electron/preload.cjs', 'renderer/index.html', 'renderer/assets/app-icon.png', 'renderer/assets/scene-mine.png', 'renderer/assets/scene-smith.png', 'renderer/assets/scene-arena.png', 'lib/settlement.cjs', 'lib/save-protection.cjs', 'electron/packaged-smoke.cjs', 'package.json', 'LICENSE']) {
     assert(entries.includes(required), `Missing packaged file: ${required}`);
   }
   console.log(`Verified application package: ${files} files; no environment files, databases or credentials.`);
