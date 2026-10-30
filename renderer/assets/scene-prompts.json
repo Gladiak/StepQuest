@@ -36,5 +36,11 @@
     "tool": "ImageGen built-in",
     "date": "2026-10-29",
     "prompt": "Use case: stylized-concept. Asset type: background for a 1280 by 800 desktop fantasy RPG. Create one wide landscape image, approximately 16:10. A peaceful medieval fantasy training courtyard, sand floor, stone archways, wooden training dummies, shields and weapon racks, green banners, warm afternoon light. No crowd or fighters. Detailed crisp pixel art consistent with a classic fantasy RPG, earthy low saturation colors, dramatic warm illumination, stone and wood textures. Elevated three-quarter view; broad open unobstructed floor in the center and foreground, most props against the perimeter, suitable for overlaying dark game panels. Full bleed environment, no UI, no frame, no letters, no logos, no characters."
+  },
+  {
+    "file": "scene-guild.png",
+    "tool": "ImageGen built-in",
+    "date": "2026-10-30",
+    "prompt": "Use case: stylized-concept. Asset type: original background for StepQuest, a 1280 by 800 desktop fantasy RPG. One landscape image with approximately 16:10 composition. Interior of a welcoming medieval fantasy explorers' guild hall: ancient timber beams and moss-dark stone walls, a large wooden notice board displaying small blank parchment sheets and a hand-drawn map without any lettering at the rear, expedition backpacks, rolled maps, brass compass and travel equipment on tables at the edges, a green and gold guild banner with a simple compass emblem, warm amber lanterns and cool daylight through a high arched window. Detailed crisp 32-bit-era RPG pixel art, visible deliberate pixel clusters, earthy olive greens, dark brown timber and antique gold highlights. Elevated three-quarter view; broad open stone floor across center and foreground, low contrast areas for overlaying dark interface panels, most detail along upper and side edges. Full bleed environment only. No people, no creatures, no readable text, no numbers, no UI, no panels, no frame, no logo, no watermark. No photographic surfaces or painterly blur."
   }
 ]

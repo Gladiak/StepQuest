@@ -27,3 +27,13 @@ Lo smoke test Electron verifica che tutti e dodici i PNG siano caricabili, abbia
 `scene-home.png`, `scene-market.png` e `scene-wilds.png` sono fondali originali generati con il tool integrato ImageGen: rifugio medievale, piazza del mercato e bosco fuori dalle mura. I prompt completi sono in `scene-prompts.json`. Gli scenari non comprendono mappe, NPC o animazioni e sono inclusi nel pacchetto per l’uso offline.
 
 Gli sfondi `scene-mine.png`, `scene-smith.png` e `scene-arena.png` sono stati creati il 29 ottobre 2026 con ImageGen integrato per Miniera, Fabbro e Arena PvE. Sono asset originali salvati nel progetto; scene e prompt completi sono registrati in [scene-prompts.json](scene-prompts.json).
+
+- `scene-guild.png`: sala della Gilda degli esploratori, generata con ImageGen built-in il 30 ottobre 2026. Prompt integrale e provenienza in `scene-prompts.json`; nessun dato personale usato come riferimento.
+
+## Atlante del viandante
+
+`atlas-refuge.png` è la mappa originale della Provincia del Rifugio. `scene-watch.png` ambienta la spedizione regionale; `monsters/warden.png` è il Custode del Faro su sfondo trasparente. Tutti e tre sono stati generati con ImageGen integrato il 30 ottobre 2026, senza immagini di riferimento. I prompt completi e i parametri di trasparenza sono conservati in `atlas-prompts.json`. Percorsi, segnalini e trasformazioni della mappa sono sovrapposizioni del renderer, separate dall’illustrazione.
+
+## Cronache del Rifugio
+
+`scene-chronicles.png` raffigura lo scriptorium della Gilda e il suo grande libro illuminato. `chronicle-badges.png` è un atlante trasparente di 24 emblemi in sei colonne e quattro righe, 1536×1024 px. Il renderer visualizza gli emblemi con contorni SVG individuali in `renderer/chronicle-art.js`, misurati sull’illustrazione per escludere i disegni vicini: 21 ricordi, una variante della Quercia, un fermaglio e una penna decorativa. Le tre versioni degli stivali hanno illustrazioni distinte. Le immagini sono state generate con ImageGen integrato il 30 ottobre 2026, senza riferimenti; prompt integrali e parametri in `chronicles-prompts.json`. Il collaudo verifica dimensioni, trasparenza, integrità di tutti i pixel opachi dei 24 emblemi e assenza di pixel degli emblemi vicini. `scripts/generate-chronicle-clips.py` legge il PNG senza modificarlo e rigenera i soli contorni vettoriali.

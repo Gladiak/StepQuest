@@ -1,6 +1,7 @@
 'use strict';
 // Icone originali native: griglia 32×32, profili a gradino e palette con luce/ombra.
 window.StepQuestActionIcons=Object.freeze({
+ guild:[['#28231d','M4 2h24v28H4z'],['#a77943','M5 3h22v26H5z'],['#dec493','M7 5h18v21H7z'],['#f4dfaf','M8 6h16v2H8z'],['#3c6454','M15 8h2v4h4v2h-4v7h-2v-7h-4v-2h4z'],['#b48947','M10 16h3v2h-3zM19 16h3v2h-3zM12 22h8v1h-8z'],['#ffe5a0','M15 10h2v5h-2z']],
  mine:[['#272124','M3 7h20v3h5v6h-4v-4h-7l-4 4-8 13H1l11-17H3z'],['#b2c1be','M4 8h18v3h5v3h-2v-2h-9l-4 3-2-2 3-3H4z'],['#b58a50','M14 12h3L5 29H2z'],['#ecce85','M15 12h1L4 28H3z'],['#8bd6dd','M23 20h5v3h3v5h-3v3h-5v-3h-3v-5h3z'],['#d4fcf0','M24 21h3v3h-3z']],
  smith:[['#261d19','M3 16h26v5h-5l-4 4v3h5v3H7v-3h5v-3l-5-4H3zM9 2h13v7H9zM14 9h4v8h-4z'],['#a8b8b6','M4 17h24v3h-5l-4 4h-6l-5-4H4zM8 29h16v1H8z'],['#e1ebe0','M5 17h22v1H5z'],['#b58a50','M15 9h2v8h-2z'],['#c2d0ca','M10 3h11v5H10z'],['#eff2d4','M11 3h9v1h-9z']],
  arena:[['#2b2520','M3 3h5l18 21v5h-5L3 8zM24 3h5v5L11 29H6v-5z'],['#b8c9cd','M4 4h3l18 21v2h-3L4 7zM25 4h3v3L10 27H8v-2z'],['#f0e6b7','M5 4h2l17 20h-2zM26 4h2L10 25H8z'],['#bf8b44','M2 20h5l5 6v4H8v-4zM20 29v-4l6-6h4v4h-4l-6 7z'] ],

@@ -1,0 +1,252 @@
+{
+  "samplesPerRouteAndClass": 100,
+  "gear": "solo arma base e vestiti comuni, livello 1",
+  "strategy": "pattuglia iniziale; campo se ferito, altrimenti benedizione; evento prudente; custode automatico",
+  "rows": [
+    {
+      "class": "guardian",
+      "route": "grove",
+      "completionPercent": 100,
+      "meanCoins": 80,
+      "meanStepsSpent": 50,
+      "meanLastBattleRounds": 3.9
+    },
+    {
+      "class": "guardian",
+      "route": "ruins",
+      "completionPercent": 100,
+      "meanCoins": 112,
+      "meanStepsSpent": 75,
+      "meanLastBattleRounds": 5.4
+    },
+    {
+      "class": "guardian",
+      "route": "research",
+      "completionPercent": 100,
+      "meanCoins": 47,
+      "meanStepsSpent": 400,
+      "meanLastBattleRounds": 5.4
+    },
+    {
+      "class": "guardian",
+      "route": "pass",
+      "completionPercent": 92,
+      "meanCoins": 130,
+      "meanStepsSpent": 100,
+      "meanLastBattleRounds": 6.5
+    },
+    {
+      "class": "guardian",
+      "route": "watch",
+      "completionPercent": 100,
+      "meanCoins": 117,
+      "meanStepsSpent": 75,
+      "meanLastBattleRounds": 5
+    },
+    {
+      "class": "arcanist",
+      "route": "grove",
+      "completionPercent": 100,
+      "meanCoins": 81,
+      "meanStepsSpent": 50,
+      "meanLastBattleRounds": 4.7
+    },
+    {
+      "class": "arcanist",
+      "route": "ruins",
+      "completionPercent": 91,
+      "meanCoins": 103,
+      "meanStepsSpent": 75,
+      "meanLastBattleRounds": 6
+    },
+    {
+      "class": "arcanist",
+      "route": "research",
+      "completionPercent": 91,
+      "meanCoins": 44,
+      "meanStepsSpent": 400,
+      "meanLastBattleRounds": 6
+    },
+    {
+      "class": "arcanist",
+      "route": "pass",
+      "completionPercent": 6,
+      "meanCoins": 39,
+      "meanStepsSpent": 100,
+      "meanLastBattleRounds": 5.4
+    },
+    {
+      "class": "arcanist",
+      "route": "watch",
+      "completionPercent": 97,
+      "meanCoins": 114,
+      "meanStepsSpent": 75,
+      "meanLastBattleRounds": 5.8
+    },
+    {
+      "class": "ranger",
+      "route": "grove",
+      "completionPercent": 100,
+      "meanCoins": 80,
+      "meanStepsSpent": 50,
+      "meanLastBattleRounds": 3.9
+    },
+    {
+      "class": "ranger",
+      "route": "ruins",
+      "completionPercent": 100,
+      "meanCoins": 112,
+      "meanStepsSpent": 75,
+      "meanLastBattleRounds": 5.6
+    },
+    {
+      "class": "ranger",
+      "route": "research",
+      "completionPercent": 100,
+      "meanCoins": 47,
+      "meanStepsSpent": 400,
+      "meanLastBattleRounds": 5.6
+    },
+    {
+      "class": "ranger",
+      "route": "pass",
+      "completionPercent": 72,
+      "meanCoins": 108,
+      "meanStepsSpent": 100,
+      "meanLastBattleRounds": 6.2
+    },
+    {
+      "class": "ranger",
+      "route": "watch",
+      "completionPercent": 100,
+      "meanCoins": 117,
+      "meanStepsSpent": 75,
+      "meanLastBattleRounds": 5.1
+    },
+    {
+      "class": "rogue",
+      "route": "grove",
+      "completionPercent": 100,
+      "meanCoins": 80,
+      "meanStepsSpent": 50,
+      "meanLastBattleRounds": 3.9
+    },
+    {
+      "class": "rogue",
+      "route": "ruins",
+      "completionPercent": 99,
+      "meanCoins": 111,
+      "meanStepsSpent": 75,
+      "meanLastBattleRounds": 5.6
+    },
+    {
+      "class": "rogue",
+      "route": "research",
+      "completionPercent": 99,
+      "meanCoins": 47,
+      "meanStepsSpent": 400,
+      "meanLastBattleRounds": 5.6
+    },
+    {
+      "class": "rogue",
+      "route": "pass",
+      "completionPercent": 59,
+      "meanCoins": 95,
+      "meanStepsSpent": 100,
+      "meanLastBattleRounds": 6
+    },
+    {
+      "class": "rogue",
+      "route": "watch",
+      "completionPercent": 100,
+      "meanCoins": 117,
+      "meanStepsSpent": 75,
+      "meanLastBattleRounds": 5.1
+    },
+    {
+      "class": "druid",
+      "route": "grove",
+      "completionPercent": 100,
+      "meanCoins": 80,
+      "meanStepsSpent": 50,
+      "meanLastBattleRounds": 4.5
+    },
+    {
+      "class": "druid",
+      "route": "ruins",
+      "completionPercent": 99,
+      "meanCoins": 111,
+      "meanStepsSpent": 75,
+      "meanLastBattleRounds": 6.1
+    },
+    {
+      "class": "druid",
+      "route": "research",
+      "completionPercent": 99,
+      "meanCoins": 47,
+      "meanStepsSpent": 400,
+      "meanLastBattleRounds": 6.1
+    },
+    {
+      "class": "druid",
+      "route": "pass",
+      "completionPercent": 51,
+      "meanCoins": 86,
+      "meanStepsSpent": 100,
+      "meanLastBattleRounds": 6.6
+    },
+    {
+      "class": "druid",
+      "route": "watch",
+      "completionPercent": 100,
+      "meanCoins": 117,
+      "meanStepsSpent": 75,
+      "meanLastBattleRounds": 5.8
+    },
+    {
+      "class": "berserker",
+      "route": "grove",
+      "completionPercent": 100,
+      "meanCoins": 80,
+      "meanStepsSpent": 50,
+      "meanLastBattleRounds": 3.4
+    },
+    {
+      "class": "berserker",
+      "route": "ruins",
+      "completionPercent": 100,
+      "meanCoins": 111,
+      "meanStepsSpent": 75,
+      "meanLastBattleRounds": 4.2
+    },
+    {
+      "class": "berserker",
+      "route": "research",
+      "completionPercent": 100,
+      "meanCoins": 47,
+      "meanStepsSpent": 400,
+      "meanLastBattleRounds": 4.2
+    },
+    {
+      "class": "berserker",
+      "route": "pass",
+      "completionPercent": 100,
+      "meanCoins": 140,
+      "meanStepsSpent": 100,
+      "meanLastBattleRounds": 5.5
+    },
+    {
+      "class": "berserker",
+      "route": "watch",
+      "completionPercent": 100,
+      "meanCoins": 117,
+      "meanStepsSpent": 75,
+      "meanLastBattleRounds": 4.1
+    }
+  ],
+  "date": "2026-10-30",
+  "version": "1.2.0",
+  "totalSimulations": 3000,
+  "atlasPrerequisite": "One synthetic completed Guild chapter per hero; no Garmin requests.",
+  "interpretation": "The Beacon uses the Ruins entry cost and reward scale. With this fixed starter-gear strategy it is slightly easier; results do not represent all builds or manual combat."
+}

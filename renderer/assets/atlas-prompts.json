@@ -1,0 +1,21 @@
+{
+  "generator": "ImageGen integrato (image_gen.imagegen)",
+  "date": "2026-10-30",
+  "assets": [
+    {
+      "file": "atlas-refuge.png",
+      "prompt": "Use case: stylized-concept. Asset type: original pixel-art fantasy overworld map for StepQuest RPG, very wide landscape approximately 2:1, usable as a whole clickable map. Province of a medieval adventurer's refuge. A richly detailed cohesive bird's-eye illustrated terrain map with crisp deliberate pixel clusters, 32-bit JRPG world-map quality, forest-green and antique-gold palette, warm earth and stone, subtle parchment at the edges. Explicit landmark layout, centers given as approximate percent of the full image: a cozy small walled town with amber roofs at (16%,76%); a forest trail clearing at (25%,48%); lantern caravan camp at (14%,22%); an abandoned stone mine portal in foothills at (45%,25%); a high mountain rune sanctuary at (59%,13%); riverside settlement and jetty at (73%,28%); a broad river crossing with two small piers but NO intact bridge at (78%,63%); an immense ancient oak in a central clearing at (43%,54%); an old circular wishing well and standing stones at (57%,80%); a solitary ruined beacon watchtower on a rocky rise at (91%,36%). Mountains stretch along the north, dense woods to west, river snakes through eastern third, winding dirt roads link landmarks, decorative tiny flowers and luminous mineral flecks, soft mist in remote corners. Keep landmarks distinctly recognizable and separated, preserve walkable clearings around them for interactive marker overlays. No labels, no letters, no numbers, no legend, no compass, no markers, no pins, no UI, no frame, no characters, no logos, no watermark. No isometric grid, no modern elements, no blurry painterly or photographic surfaces. Finished original pixel-art game map.",
+      "transparent_background": false
+    },
+    {
+      "file": "scene-watch.png",
+      "prompt": "Use case: stylized-concept. Asset type: original background for StepQuest desktop pixel-art RPG. Landscape about 16:10. Exterior of a ruined medieval beacon tower called the Lantern Watch, beside a great winding river at blue dusk. A tall weathered stone watchtower in the upper right, its broken crown lit by amber lanterns, stone bridge ruins and waterfall in the distant valley, ancient rune stones, scattered brass lanterns and overgrown flagstones. Vast open central courtyard and lower foreground for hero and enemy sprites; props and visual detail concentrated near edges and back. Atmosphere: mysterious but welcoming high fantasy, emerald and deep blue twilight, warm gold firelight, crisp hand-placed pixel clusters, detailed classic 32-bit JRPG environmental art, slightly elevated three-quarter view. Full bleed finished environment only. No people, no monsters, no letters or numbers, no signs, no UI, no frame, no logo, no watermark, no photography, no blurred painting.",
+      "transparent_background": false
+    },
+    {
+      "file": "monsters/warden.png",
+      "prompt": "Use case: stylized-concept. Asset type: original enemy sprite for StepQuest pixel-art fantasy RPG. One single full-body Lantern Warden, a solemn ancient stone-and-bronze knight with a dark emerald cloak, a closed weathered helmet with a small warm amber glow in the eye slit, holding a tall pole lantern in one hand and a broad battered round shield in the other. Moss and tiny rune stones on the armor, amber lantern as focal point. Facing slightly left in three-quarter battle stance, feet visible, balanced silhouette, all equipment fully inside image with generous transparent margin. Crisp deliberately stepped pixel clusters, classic detailed 32-bit JRPG monster sprite, limited earthy palette, no smooth gradients. Centered isolated sprite with a truly transparent background. No floor, no cast ground shadow, no pedestal, no scene, no text, no numbers, no UI, no other characters, no logo, no watermark.",
+      "transparent_background": true
+    }
+  ]
+}

@@ -3,7 +3,7 @@ const {test}=require('node:test');const assert=require('node:assert/strict');con
 function load(saved='it'){
  const store=new Map([['stepquest.language',saved]]),body={nodeType:1,closest:()=>false,getAttribute:()=>null},document={body,documentElement:{},createTreeWalker:()=>({nextNode:()=>null}),dispatchEvent:()=>{}};
  const context=vm.createContext({window:{},document,localStorage:{getItem:k=>store.get(k),setItem:(k,v)=>store.set(k,v)},MutationObserver:class{observe(){}},Node:{ELEMENT_NODE:1,TEXT_NODE:3},NodeFilter:{SHOW_ELEMENT:1,SHOW_TEXT:4},CustomEvent:class{}});
- for(const file of ['locales','i18n'])vm.runInContext(fs.readFileSync(`renderer/${file}.js`,'utf8'),context);
+ for(const file of ['locales','guild-locales','atlas-locales','chronicle-locales','i18n'])vm.runInContext(fs.readFileSync(`renderer/${file}.js`,'utf8'),context);
  return {i18n:context.window.StepQuestI18n,rows:context.window.StepQuestTranslations,document,store};
 }
 test('all six languages have complete catalog entries and preserve interpolated player data',()=>{
@@ -29,3 +29,9 @@ test('native menus keep editing roles and translated labels in all supported lan
  const {menuTemplate}=require('../lib/ui-menu.cjs');for(const language of ['it','en','fr','es','de','ja']){const menu=menuTemplate(language,'darwin');assert.equal(menu.length,2);assert.deepEqual(menu[1].submenu.filter(item=>item.role).map(item=>item.role),['undo','redo','cut','copy','paste','selectAll']);assert.equal(menu[0].submenu.at(-1).role,'quit');}assert.throws(()=>menuTemplate('invalid'));
 });
 test('alchemy recipes and every reagent are translated in all languages',()=>{const keys=new Set(load().rows.map(row=>row[0])),{REAGENTS,RECIPES}=require('../lib/alchemy-catalog.cjs');for(const entry of [...REAGENTS,...RECIPES])assert.ok(keys.has(entry.name),entry.name);});
+
+test('all Guild stories, endings and titles are translated',()=>{const keys=new Set(load().rows.map(row=>row[0])),{CONTRACTS,STORIES}=require('../lib/guild-catalog.cjs');for(const text of [...STORIES.flatMap(s=>[s.name,s.title]),...CONTRACTS.flatMap(q=>[q.name,q.description,...q.choices.flatMap(c=>[c.label,c.text])])])assert.ok(keys.has(text),text);});
+
+test('all Atlas places, variants, events and expedition branches are translated',()=>{const keys=new Set(load().rows.map(row=>row[0])),{NODES,VARIANTS,WARDEN_TITLE,makeAtlasPlan}=require('../lib/atlas-catalog.cjs'),route=require('../lib/expedition-catalog.cjs').ROUTES.find(r=>r.id==='watch');const values=[WARDEN_TITLE.name,...NODES.flatMap(n=>[n.name,n.region,n.description,...(n.choices||[]).flatMap(c=>[c.label,c.text])]),...Object.values(VARIANTS).flat()];for(const choice of [null,0,1])for(const node of makeAtlasPlan(route,1,()=>.5,{guild:{'caravan-return':choice,'river-bridge':choice,'mountain-pact':choice},events:{oak:choice}}))values.push(node.title,node.text,...node.options.map(o=>o.title));for(const text of values)assert.ok(keys.has(text),text);});
+
+test('all Chronicle badges, objectives, stories and itinerary variants are translated',()=>{const keys=new Set(load().rows.map(r=>r[0])),{BADGES,TOUR}=require('../lib/chronicle-catalog.cjs');for(const text of [...BADGES.flatMap(b=>[b.name,b.objective,b.story,...b.titleReward?[b.titleReward.name]:[]]),...TOUR.flatMap(s=>[s.name,s.text,...s.variants||[]])])assert.ok(keys.has(text),text);});

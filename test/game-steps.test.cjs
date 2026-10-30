@@ -38,6 +38,9 @@ test('import giornaliero: a mezzanotte usa la nuova data senza recuperare giorni
  assert.equal((await service.sync()).hero.steps,200);assert.equal((await service.sync()).stepsImport.credited,0);
  assert.deepEqual(calls,[range,{from:'2026-10-30',to:'2026-10-30'},{from:'2026-10-30',to:'2026-10-30'}]);
 });
+test('import interrotto dalla mezzanotte conserva i dati senza accreditare la giornata precedente',async t=>{
+ const f=fixture(t),service=f.service({getSteps:async(from,to)=>{f.setDay('2026-10-30');return snapshot(from,to,1000);}});await assert.rejects(service.sync(),/giornata è cambiata/);assert.equal(f.repository.read(scope,'2026-10-29','2026-10-29').days[0].steps,1000);assert.equal(f.game.state(f.hero.id).hero.steps,0);
+});
 test('import giornaliero: zero e assenza di dati non creano accrediti',async t=>{
  const f=fixture(t);let steps=null;
  const service=f.service({getSteps:async(from,to)=>snapshot(from,to,steps)});
@@ -113,4 +116,10 @@ test('passi per eroe: storico legacy senza data attribuibile evita nuovi accredi
 test('passi per eroe: scope Garmin distinti e contatori persistenti dopo nuova connessione del gioco',async t=>{
  const f=fixture(t);f.repository.save(scope,snapshot(range.from,range.to,300));f.game.claimSteps(f.hero.id,scope);const otherScope=scopeForKey('other-source');f.repository.save(otherScope,snapshot(range.from,range.to,500));assert.equal(f.game.claimSteps(f.hero.id,otherScope).hero.steps,800);
  const next=createGameRepository(f.file,{rng:()=>.5});try{assert.throws(()=>next.claimSteps(f.hero.id,scope));assert.throws(()=>next.claimSteps(f.hero.id,otherScope));assert.equal(next.state(f.hero.id).hero.steps,800);}finally{next.close();}
+});
+
+test('Cronache: importa attività senza incarico Gilda e senza scaricare passi storici',async t=>{
+ const f=fixture(t),calls=[];f.repository.bindIdentity(scope,'123456','2026-10-29T10:00:00Z');
+ const service=f.service({getSteps:async(from,to)=>{calls.push(['steps',from,to]);return snapshot(from,to,100);},getActivities:async(from,to)=>{calls.push(['activities',from,to]);return {from,to,fetchedAt:'2026-10-29T12:00:00Z',activities:[]};}});
+ const state=await service.sync();assert.equal(state.guild.active,null);assert.equal(state.stepsImport.guildSync.activities,'online');assert.equal(state.stepsImport.guildSync.history,'not_requested');assert.deepEqual(calls,[['steps','2026-10-29','2026-10-29'],['activities','2026-10-23','2026-10-29']]);assert.equal(state.hero.steps,100);
 });

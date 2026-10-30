@@ -17,6 +17,25 @@ function mockClient(handler, options = {}) {
   return { client, calls };
 }
 const json = value => new Response(JSON.stringify(value), { status: 200 });
+const recorded=(id,extra={})=>({activityId:id,startTimeLocal:'2026-10-28 09:00:00',startTimeGMT:'2026-10-28 08:00:00',duration:1200,elapsedDuration:1250,distance:2000,elevationGain:10,activityType:{typeKey:'walking'},manualActivity:false,parentId:null,...extra});
+
+test('identità Garmin: usa solo userProfilePk autenticato, cache e rifiuto di identità discordanti',async()=>{
+ const {client,calls}=mockClient(path=>path===TOKEN_PATH?new Response(validJwt):json({data:[{userProfilePk:123},{userProfilePk:123}]}));assert.equal(await client.getAccountIdentity('2026-10-28'),'123');assert.equal(await client.getAccountIdentity('2026-10-28'),'123');assert.equal(calls.filter(c=>c.method==='GET').length,1);
+ for(const data of [[{userProfilePk:123},{userProfilePk:456}],[{userProfilePk:-1}]]){const f=mockClient(path=>path===TOKEN_PATH?new Response(validJwt):json({data}));await assert.rejects(f.client.getAccountIdentity('2026-10-28'),e=>e.code==='INVALID_RESPONSE');}
+ const empty=mockClient(path=>path===TOKEN_PATH?new Response(validJwt):json({data:[]}));assert.equal(await empty.client.getAccountIdentity('2026-10-28'),null);
+});
+test('attività: paginazione completa, ID unici, solo riepiloghi e nessun nome o GPS nel risultato',async()=>{
+ const page=Array.from({length:50},(_,i)=>recorded(i+1,{activityName:'PRIVATE',startLatitude:42}));const {client,calls}=mockClient(path=>path===TOKEN_PATH?new Response(validJwt):json(path.includes('start=0&')?page:[page[0],recorded(51)]));const result=await client.getActivities('2026-10-28','2026-10-28');assert.equal(result.activities.length,51);assert.equal(result.activities[0].kind,'walk');assert.equal(JSON.stringify(result).includes('PRIVATE'),false);assert.equal(JSON.stringify(result).includes('Latitude'),false);assert.ok(calls.filter(c=>c.method==='GET').every(c=>c.url.includes('excludeChildren=true')));
+});
+test('attività: ignora manuali, figli multisport e sessioni future; mantiene data locale e UTC',async()=>{
+ const {client}=mockClient(path=>path===TOKEN_PATH?new Response(validJwt):json([recorded(1,{manualActivity:true}),recorded(2,{parentId:99}),recorded(3,{startTimeLocal:'2026-10-28 15:00:00',startTimeGMT:'2026-10-28 14:00:00'}),recorded(4,{startTimeLocal:'2026-10-28 01:00:00',startTimeGMT:'2026-10-27 23:00:00',activityType:{typeKey:'lap_swimming'}})]));const result=await client.getActivities('2026-10-28','2026-10-28');assert.equal(result.activities.length,1);assert.equal(result.activities[0].date,'2026-10-28');assert.equal(result.activities[0].startedAt,Date.parse('2026-10-27T23:00:00Z'));assert.equal(result.activities[0].kind,'swim');
+});
+test('attività: risposte malformate, durate invalide e copie discordanti non danno risultati parziali',async()=>{
+ for(const payload of [{data:[]},[recorded(1,{duration:-1})],[recorded(1),recorded(1,{distance:3000})],[recorded(1,{activityId:Number.MAX_SAFE_INTEGER+1})],[recorded(1,{startTimeGMT:'2026-10-28 99:00:00'})]]){const {client}=mockClient(path=>path===TOKEN_PATH?new Response(validJwt):json(payload));await assert.rejects(client.getActivities('2026-10-28','2026-10-28'),e=>e.code==='INVALID_RESPONSE');}
+});
+test('attività: lookback massimo di sette giorni e limite pagine esplicito',async()=>{
+ const {client,calls}=mockClient(path=>path===TOKEN_PATH?new Response(validJwt):json(Array.from({length:50},(_,i)=>recorded(i+1))));await assert.rejects(client.getActivities('2026-10-20','2026-10-28'));assert.equal(calls.length,0);await assert.rejects(client.getActivities('2026-10-28','2026-10-28'),e=>e.code==='ACTIVITY_LIMIT');assert.equal(calls.filter(c=>c.method==='GET').length,20);
+});
 
 test('autenticazione ApiKey senza corpo, JWT in testo e lettura Bearer', async () => {
   const { client, calls } = mockClient((path, init) => {

@@ -1,0 +1,168 @@
+{
+  "version": "1.2.0",
+  "checkedOn": "2026-10-30",
+  "status": "prepublication-local-checkpoint",
+  "tests": {
+    "unitAndIntegration": {
+      "passed": 248,
+      "failed": 0
+    },
+    "renderer": {
+      "layoutScreens": 625,
+      "contrastScreens": 625,
+      "rendererErrors": 0,
+      "languages": [
+        "it",
+        "en",
+        "fr",
+        "es",
+        "de",
+        "ja"
+      ],
+      "note": "Full final-source suite: 625 layout and contrast screens across six languages, including individual badge contours and the two-button Guild navigation; zero renderer errors.",
+      "navigation": {
+        "guildScreens": 60,
+        "rendererErrors": 0,
+        "languages": [
+          "it",
+          "en",
+          "fr",
+          "es",
+          "de",
+          "ja"
+        ],
+        "buttons": [
+          "board",
+          "atlas"
+        ],
+        "hudAligned": true
+      }
+    },
+    "migration": {
+      "syntheticFixtures": [
+        {
+          "origin": "v1.0.0",
+          "scenarios": 4
+        },
+        {
+          "origin": "v1.1.0",
+          "scenarios": 2
+        }
+      ],
+      "legacyRowsPreserved": true,
+      "backupsVerified": true
+    },
+    "economy": {
+      "checkpoints": 24,
+      "craftResaleChecks": 30,
+      "negativeBalances": 0,
+      "note": "Existing economy regression retained; Atlas backend tests and 3000 current expedition simulations verify the single entry charge. Guild and Atlas encounters give no economic or stat rewards.",
+      "report": "docs/release-economy-v1.2.0.json"
+    },
+    "packaged": {
+      "mac-arm64": {
+        "packaged": true,
+        "platform": "darwin",
+        "arch": "arm64",
+        "version": "1.2.0",
+        "mine": true,
+        "smith": true,
+        "arena": true,
+        "guild": true,
+        "atlas": true,
+        "chronicles": true,
+        "backgrounds": 6,
+        "rendererErrors": 0,
+        "sourceCheckpoint": {
+          "files": 127,
+          "sha256": "ab7744da049bd115e9abd45d0d98c2c7fd3bb3a390c2a93f5fa9c29218793611"
+        },
+        "archive": "StepQuest-1.2.0-mac-arm64.zip",
+        "sha256": "9428455123fef629abad6f26bd01cad0081dbcaed2bbfe5cf319e3207a39d833"
+      },
+      "mac-x64": {
+        "verified": false,
+        "status": "Not built for this change; existing CI configured"
+      },
+      "windows-x64": {
+        "verified": false,
+        "status": "Not built for this change; existing CI configured"
+      },
+      "linux-x64": {
+        "verified": false,
+        "status": "Not built for this change; existing CI configured"
+      }
+    },
+    "atlas": {
+      "backendScenarios": 9,
+      "classes": 6,
+      "balanceReport": "docs/atlas-balance-v1.2.0.json",
+      "targetedRendererScreens": 91,
+      "rendererErrors": 0,
+      "allRoutesSimulations": 3000,
+      "atlasSimulations": 600,
+      "comparisonRuinsSimulations": 600,
+      "samplesPerRouteAndClass": 100
+    },
+    "chronicles": {
+      "badges": 21,
+      "badgeCellsChecked": 24,
+      "backendScenarios": 11,
+      "targetedRendererScreens": 102,
+      "rendererErrors": 0,
+      "activitySyncWithoutGuild": true,
+      "historicalStepsRequestedOnlyForGuild": true,
+      "realPersonalAccountQueried": false,
+      "contours": {
+        "emblems": 24,
+        "completeOpaqueShapes": true,
+        "neighbourOpaquePixels": 0,
+        "regression": "test/chronicle-art.test.cjs"
+      }
+    }
+  },
+  "garmin": {
+    "newEndpointsTestedWithSyntheticResponses": true,
+    "realPersonalAccountQueried": false,
+    "reference": "https://developer.garmin.com/gc-developer-program/personal/swagger-docs/",
+    "lookbackDays": 7,
+    "pageSize": 50,
+    "maxPages": 20
+  },
+  "source": {
+    "state": "Release v1.2.0 source; tag publication runs the native cross-platform verification workflow",
+    "checkpoint": {
+      "files": 127,
+      "sha256": "ab7744da049bd115e9abd45d0d98c2c7fd3bb3a390c2a93f5fa9c29218793611"
+    }
+  },
+  "publication": {
+    "published": false,
+    "tagCreated": false,
+    "note": "Snapshot recorded before tagging. Publication and native platform results are available in the GitHub Actions run linked from the release."
+  },
+  "assets": [
+    {
+      "file": "renderer/assets/scene-guild.png",
+      "generator": "ImageGen built-in",
+      "prompt": "renderer/assets/scene-prompts.json"
+    },
+    {
+      "files": [
+        "renderer/assets/atlas-refuge.png",
+        "renderer/assets/scene-watch.png",
+        "renderer/assets/monsters/warden.png"
+      ],
+      "generator": "ImageGen built-in",
+      "prompts": "renderer/assets/atlas-prompts.json"
+    },
+    {
+      "files": [
+        "renderer/assets/chronicle-badges.png",
+        "renderer/assets/scene-chronicles.png"
+      ],
+      "generator": "ImageGen built-in",
+      "prompts": "renderer/assets/chronicles-prompts.json"
+    }
+  ]
+}

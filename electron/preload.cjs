@@ -1,6 +1,15 @@
 'use strict';
 const { contextBridge, ipcRenderer } = require('electron');
 contextBridge.exposeInMainWorld('stepquest', Object.freeze({
+  displayChronicle: input => ipcRenderer.invoke('game:chronicle-display',input),
+  readChronicle: input => ipcRenderer.invoke('game:chronicle-read',input),
+  startChronicleTour: () => ipcRenderer.invoke('game:chronicle-tour'),
+  visitAtlas: input => ipcRenderer.invoke('game:atlas-visit',input),
+  chooseAtlas: input => ipcRenderer.invoke('game:atlas-choose',input),
+  acceptGuild: input => ipcRenderer.invoke('game:guild-accept',input),
+  claimGuild: input => ipcRenderer.invoke('game:guild-claim',input),
+  abandonGuild: input => ipcRenderer.invoke('game:guild-abandon',input),
+  equipGuildTitle: input => ipcRenderer.invoke('game:guild-title',input),
   previewCraft: input => ipcRenderer.invoke('game:smith-quote', input),
   queueMining: input => ipcRenderer.invoke('game:mine-next', input),
   startMining: input => ipcRenderer.invoke('game:mine-start', input),

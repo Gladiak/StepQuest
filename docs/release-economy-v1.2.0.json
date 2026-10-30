@@ -1,0 +1,1204 @@
+{
+  "version": "1.2.0",
+  "kind": "Synthetic deterministic regression scenarios; not a player-retention or enjoyment study.",
+  "assumptions": {
+    "initialLevels": [
+      1,
+      10,
+      30,
+      45
+    ],
+    "stepsPerDay": [
+      0,
+      1000,
+      8000
+    ],
+    "checkpoints": [
+      7,
+      30
+    ],
+    "seed": 12345,
+    "activePlayLimit": {
+      "worldBattlesPerDay": 20,
+      "craftsPerDay": 3
+    },
+    "miningHoursPerDay": 24,
+    "arenaPolicy": "Three free challenges; up to three additional challenges paid with coins if affordable.",
+    "initialGold": 0,
+    "startingGear": "Starter only at level 1; six ordinary common pieces of the initial level for advanced profiles.",
+    "stepCredits": "Synthetic daily credits injected into the temporary wallet; Garmin synchronization is separately tested.",
+    "policy": "Convert up to half the daily steps to coins. Rest when affordable or emergency recovery is available. After a defeat, attempt five safe victories before advancing again. Equip useful drops and crafted pieces; sell other new drops. Reserve one craft before paying extra Arena fees. Upgrade mine tools when three crafts remain affordable. Refine the weapon to rank 1 when affordable."
+  },
+  "scenarios": [
+    {
+      "initialLevel": 1,
+      "stepsPerDay": 0,
+      "days": 7,
+      "heroLevel": 3,
+      "depth": 1,
+      "coins": 0,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 1,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 1742
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 432
+        },
+        {
+          "id": "adamantite",
+          "quantity": 96
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 19
+        },
+        {
+          "id": "void_opal",
+          "quantity": 0
+        }
+      ],
+      "arenaXp": 288,
+      "worldWins": 0,
+      "worldLosses": 0,
+      "crafts": 0,
+      "craftGoldSpent": 0,
+      "craftSaleGold": 0
+    },
+    {
+      "initialLevel": 1,
+      "stepsPerDay": 0,
+      "days": 30,
+      "heroLevel": 9,
+      "depth": 1,
+      "coins": 0,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 1,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 8344
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 2640
+        },
+        {
+          "id": "adamantite",
+          "quantity": 2304
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 162
+        },
+        {
+          "id": "void_opal",
+          "quantity": 41
+        }
+      ],
+      "arenaXp": 2436,
+      "worldWins": 0,
+      "worldLosses": 0,
+      "crafts": 0,
+      "craftGoldSpent": 0,
+      "craftSaleGold": 0
+    },
+    {
+      "initialLevel": 1,
+      "stepsPerDay": 1000,
+      "days": 7,
+      "heroLevel": 61,
+      "depth": 141,
+      "coins": 54398,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 4,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 1809
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 351
+        },
+        {
+          "id": "adamantite",
+          "quantity": 57
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 17
+        },
+        {
+          "id": "void_opal",
+          "quantity": 0
+        }
+      ],
+      "arenaXp": 3654,
+      "worldWins": 140,
+      "worldLosses": 0,
+      "crafts": 21,
+      "craftGoldSpent": 19818,
+      "craftSaleGold": 3202
+    },
+    {
+      "initialLevel": 1,
+      "stepsPerDay": 1000,
+      "days": 30,
+      "heroLevel": 258,
+      "depth": 601,
+      "coins": 1145526,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 9,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 10600
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 2559
+        },
+        {
+          "id": "adamantite",
+          "quantity": 1062
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 184
+        },
+        {
+          "id": "void_opal",
+          "quantity": 41
+        }
+      ],
+      "arenaXp": 68688,
+      "worldWins": 600,
+      "worldLosses": 0,
+      "crafts": 90,
+      "craftGoldSpent": 297036,
+      "craftSaleGold": 68337
+    },
+    {
+      "initialLevel": 1,
+      "stepsPerDay": 8000,
+      "days": 7,
+      "heroLevel": 61,
+      "depth": 141,
+      "coins": 54854,
+      "steps": 22940,
+      "mineLevel": 10,
+      "smithLevel": 4,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 1982
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 354
+        },
+        {
+          "id": "adamantite",
+          "quantity": 57
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 28
+        },
+        {
+          "id": "void_opal",
+          "quantity": 0
+        }
+      ],
+      "arenaXp": 3600,
+      "worldWins": 140,
+      "worldLosses": 0,
+      "crafts": 21,
+      "craftGoldSpent": 19602,
+      "craftSaleGold": 3692
+    },
+    {
+      "initialLevel": 1,
+      "stepsPerDay": 8000,
+      "days": 30,
+      "heroLevel": 258,
+      "depth": 601,
+      "coins": 1406061,
+      "steps": 97440,
+      "mineLevel": 10,
+      "smithLevel": 9,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 10792
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 2562
+        },
+        {
+          "id": "adamantite",
+          "quantity": 1062
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 155
+        },
+        {
+          "id": "void_opal",
+          "quantity": 44
+        }
+      ],
+      "arenaXp": 68508,
+      "worldWins": 600,
+      "worldLosses": 0,
+      "crafts": 90,
+      "craftGoldSpent": 296316,
+      "craftSaleGold": 70623
+    },
+    {
+      "initialLevel": 10,
+      "stepsPerDay": 0,
+      "days": 7,
+      "heroLevel": 12,
+      "depth": 10,
+      "coins": 0,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 1,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 1742
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 432
+        },
+        {
+          "id": "adamantite",
+          "quantity": 96
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 18
+        },
+        {
+          "id": "void_opal",
+          "quantity": 0
+        }
+      ],
+      "arenaXp": 1044,
+      "worldWins": 0,
+      "worldLosses": 0,
+      "crafts": 0,
+      "craftGoldSpent": 0,
+      "craftSaleGold": 0
+    },
+    {
+      "initialLevel": 10,
+      "stepsPerDay": 0,
+      "days": 30,
+      "heroLevel": 18,
+      "depth": 10,
+      "coins": 0,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 1,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 8344
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 2640
+        },
+        {
+          "id": "adamantite",
+          "quantity": 2304
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 176
+        },
+        {
+          "id": "void_opal",
+          "quantity": 41
+        }
+      ],
+      "arenaXp": 5700,
+      "worldWins": 0,
+      "worldLosses": 0,
+      "crafts": 0,
+      "craftGoldSpent": 0,
+      "craftSaleGold": 0
+    },
+    {
+      "initialLevel": 10,
+      "stepsPerDay": 1000,
+      "days": 7,
+      "heroLevel": 65,
+      "depth": 150,
+      "coins": 47185,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 4,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 1868
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 348
+        },
+        {
+          "id": "adamantite",
+          "quantity": 51
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 20
+        },
+        {
+          "id": "void_opal",
+          "quantity": 0
+        }
+      ],
+      "arenaXp": 4176,
+      "worldWins": 140,
+      "worldLosses": 0,
+      "crafts": 21,
+      "craftGoldSpent": 21834,
+      "craftSaleGold": 3506
+    },
+    {
+      "initialLevel": 10,
+      "stepsPerDay": 1000,
+      "days": 30,
+      "heroLevel": 270,
+      "depth": 610,
+      "coins": 1166713,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 9,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 10678
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 2556
+        },
+        {
+          "id": "adamantite",
+          "quantity": 1008
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 165
+        },
+        {
+          "id": "void_opal",
+          "quantity": 51
+        }
+      ],
+      "arenaXp": 71982,
+      "worldWins": 600,
+      "worldLosses": 0,
+      "crafts": 90,
+      "craftGoldSpent": 310716,
+      "craftSaleGold": 76183
+    },
+    {
+      "initialLevel": 10,
+      "stepsPerDay": 8000,
+      "days": 7,
+      "heroLevel": 65,
+      "depth": 150,
+      "coins": 76575,
+      "steps": 21620,
+      "mineLevel": 10,
+      "smithLevel": 4,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 1868
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 348
+        },
+        {
+          "id": "adamantite",
+          "quantity": 51
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 21
+        },
+        {
+          "id": "void_opal",
+          "quantity": 0
+        }
+      ],
+      "arenaXp": 4266,
+      "worldWins": 140,
+      "worldLosses": 0,
+      "crafts": 21,
+      "craftGoldSpent": 21906,
+      "craftSaleGold": 3124
+    },
+    {
+      "initialLevel": 10,
+      "stepsPerDay": 8000,
+      "days": 30,
+      "heroLevel": 262,
+      "depth": 610,
+      "coins": 1263925,
+      "steps": 97860,
+      "mineLevel": 10,
+      "smithLevel": 9,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 10678
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 2556
+        },
+        {
+          "id": "adamantite",
+          "quantity": 1038
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 188
+        },
+        {
+          "id": "void_opal",
+          "quantity": 30
+        }
+      ],
+      "arenaXp": 70812,
+      "worldWins": 600,
+      "worldLosses": 0,
+      "crafts": 90,
+      "craftGoldSpent": 305172,
+      "craftSaleGold": 71990
+    },
+    {
+      "initialLevel": 30,
+      "stepsPerDay": 0,
+      "days": 7,
+      "heroLevel": 32,
+      "depth": 30,
+      "coins": 0,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 1,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 1742
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 432
+        },
+        {
+          "id": "adamantite",
+          "quantity": 96
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 18
+        },
+        {
+          "id": "void_opal",
+          "quantity": 0
+        }
+      ],
+      "arenaXp": 2724,
+      "worldWins": 0,
+      "worldLosses": 0,
+      "crafts": 0,
+      "craftGoldSpent": 0,
+      "craftSaleGold": 0
+    },
+    {
+      "initialLevel": 30,
+      "stepsPerDay": 0,
+      "days": 30,
+      "heroLevel": 38,
+      "depth": 30,
+      "coins": 0,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 1,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 8344
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 2640
+        },
+        {
+          "id": "adamantite",
+          "quantity": 2304
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 176
+        },
+        {
+          "id": "void_opal",
+          "quantity": 47
+        }
+      ],
+      "arenaXp": 12900,
+      "worldWins": 0,
+      "worldLosses": 0,
+      "crafts": 0,
+      "craftGoldSpent": 0,
+      "craftSaleGold": 0
+    },
+    {
+      "initialLevel": 30,
+      "stepsPerDay": 1000,
+      "days": 7,
+      "heroLevel": 78,
+      "depth": 170,
+      "coins": 72675,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 4,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 1826
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 321
+        },
+        {
+          "id": "adamantite",
+          "quantity": 45
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 21
+        },
+        {
+          "id": "void_opal",
+          "quantity": 0
+        }
+      ],
+      "arenaXp": 6126,
+      "worldWins": 140,
+      "worldLosses": 0,
+      "crafts": 21,
+      "craftGoldSpent": 29610,
+      "craftSaleGold": 4996
+    },
+    {
+      "initialLevel": 30,
+      "stepsPerDay": 1000,
+      "days": 30,
+      "heroLevel": 272,
+      "depth": 630,
+      "coins": 1301746,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 9,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 10636
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 2529
+        },
+        {
+          "id": "adamantite",
+          "quantity": 951
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 181
+        },
+        {
+          "id": "void_opal",
+          "quantity": 45
+        }
+      ],
+      "arenaXp": 77244,
+      "worldWins": 600,
+      "worldLosses": 0,
+      "crafts": 90,
+      "craftGoldSpent": 330948,
+      "craftSaleGold": 74546
+    },
+    {
+      "initialLevel": 30,
+      "stepsPerDay": 8000,
+      "days": 7,
+      "heroLevel": 78,
+      "depth": 170,
+      "coins": 84687,
+      "steps": 21560,
+      "mineLevel": 10,
+      "smithLevel": 4,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 1922
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 318
+        },
+        {
+          "id": "adamantite",
+          "quantity": 45
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 18
+        },
+        {
+          "id": "void_opal",
+          "quantity": 0
+        }
+      ],
+      "arenaXp": 6336,
+      "worldWins": 140,
+      "worldLosses": 0,
+      "crafts": 21,
+      "craftGoldSpent": 29682,
+      "craftSaleGold": 5603
+    },
+    {
+      "initialLevel": 30,
+      "stepsPerDay": 8000,
+      "days": 30,
+      "heroLevel": 278,
+      "depth": 630,
+      "coins": 1360152,
+      "steps": 96900,
+      "mineLevel": 10,
+      "smithLevel": 9,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 10732
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 2526
+        },
+        {
+          "id": "adamantite",
+          "quantity": 894
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 172
+        },
+        {
+          "id": "void_opal",
+          "quantity": 36
+        }
+      ],
+      "arenaXp": 80586,
+      "worldWins": 600,
+      "worldLosses": 0,
+      "crafts": 90,
+      "craftGoldSpent": 343980,
+      "craftSaleGold": 82535
+    },
+    {
+      "initialLevel": 45,
+      "stepsPerDay": 0,
+      "days": 7,
+      "heroLevel": 47,
+      "depth": 45,
+      "coins": 0,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 1,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 1742
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 432
+        },
+        {
+          "id": "adamantite",
+          "quantity": 96
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 18
+        },
+        {
+          "id": "void_opal",
+          "quantity": 0
+        }
+      ],
+      "arenaXp": 3984,
+      "worldWins": 0,
+      "worldLosses": 0,
+      "crafts": 0,
+      "craftGoldSpent": 0,
+      "craftSaleGold": 0
+    },
+    {
+      "initialLevel": 45,
+      "stepsPerDay": 0,
+      "days": 30,
+      "heroLevel": 53,
+      "depth": 45,
+      "coins": 0,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 1,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 8344
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 2640
+        },
+        {
+          "id": "adamantite",
+          "quantity": 2304
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 176
+        },
+        {
+          "id": "void_opal",
+          "quantity": 49
+        }
+      ],
+      "arenaXp": 18300,
+      "worldWins": 0,
+      "worldLosses": 0,
+      "crafts": 0,
+      "craftGoldSpent": 0,
+      "craftSaleGold": 0
+    },
+    {
+      "initialLevel": 45,
+      "stepsPerDay": 1000,
+      "days": 7,
+      "heroLevel": 89,
+      "depth": 185,
+      "coins": 91307,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 4,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 1886
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 294
+        },
+        {
+          "id": "adamantite",
+          "quantity": 39
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 22
+        },
+        {
+          "id": "void_opal",
+          "quantity": 0
+        }
+      ],
+      "arenaXp": 7782,
+      "worldWins": 140,
+      "worldLosses": 0,
+      "crafts": 21,
+      "craftGoldSpent": 36306,
+      "craftSaleGold": 6730
+    },
+    {
+      "initialLevel": 45,
+      "stepsPerDay": 1000,
+      "days": 30,
+      "heroLevel": 293,
+      "depth": 645,
+      "coins": 1325879,
+      "steps": 0,
+      "mineLevel": 10,
+      "smithLevel": 9,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 10696
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 2502
+        },
+        {
+          "id": "adamantite",
+          "quantity": 807
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 173
+        },
+        {
+          "id": "void_opal",
+          "quantity": 42
+        }
+      ],
+      "arenaXp": 86892,
+      "worldWins": 600,
+      "worldLosses": 0,
+      "crafts": 90,
+      "craftGoldSpent": 370332,
+      "craftSaleGold": 99426
+    },
+    {
+      "initialLevel": 45,
+      "stepsPerDay": 8000,
+      "days": 7,
+      "heroLevel": 92,
+      "depth": 185,
+      "coins": 90603,
+      "steps": 22640,
+      "mineLevel": 10,
+      "smithLevel": 4,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 1790
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 294
+        },
+        {
+          "id": "adamantite",
+          "quantity": 39
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 20
+        },
+        {
+          "id": "void_opal",
+          "quantity": 0
+        }
+      ],
+      "arenaXp": 8172,
+      "worldWins": 140,
+      "worldLosses": 0,
+      "crafts": 21,
+      "craftGoldSpent": 36954,
+      "craftSaleGold": 5181
+    },
+    {
+      "initialLevel": 45,
+      "stepsPerDay": 8000,
+      "days": 30,
+      "heroLevel": 304,
+      "depth": 645,
+      "coins": 1401004,
+      "steps": 96840,
+      "mineLevel": 10,
+      "smithLevel": 9,
+      "materials": [
+        {
+          "id": "mist_iron",
+          "quantity": 10600
+        },
+        {
+          "id": "moon_silver",
+          "quantity": 2502
+        },
+        {
+          "id": "adamantite",
+          "quantity": 855
+        },
+        {
+          "id": "dawn_gem",
+          "quantity": 183
+        },
+        {
+          "id": "void_opal",
+          "quantity": 52
+        }
+      ],
+      "arenaXp": 84402,
+      "worldWins": 600,
+      "worldLosses": 0,
+      "crafts": 90,
+      "craftGoldSpent": 360036,
+      "craftSaleGold": 79744
+    }
+  ],
+  "arbitrage": [
+    {
+      "level": 1,
+      "rarity": "common",
+      "craftGold": 114,
+      "resaleGold": 14,
+      "profit": -100
+    },
+    {
+      "level": 1,
+      "rarity": "uncommon",
+      "craftGold": 114,
+      "resaleGold": 34,
+      "profit": -80
+    },
+    {
+      "level": 1,
+      "rarity": "rare",
+      "craftGold": 114,
+      "resaleGold": 54,
+      "profit": -60
+    },
+    {
+      "level": 1,
+      "rarity": "mythic",
+      "craftGold": 114,
+      "resaleGold": 74,
+      "profit": -40
+    },
+    {
+      "level": 1,
+      "rarity": "legendary",
+      "craftGold": 114,
+      "resaleGold": 94,
+      "profit": -20
+    },
+    {
+      "level": 4,
+      "rarity": "common",
+      "craftGold": 186,
+      "resaleGold": 23,
+      "profit": -163
+    },
+    {
+      "level": 4,
+      "rarity": "uncommon",
+      "craftGold": 186,
+      "resaleGold": 55,
+      "profit": -131
+    },
+    {
+      "level": 4,
+      "rarity": "rare",
+      "craftGold": 186,
+      "resaleGold": 88,
+      "profit": -98
+    },
+    {
+      "level": 4,
+      "rarity": "mythic",
+      "craftGold": 186,
+      "resaleGold": 121,
+      "profit": -65
+    },
+    {
+      "level": 4,
+      "rarity": "legendary",
+      "craftGold": 186,
+      "resaleGold": 153,
+      "profit": -33
+    },
+    {
+      "level": 8,
+      "rarity": "common",
+      "craftGold": 282,
+      "resaleGold": 35,
+      "profit": -247
+    },
+    {
+      "level": 8,
+      "rarity": "uncommon",
+      "craftGold": 282,
+      "resaleGold": 84,
+      "profit": -198
+    },
+    {
+      "level": 8,
+      "rarity": "rare",
+      "craftGold": 282,
+      "resaleGold": 134,
+      "profit": -148
+    },
+    {
+      "level": 8,
+      "rarity": "mythic",
+      "craftGold": 282,
+      "resaleGold": 183,
+      "profit": -99
+    },
+    {
+      "level": 8,
+      "rarity": "legendary",
+      "craftGold": 282,
+      "resaleGold": 232,
+      "profit": -50
+    },
+    {
+      "level": 15,
+      "rarity": "common",
+      "craftGold": 450,
+      "resaleGold": 56,
+      "profit": -394
+    },
+    {
+      "level": 15,
+      "rarity": "uncommon",
+      "craftGold": 450,
+      "resaleGold": 135,
+      "profit": -315
+    },
+    {
+      "level": 15,
+      "rarity": "rare",
+      "craftGold": 450,
+      "resaleGold": 213,
+      "profit": -237
+    },
+    {
+      "level": 15,
+      "rarity": "mythic",
+      "craftGold": 450,
+      "resaleGold": 292,
+      "profit": -158
+    },
+    {
+      "level": 15,
+      "rarity": "legendary",
+      "craftGold": 450,
+      "resaleGold": 371,
+      "profit": -79
+    },
+    {
+      "level": 30,
+      "rarity": "common",
+      "craftGold": 810,
+      "resaleGold": 101,
+      "profit": -709
+    },
+    {
+      "level": 30,
+      "rarity": "uncommon",
+      "craftGold": 810,
+      "resaleGold": 243,
+      "profit": -567
+    },
+    {
+      "level": 30,
+      "rarity": "rare",
+      "craftGold": 810,
+      "resaleGold": 384,
+      "profit": -426
+    },
+    {
+      "level": 30,
+      "rarity": "mythic",
+      "craftGold": 810,
+      "resaleGold": 526,
+      "profit": -284
+    },
+    {
+      "level": 30,
+      "rarity": "legendary",
+      "craftGold": 810,
+      "resaleGold": 668,
+      "profit": -142
+    },
+    {
+      "level": 45,
+      "rarity": "common",
+      "craftGold": 1170,
+      "resaleGold": 146,
+      "profit": -1024
+    },
+    {
+      "level": 45,
+      "rarity": "uncommon",
+      "craftGold": 1170,
+      "resaleGold": 351,
+      "profit": -819
+    },
+    {
+      "level": 45,
+      "rarity": "rare",
+      "craftGold": 1170,
+      "resaleGold": 555,
+      "profit": -615
+    },
+    {
+      "level": 45,
+      "rarity": "mythic",
+      "craftGold": 1170,
+      "resaleGold": 760,
+      "profit": -410
+    },
+    {
+      "level": 45,
+      "rarity": "legendary",
+      "craftGold": 1170,
+      "resaleGold": 965,
+      "profit": -205
+    }
+  ],
+  "performance": [
+    {
+      "items": 8,
+      "medianStateMs": 0.81,
+      "payloadKB": 62.6
+    },
+    {
+      "items": 108,
+      "medianStateMs": 1.77,
+      "payloadKB": 265.1
+    },
+    {
+      "items": 508,
+      "medianStateMs": 6.63,
+      "payloadKB": 1074.8
+    },
+    {
+      "items": 2008,
+      "medianStateMs": 25.65,
+      "payloadKB": 4111.5
+    }
+  ]
+}

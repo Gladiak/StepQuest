@@ -8,7 +8,7 @@
 
 StepQuest is a pixel-art fantasy RPG that turns your daily Garmin steps into adventures. Battle monsters, collect loot, explore branching expeditions, and grow your hero through the steps you take in the real world.
 
-[Download the latest release](https://github.com/Gladiak/StepQuest/releases/latest) · [Game rules](docs/game-loop.md) · [Report an issue](https://github.com/Gladiak/StepQuest/issues)
+[Download the latest release](https://github.com/Gladiak/StepQuest/releases/latest) · [Changelog](CHANGELOG.md) · [Game rules](docs/game-loop.md) · [Report an issue](https://github.com/Gladiak/StepQuest/issues)
 
 ![StepQuest — a fantasy adventure powered by your daily steps](docs/images/welcome.png)
 
@@ -18,6 +18,7 @@ Import today's steps from your Garmin account and spend them on battles, expedit
 
 - **Six hero classes:** Guardian, Arcanist, Ranger, Rogue, Druid, and Berserker, with twelve original character sprites and three local save slots.
 - **Turn-based battles:** choose your actions or use automatic combat, challenge elite enemies, and collect experience, coins, and equipment.
+- **Equipment refinement and targeted searches:** invest steps in five permanent refinement ranks or a four-stage search offering a choice of two equipment rewards.
 - **Branching expeditions:** choose a route, face story events, manage supplies, and decide whether to return with your loot or face the final guardian.
 - **Loot and equipment:** discover six rarities, compare upgrades, complete class sets, and hunt rare endgame collections.
 - **Market and alchemy:** buy and sell gear, exchange steps for coins, and permanently enchant individual items with rare reagents.
@@ -25,6 +26,9 @@ Import today's steps from your Garmin account and spend them on battles, expedit
 - **Blacksmith:** craft equipment with ore and coins, level the profession for better rarity chances, reforge attributes while preserving upgrades, and refine gear with steps.
 - **PvE arena:** practise with separate health, earn three free daily XP rewards, and unlock three additional challenges with coins or steps.
 - **Daily Garmin effects:** supported activity, sleep, and stress data can affect the day's adventure; unavailable data stays neutral.
+- **Explorers’ Guild and Wanderer’s Atlas:** six movement-based story chapters, permanent choices on a pixel-art province map, two encounters and the Lantern Beacon expedition with its own Warden. Existing Guild progress carries over.
+- **Refuge Chronicles:** 21 illustrated keepsakes for walking, recorded activities, exploration and professions; a five-stop Lantern Circuit; two cosmetic titles; and three personal banner seals. Every keepsake has a story, with permanent dates and a choice-specific Oak emblem.
+- **A book of memories:** open the Chronicles from the Guild board or your profile, track milestones and equip three keepsake seals. The Guild navigation keeps Board and Atlas side by side.
 - **Six interface languages:** English, Italian, French, Spanish, German, and Japanese.
 - **Local saves:** characters, inventory, progress, and imported steps are stored in SQLite on your computer, with verified backups before migrations and recovery on startup failure.
 
@@ -34,20 +38,20 @@ Import today's steps from your Garmin account and spend them on battles, expedit
 
 ## Download and play
 
-Get the files from the [Releases page](https://github.com/Gladiak/StepQuest/releases). The v1.1.0 candidate is being validated; its downloads appear after publication.
+Download **v1.2.0** from the [Releases page](https://github.com/Gladiak/StepQuest/releases/tag/v1.2.0). See the [release notes](docs/release-notes-v1.2.0.md) for the Guild, Atlas, Chronicles and save compatibility details. Each release includes a `SHA256SUMS.txt` file for verifying the downloads.
 
 | Platform | Download |
 | --- | --- |
-| macOS — Apple Silicon | `StepQuest-1.1.0-mac-arm64.zip` |
-| macOS — Intel | `StepQuest-1.1.0-mac-x64.zip` |
-| Windows — x64 portable | `StepQuest-1.1.0-windows-x64-portable.exe` |
-| Linux — x64 AppImage | `StepQuest-1.1.0-linux-x86_64.AppImage` |
-| Debian / Ubuntu — x64 | `StepQuest-1.1.0-linux-amd64.deb` |
-| Fedora / RPM distributions — x64 | `StepQuest-1.1.0-linux-x86_64.rpm` |
+| macOS — Apple Silicon | `StepQuest-1.2.0-mac-arm64.zip` |
+| macOS — Intel | `StepQuest-1.2.0-mac-x64.zip` |
+| Windows — x64 portable | `StepQuest-1.2.0-windows-x64-portable.exe` |
+| Linux — x64 AppImage | `StepQuest-1.2.0-linux-x86_64.AppImage` |
+| Debian / Ubuntu — x64 | `StepQuest-1.2.0-linux-amd64.deb` |
+| Fedora / RPM distributions — x64 | `StepQuest-1.2.0-linux-x86_64.rpm` |
 
-On macOS, extract the ZIP and move **StepQuest.app** to Applications. On Windows, run the portable executable. On Linux, install the DEB/RPM package or make the AppImage executable with `chmod +x StepQuest-1.1.0-linux-x86_64.AppImage` and run it. AppImage may require your distribution's FUSE compatibility package.
+On macOS, extract the ZIP and move **StepQuest.app** to Applications. On Windows, run the portable executable. On Linux, install the DEB/RPM package or make the AppImage executable with `chmod +x StepQuest-1.2.0-linux-x86_64.AppImage` and run it. AppImage may require your distribution's FUSE compatibility package.
 
-The v1.1.0 macOS and Windows builds are unsigned; macOS is also not notarized. Your operating system may display a security warning or require explicit approval before opening the app.
+The macOS package is ad-hoc signed and not notarized; Windows signing is not configured. Your operating system may display a security warning or require explicit approval before opening the app.
 
 Create a hero, open **Settings**, and enter your own Garmin Connect Personal API key to import today's steps. A valid Personal API key and internet access are required for Garmin synchronization. Character creation and access to existing local saves work offline.
 
@@ -95,7 +99,3 @@ See the [game rules](docs/game-loop.md), [loot catalog](docs/loot-library.json),
 ## License
 
 [MIT](LICENSE). Bundled fonts retain their [SIL Open Font Licenses](renderer/assets/fonts/README.md).
-
-I passi finanziano anche due investimenti opzionali. Nel **Laboratorio → Rifinitura** si migliora un pezzo indossato con cinque gradi garantiti, +6% per grado fino a +30% su basi e affissi positivi; costi base 300/600/1.000/1.500/2.200 passi, adattati al livello dell’oggetto. Malus e incantamenti restano invariati. Il grado si conserva sul pezzo ed è protetto dalle vendite in blocco.
-
-In **Spedizioni → Ricerca mirata** si sceglie uno slot o un set ordinario sbloccato della propria classe. Quattro tappe portano a due proposte salvate: si esaminano e se ne riscatta una. Il costo parte da 400 passi per slot o 600 per set e cresce a fasce, fino a 1.000/1.200. Gli Unici restano rari drop del custode. Il filtro bottino si applica al premio scelto e l’interfaccia avvisa se verrà venduto. Regole e persistenza sono descritte in [docs/game-loop.md](docs/game-loop.md).

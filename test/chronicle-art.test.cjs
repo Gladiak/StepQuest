@@ -1,0 +1,16 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),{inflateSync}=require('node:zlib'),{createHash}=require('node:crypto');
+test('24 emblemi: contorni completi, nessun pixel opaco degli emblemi vicini',()=>{
+ const raw=fs.readFileSync('renderer/assets/chronicle-badges.png'),context=vm.createContext({window:{}});vm.runInContext(fs.readFileSync('renderer/chronicle-art.js','utf8'),context);const art=context.window.StepQuestChronicleArt;assert.equal(art.sourceSha256,createHash('sha256').update(raw).digest('hex'));assert.equal(art.badges.length,24);
+ let offset=8,w,h;const parts=[];while(offset<raw.length){const size=raw.readUInt32BE(offset),type=raw.toString('ascii',offset+4,offset+8),data=raw.subarray(offset+8,offset+8+size);if(type==='IHDR'){w=data.readUInt32BE(0);h=data.readUInt32BE(4);assert.equal(data[8],8);assert.equal(data[9],6);assert.equal(data[12],0);}if(type==='IDAT')parts.push(data);offset+=size+12;}
+ const data=inflateSync(Buffer.concat(parts)),stride=w*4,alpha=new Uint8Array(w*h);let prior=new Uint8Array(stride);
+ for(let y=0;y<h;y++){const start=y*(stride+1),filter=data[start],row=Uint8Array.from(data.subarray(start+1,start+stride+1));for(let x=0;x<stride;x++){const a=x>=4?row[x-4]:0,b=prior[x],c=x>=4?prior[x-4]:0;let predictor=0;if(filter===1)predictor=a;else if(filter===2)predictor=b;else if(filter===3)predictor=Math.floor((a+b)/2);else if(filter===4){const p=a+b-c,pa=Math.abs(p-a),pb=Math.abs(p-b),pc=Math.abs(p-c);predictor=pa<=pb&&pa<=pc?a:pb<=pc?b:c;}row[x]=(row[x]+predictor)&255;}for(let x=0;x<w;x++)alpha[y*w+x]=row[x*4+3];prior=row;}
+ const labels=new Int32Array(w*h).fill(-1),components=[],queue=new Int32Array(w*h);
+ for(let pos=0;pos<alpha.length;pos++){if(labels[pos]!==-1||alpha[pos]<32)continue;const id=components.length;let head=0,tail=1,sumX=0,sumY=0;queue[0]=pos;labels[pos]=id;while(head<tail){const p=queue[head++],x=p%w,y=Math.floor(p/w);sumX+=x;sumY+=y;for(const n of [x?p-1:-1,x<w-1?p+1:-1,y?p-w:-1,y<h-1?p+w:-1])if(n>=0&&labels[n]===-1&&alpha[n]>=32){labels[n]=id;queue[tail++]=n;}}components.push({id,count:tail,x:sumX/tail,y:sumY/tail});}
+ const main=components.filter(c=>c.count>500).sort((a,b)=>Math.round((a.y-128)/256)-Math.round((b.y-128)/256)||a.x-b.x),mainIds=new Set(main.map(c=>c.id));assert.equal(main.length,24);
+ for(const [index,sprite]of art.badges.entries()){
+  const rows=new Map();for(const match of sprite.path.matchAll(/M([^Z]+)Z/g)){const vertices=[...match[1].matchAll(/(\d+),(\d+)/g)].map(m=>[Number(m[1]),Number(m[2])]);for(let i=0;i<vertices.length;i++){const a=vertices[i],b=vertices[(i+1)%vertices.length];if(a[0]!==b[0])continue;for(let y=Math.min(a[1],b[1]);y<Math.max(a[1],b[1]);y++){if(!rows.has(y))rows.set(y,[]);rows.get(y).push(a[0]);}}}
+  let own=0,neighbour=0;for(const [y,xs]of rows){xs.sort((a,b)=>a-b);assert.equal(xs.length%2,0);for(let i=0;i<xs.length;i+=2)for(let x=xs[i];x<xs[i+1];x++){const id=labels[y*w+x];if(id===main[index].id)own++;else if(mainIds.has(id))neighbour++;}}
+  assert.equal(own,main[index].count,'taglio del badge '+index);assert.equal(neighbour,0,'frammento vicino al badge '+index);assert.equal(sprite.corePixels,own);assert.ok(sprite.width<=270&&sprite.height<=270);
+ }
+});
