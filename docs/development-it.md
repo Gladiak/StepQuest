@@ -203,6 +203,8 @@ Miniera automatica, Fabbro e Arena PvE sono descritti nelle [regole aggiornate](
 
 ## Release v1.2.0: Gilda, Atlante e Cronache
 
+Il workflow installa le dipendenze con `npm ci` e disattiva esplicitamente la cache npm di GitHub Actions (`package-manager-cache: false`), evitando il ripristino e il salvataggio sul servizio cache soggetto ai limiti di traffico dell’account. Questa impostazione riguarda solo la CI e non modifica i binari della release.
+
 La Gilda, le regole di sincronizzazione e il rinnovo delle chiavi sono descritti in [game-loop.md](game-loop.md#base-garmin-e-gilda-degli-esploratori-v120). Il collaudo mirato si esegue con `npx --no-install electron . --smoke-test --guild`; il collaudo completo include anche questi scenari. `test/guild.test.cjs` verifica progressi, scelte, vincoli settimanali e titoli; `test/garmin-foundation.test.cjs` copre riconciliazione account, contatori e archivio; i casi HTTP rimangono in `test/garmin.test.cjs`.
 
 L’[Atlante del viandante](game-loop.md#atlante-del-viandante-v120) usa `lib/atlas-catalog.cjs` per nodi, collegamenti e varianti; `lib/atlas.cjs` conserva soltanto visite, scelte degli incontri, fotografie delle partenze e traguardi. Il progresso dei capitoli proviene dalle missioni Gilda esistenti. `renderer/atlas.js` compone mappa e dettagli; `renderer/atlas-locales.js` contiene le traduzioni. Mappa, fondale e Custode con prompt completi sono documentati in `renderer/assets/atlas-prompts.json`.

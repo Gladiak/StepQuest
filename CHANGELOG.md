@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Disabled the optional GitHub Actions npm cache to avoid restore warnings when the account's cache egress limit is reached. CI continues to install dependencies with `npm ci` from the lockfile.
+
 ## [1.2.0](https://github.com/Gladiak/StepQuest/releases/tag/v1.2.0) — 2026-10-30
 
 ### Added

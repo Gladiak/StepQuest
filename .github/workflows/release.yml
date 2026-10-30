@@ -40,7 +40,8 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
-          cache: npm
+          # Install from the lockfile without the account-limited Actions cache.
+          package-manager-cache: false
       - run: npm ci
       - run: npm test
       - run: npm run test:release
@@ -81,7 +82,8 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
-          cache: npm
+          # Install from the lockfile without the account-limited Actions cache.
+          package-manager-cache: false
       - run: npm ci
       - name: Electron UI checks with temporary profile
         if: matrix.ui == true
