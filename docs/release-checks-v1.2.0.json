@@ -1,7 +1,7 @@
 {
   "version": "1.2.0",
   "checkedOn": "2026-10-30",
-  "status": "prepublication-local-checkpoint",
+  "status": "published-cross-platform-verified",
   "tests": {
     "unitAndIntegration": {
       "passed": 248,
@@ -36,6 +36,12 @@
           "atlas"
         ],
         "hudAligned": true
+      },
+      "ci": {
+        "layoutScreens": 625,
+        "contrastScreens": 625,
+        "rendererErrors": 0,
+        "workflowRunId": 41108172127
       }
     },
     "migration": {
@@ -77,20 +83,100 @@
           "files": 127,
           "sha256": "ab7744da049bd115e9abd45d0d98c2c7fd3bb3a390c2a93f5fa9c29218793611"
         },
-        "archive": "StepQuest-1.2.0-mac-arm64.zip",
-        "sha256": "9428455123fef629abad6f26bd01cad0081dbcaed2bbfe5cf319e3207a39d833"
+        "verified": true,
+        "workflowRunId": 41108172127,
+        "downloads": [
+          {
+            "file": "StepQuest-1.2.0-mac-arm64.zip",
+            "sha256": "4b8a06ea024c5799b9add9aea1f92605c0bb0576d207de81443c723befce6d95"
+          }
+        ]
       },
       "mac-x64": {
-        "verified": false,
-        "status": "Not built for this change; existing CI configured"
+        "packaged": true,
+        "platform": "darwin",
+        "arch": "x64",
+        "version": "1.2.0",
+        "mine": true,
+        "smith": true,
+        "arena": true,
+        "guild": true,
+        "atlas": true,
+        "chronicles": true,
+        "backgrounds": 6,
+        "rendererErrors": 0,
+        "sourceCheckpoint": {
+          "files": 127,
+          "sha256": "ab7744da049bd115e9abd45d0d98c2c7fd3bb3a390c2a93f5fa9c29218793611"
+        },
+        "verified": true,
+        "workflowRunId": 41108172127,
+        "downloads": [
+          {
+            "file": "StepQuest-1.2.0-mac-x64.zip",
+            "sha256": "e7937405bd0636b26bec187efd1009d5f470be4132ff66c3b9a902c996dfb0ca"
+          }
+        ]
       },
       "windows-x64": {
-        "verified": false,
-        "status": "Not built for this change; existing CI configured"
+        "packaged": true,
+        "platform": "win32",
+        "arch": "x64",
+        "version": "1.2.0",
+        "mine": true,
+        "smith": true,
+        "arena": true,
+        "guild": true,
+        "atlas": true,
+        "chronicles": true,
+        "backgrounds": 6,
+        "rendererErrors": 0,
+        "sourceCheckpoint": {
+          "files": 127,
+          "sha256": "a1d0cd016f2a73183fe00c9b97af9cd913f9e7c7c4c6c2fec448a0920dd9aedd"
+        },
+        "verified": true,
+        "workflowRunId": 41108172127,
+        "downloads": [
+          {
+            "file": "StepQuest-1.2.0-windows-x64-portable.exe",
+            "sha256": "b0247aacb9dff9fe7aeeeb16c38847b4f160ba1ca57bf1959c9f9904a2b927ff"
+          }
+        ]
       },
       "linux-x64": {
-        "verified": false,
-        "status": "Not built for this change; existing CI configured"
+        "packaged": true,
+        "platform": "linux",
+        "arch": "x64",
+        "version": "1.2.0",
+        "mine": true,
+        "smith": true,
+        "arena": true,
+        "guild": true,
+        "atlas": true,
+        "chronicles": true,
+        "backgrounds": 6,
+        "rendererErrors": 0,
+        "sourceCheckpoint": {
+          "files": 127,
+          "sha256": "ab7744da049bd115e9abd45d0d98c2c7fd3bb3a390c2a93f5fa9c29218793611"
+        },
+        "verified": true,
+        "workflowRunId": 41108172127,
+        "downloads": [
+          {
+            "file": "StepQuest-1.2.0-linux-amd64.deb",
+            "sha256": "fb634e0c1a9ca7d1e41eee452d34741ad766585c4433bfaed9a929c57e68d917"
+          },
+          {
+            "file": "StepQuest-1.2.0-linux-x86_64.AppImage",
+            "sha256": "daac3a42ac6d725af3ab2d6efa32d7520c697af81f4b34b901e58709a990dfed"
+          },
+          {
+            "file": "StepQuest-1.2.0-linux-x86_64.rpm",
+            "sha256": "61ed5e93581c7dca6ed58f8f9d36e459d8ddcb52f842215bf9ecd9a37c25b30b"
+          }
+        ]
       }
     },
     "atlas": {
@@ -130,16 +216,71 @@
     "maxPages": 20
   },
   "source": {
-    "state": "Release v1.2.0 source; tag publication runs the native cross-platform verification workflow",
+    "state": "Tagged release source published from the verified commit; final publication report recorded afterwards on main",
     "checkpoint": {
       "files": 127,
       "sha256": "ab7744da049bd115e9abd45d0d98c2c7fd3bb3a390c2a93f5fa9c29218793611"
-    }
+    },
+    "commit": "2ac66e35759eaffaaae995aa7974a4c472ee69af",
+    "tag": "v1.2.0"
   },
   "publication": {
-    "published": false,
-    "tagCreated": false,
-    "note": "Snapshot recorded before tagging. Publication and native platform results are available in the GitHub Actions run linked from the release."
+    "published": true,
+    "tagCreated": true,
+    "url": "https://github.com/Gladiak/StepQuest/releases/tag/v1.2.0",
+    "publishedAt": "2026-10-30T18:52:54Z",
+    "workflow": {
+      "runId": 41108172127,
+      "url": "https://github.com/Gladiak/StepQuest/actions/runs/41108172127",
+      "conclusion": "success",
+      "offlineTests": "success",
+      "nativeBuilds": {
+        "mac-arm64": "success",
+        "mac-x64": "success",
+        "windows-x64": "success",
+        "linux-x64": "success"
+      },
+      "publish": "success"
+    },
+    "checksums": "All six SHA256SUMS.txt entries match the GitHub release asset digests; the checksum file digest is also verified.",
+    "downloads": [
+      {
+        "file": "StepQuest-1.2.0-linux-amd64.deb",
+        "bytes": 165198608,
+        "sha256": "fb634e0c1a9ca7d1e41eee452d34741ad766585c4433bfaed9a929c57e68d917",
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.2.0/StepQuest-1.2.0-linux-amd64.deb"
+      },
+      {
+        "file": "StepQuest-1.2.0-linux-x86_64.AppImage",
+        "bytes": 191498403,
+        "sha256": "daac3a42ac6d725af3ab2d6efa32d7520c697af81f4b34b901e58709a990dfed",
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.2.0/StepQuest-1.2.0-linux-x86_64.AppImage"
+      },
+      {
+        "file": "StepQuest-1.2.0-linux-x86_64.rpm",
+        "bytes": 153898673,
+        "sha256": "61ed5e93581c7dca6ed58f8f9d36e459d8ddcb52f842215bf9ecd9a37c25b30b",
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.2.0/StepQuest-1.2.0-linux-x86_64.rpm"
+      },
+      {
+        "file": "StepQuest-1.2.0-mac-arm64.zip",
+        "bytes": 184622663,
+        "sha256": "4b8a06ea024c5799b9add9aea1f92605c0bb0576d207de81443c723befce6d95",
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.2.0/StepQuest-1.2.0-mac-arm64.zip"
+      },
+      {
+        "file": "StepQuest-1.2.0-mac-x64.zip",
+        "bytes": 190548486,
+        "sha256": "e7937405bd0636b26bec187efd1009d5f470be4132ff66c3b9a902c996dfb0ca",
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.2.0/StepQuest-1.2.0-mac-x64.zip"
+      },
+      {
+        "file": "StepQuest-1.2.0-windows-x64-portable.exe",
+        "bytes": 173129619,
+        "sha256": "b0247aacb9dff9fe7aeeeb16c38847b4f160ba1ca57bf1959c9f9904a2b927ff",
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.2.0/StepQuest-1.2.0-windows-x64-portable.exe"
+      }
+    ]
   },
   "assets": [
     {
