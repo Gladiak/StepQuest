@@ -3,7 +3,7 @@ const {test}=require('node:test');const assert=require('node:assert/strict');con
 function load(saved='it'){
  const store=new Map([['stepquest.language',saved]]),body={nodeType:1,closest:()=>false,getAttribute:()=>null},document={body,documentElement:{},createTreeWalker:()=>({nextNode:()=>null}),dispatchEvent:()=>{}};
  const context=vm.createContext({window:{},document,localStorage:{getItem:k=>store.get(k),setItem:(k,v)=>store.set(k,v)},MutationObserver:class{observe(){}},Node:{ELEMENT_NODE:1,TEXT_NODE:3},NodeFilter:{SHOW_ELEMENT:1,SHOW_TEXT:4},CustomEvent:class{}});
- for(const file of ['locales','guild-locales','atlas-locales','chronicle-locales','i18n'])vm.runInContext(fs.readFileSync(`renderer/${file}.js`,'utf8'),context);
+ for(const file of ['locales','guild-locales','atlas-locales','chronicle-locales','watch-locales','i18n'])vm.runInContext(fs.readFileSync(`renderer/${file}.js`,'utf8'),context);
  return {i18n:context.window.StepQuestI18n,rows:context.window.StepQuestTranslations,document,store};
 }
 test('all six languages have complete catalog entries and preserve interpolated player data',()=>{
@@ -35,3 +35,10 @@ test('all Guild stories, endings and titles are translated',()=>{const keys=new 
 test('all Atlas places, variants, events and expedition branches are translated',()=>{const keys=new Set(load().rows.map(row=>row[0])),{NODES,VARIANTS,WARDEN_TITLE,makeAtlasPlan}=require('../lib/atlas-catalog.cjs'),route=require('../lib/expedition-catalog.cjs').ROUTES.find(r=>r.id==='watch');const values=[WARDEN_TITLE.name,...NODES.flatMap(n=>[n.name,n.region,n.description,...(n.choices||[]).flatMap(c=>[c.label,c.text])]),...Object.values(VARIANTS).flat()];for(const choice of [null,0,1])for(const node of makeAtlasPlan(route,1,()=>.5,{guild:{'caravan-return':choice,'river-bridge':choice,'mountain-pact':choice},events:{oak:choice}}))values.push(node.title,node.text,...node.options.map(o=>o.title));for(const text of values)assert.ok(keys.has(text),text);});
 
 test('all Chronicle badges, objectives, stories and itinerary variants are translated',()=>{const keys=new Set(load().rows.map(r=>r[0])),{BADGES,TOUR}=require('../lib/chronicle-catalog.cjs');for(const text of [...BADGES.flatMap(b=>[b.name,b.objective,b.story,...b.titleReward?[b.titleReward.name]:[]]),...TOUR.flatMap(s=>[s.name,s.text,...s.variants||[]])])assert.ok(keys.has(text),text);});
+
+test('Beacon finale intents and saved personal epilogues translate in all six languages',()=>{
+ const {i18n}=load(),{watchIntent,watchMemory,MECHANIC}=require('../lib/watch-finale.cjs'),values=[];
+ for(const watchPhase of [1,2])for(let round=0;round<3;round++){const intent=watchIntent({mechanic:MECHANIC},round,{watchPhase,watchTurn:round});values.push(intent.label,intent.text);}
+ for(const river of [null,0,1])for(const watchFlameChoice of ['shield','heal']){const memory=watchMemory({guild:{'river-bridge':river}},{watchFlameChoice});values.push(memory.title,memory.passage,memory.flame,memory.ending,memory.home);}
+ for(const language of ['en','fr','es','de','ja']){i18n.setLanguage(language);for(const value of values)assert.notEqual(i18n.translate(value),value,language+': '+value);}
+});

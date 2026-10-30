@@ -1,0 +1,25 @@
+/* The province's finale uses the existing painted map and a restrained light reveal. */
+.watch-finale-dialog{width:790px;background:linear-gradient(145deg,#101e20,#182925 55%,#112023);color:#f1ddaf;border-image:none;border:2px solid #bba05f;box-shadow:0 0 0 6px #101919,0 0 90px #e2b35233}
+.watch-finale-dialog>.eyebrow{color:#ddc589}.watch-finale-dialog>h2{color:#ffe7aa;font-size:25px}.watch-finale-dialog .game-dialog-body>p{color:#eedcb9}.watch-finale-dialog .game-dialog-body{padding-right:12px}
+.watch-kicker{font:10px/1.4 var(--rune);letter-spacing:3px;text-align:center;color:#f2ce7d;margin:0 0 12px}
+.watch-tableau{height:218px;position:relative;isolation:isolate;overflow:hidden;border:1px solid #baa064;background:#102326}
+.watch-tableau>img{width:100%;height:100%;object-fit:fill;image-rendering:pixelated;filter:brightness(.65)}
+.watch-tableau:after{content:'';position:absolute;inset:0;box-shadow:inset 0 0 50px #0b171dcc;pointer-events:none}
+.watch-light-source,.watch-window-light{position:absolute;left:93%;top:19%;width:7px;height:7px;transform:translate(-50%,-50%) rotate(45deg);background:#fff7c9;box-shadow:0 0 10px 3px #ffdf81,0 0 28px 10px #ffbf4366;z-index:2}
+.watch-light-source{width:11px;height:11px}.watch-light-ray{position:absolute;left:93%;top:19%;width:130%;height:140%;transform-origin:0 0;transform:rotate(164deg);background:linear-gradient(165deg,#ffdf8c88,transparent 45%);clip-path:polygon(0 0,100% 0,100% 40%);mix-blend-mode:screen;z-index:1}
+.watch-memory p{font:16px/1.55 var(--text);margin:14px 0;color:inherit}.watch-memory-route{font-style:italic}.watch-memory-ending{border-left:2px solid #b59956;padding-left:14px}.watch-home-voice{margin:18px 0 0;padding:15px;background:#12201f;border-top:1px solid #927b47;color:#f6dfab;font:italic 16px/1.5 var(--text)}
+.watch-call p,.watch-call blockquote{font:17px/1.6 var(--text)}.watch-call blockquote{margin:18px 0;padding:14px;border-left:2px solid #725322;background:#b3986433}.watch-call .watch-call-rules{font-size:14px}
+.game-shell .watch-home-notice{position:absolute;top:154px;left:354px;width:560px;min-height:38px;padding:7px 14px;font:12px/1.4 var(--text);color:#ffdf96;background:#142523;border:1px solid #b19556;box-shadow:0 0 16px #e1ad4522;text-align:center}
+.watch-phase{display:flex;align-items:center;gap:9px;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #ad915788;color:#ffe1a0;font:12px/1.5 var(--rune)}.watch-phase-number{display:grid;place-items:center;min-width:29px;height:29px;border:1px solid #c5a15f;color:#ffe7a5;font:18px/1 var(--rune)}
+.watch-boss-health{width:100%;height:9px;accent-color:#dfbd67;margin:9px 0}.enemy-panel[data-watch-phase]{max-height:465px;overflow:auto;scrollbar-gutter:stable}.enemy-panel[data-watch-phase] .combat-log{max-height:150px}
+.game-shell .enemy-panel[data-watch-phase] .enemy-intent{color:#ffdf96;font-size:14px;line-height:1.5;background:#263128;padding:9px;border:1px solid #8a7647}.game-shell .watch-flame-state{font:13px/1.5 var(--text);color:#efcf86}
+.enemy-panel[data-watch-intent=dawn]{border-image:none;border:3px solid #ebbd69;box-shadow:0 0 24px #e5ad4a55;padding:15px}.enemy-panel[data-watch-intent=exposed] .enemy-intent{border-color:#91b3a0;background:#1d342f;color:#d7f4cf}
+.world-enemy[data-watch-phase="2"] .monster-sprite{filter:drop-shadow(0 0 16px #ffc85e99)}.world-enemy[data-watch-intent=exposed] .monster-sprite{filter:drop-shadow(0 0 12px #b8e6d0aa)}
+.game-shell .watch-report-ending{font-style:italic;color:#f0d99d}.chronicle-page .watch-memory{margin-top:16px;border-top:1px solid #a68b56}.chronicle-page .watch-home-voice{color:#f6dfab}
+@media(prefers-reduced-motion:no-preference){
+ .watch-light-ray{animation:watch-dawn 2.6s ease-out both}.watch-light-source{animation:watch-ignite 1.5s ease-out both}.watch-window-light{animation:watch-ignite 1.2s ease-out var(--light-delay) both}
+ .world-enemy[data-watch-intent=dawn] .monster-sprite{animation:watch-charge 1.8s ease-in-out infinite}
+ @keyframes watch-dawn{from{opacity:0;transform:rotate(200deg)}to{opacity:1;transform:rotate(164deg)}}
+ @keyframes watch-ignite{from{opacity:0;scale:.4}to{opacity:1;scale:1}}
+ @keyframes watch-charge{50%{filter:drop-shadow(0 0 24px #ffce74dd)}}
+}

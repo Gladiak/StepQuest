@@ -3,6 +3,12 @@ const assert = require('node:assert/strict');
 
 // Misura il colore del testo contro lo sfondo realmente renderizzato, incluse texture e gradienti.
 module.exports = async function auditContrast(window, label) {
+  const redraw=async()=>{
+    // A modal may reuse a composited layer from the preceding capture. Explicitly
+    // repaint both hiding and restoring text before sampling another frame.
+    window.webContents.invalidate();
+    await window.webContents.executeJavaScript('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())))');
+  };
   // A toast can expire between measuring its text and capturing its background.
   // Hold its existing visibility only for this snapshot, without changing colors.
   const visibilityKey=await window.webContents.insertCSS('#toast[data-contrast-visible]{display:block!important}');
@@ -48,12 +54,12 @@ module.exports = async function auditContrast(window, label) {
   const key = await window.webContents.insertCSS('body *{-webkit-text-fill-color:transparent!important;text-shadow:none!important}input::placeholder{color:transparent!important}');
   let picture;
   try {
-    await window.webContents.executeJavaScript("getComputedStyle(document.body.firstElementChild).webkitTextFillColor");
+    await redraw();
     // capturePage può restituire l’ultimo frame prima che il compositore ridisegni il testo.
     await new Promise(resolve=>setTimeout(resolve,200));
     picture = await window.webContents.capturePage();
   }
-  finally { await window.webContents.removeInsertedCSS(key); }
+  finally { await window.webContents.removeInsertedCSS(key);await redraw(); }
   const [viewWidth, viewHeight] = window.getContentSize();
   picture = picture.resize({width:viewWidth,height:viewHeight});
   const { width, height } = picture.getSize(), pixels = picture.toBitmap();

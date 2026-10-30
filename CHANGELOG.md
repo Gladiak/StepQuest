@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Expanded the Lantern Beacon into a province finale: the cartographer’s call, playable bridge/ferry consequences, a last-flame healing or protection choice, and a two-phase Warden with announced attacks and vulnerability windows. A replayable light ceremony and personal Chronicle epilogue preserve the journey’s choices, with an optional original chime and all six languages. Existing journeys retain their saved encounters and milestones.
+
+- Reforging now raises equipment to the hero’s level with an itemized upgrade surcharge, preserving its original depth bonus, rarity, set and enhancements. Replaced the item dropdown with a filtered inventory grid and shared item-detail popups; stale quotes cannot spend coins.
+
+- Replaced the equipment power score with background combat trials using the real battle engine. Recommendations account for survival, XP and recovery costs, with bounded caching, separate ring-slot results and stale-response protection.
+
 - Disabled the optional GitHub Actions npm cache to avoid restore warnings when the account's cache egress limit is reached. CI continues to install dependencies with `npm ci` from the lockfile.
 
 ## [1.2.0](https://github.com/Gladiak/StepQuest/releases/tag/v1.2.0) — 2026-10-30

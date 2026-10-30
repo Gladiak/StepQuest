@@ -28,7 +28,7 @@ async function camp(id){
  const hero=unwrap(await api.selectCharacter(id));
  clearTimeout(toastTimer);$('toast').hidden=true;
  const game=unwrap(await api.gameState());
- window.StepQuestGame.mount({game,hero,classInfo:classes.find(x=>x[0]===hero.class_id),el,button,sprite,onSettings:openSettings,onMenu:welcome});
+ window.StepQuestGame.mount({game,el,button,sprite,onSettings:openSettings,onMenu:welcome});
  if(hero.stepsImport?.credited)toast(`Accreditati automaticamente ${new Intl.NumberFormat(window.StepQuestI18n.locale).format(hero.stepsImport.credited)} passi di oggi.`);
 }
 function openDelete(c){deleting=c;$('delete-description').textContent=`Stai per eliminare ${c.name}, equipaggiamento e progressi. Il saldo passi di questo eroe verrà eliminato. Gli altri personaggi non sono coinvolti. Questa storia non potrà essere recuperata.`;$('delete-name').value='';$('delete-confirm').disabled=true;$('delete-error').textContent='';$('delete').showModal();}

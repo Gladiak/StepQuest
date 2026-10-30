@@ -1042,4 +1042,44 @@ Il preventivo comprende tutti i materiali e gli XP della lavorazione.|The quote 
 Preventivo non disponibile. Riapri la creazione.|Quote unavailable. Reopen crafting.|Devis indisponible. Rouvrez la fabrication.|Presupuesto no disponible. Abre de nuevo la fabricación.|Angebot nicht verfügbar. Herstellung erneut öffnen.|見積もりを取得できません。製作画面を開き直してください。
 Il preventivo è cambiato. Riapri la creazione.|The quote changed. Reopen crafting.|Le devis a changé. Rouvrez la fabrication.|El presupuesto ha cambiado. Abre de nuevo la fabricación.|Das Angebot hat sich geändert. Herstellung erneut öffnen.|見積もりが変更されました。製作画面を開き直してください。
 Affissi ricalcolati: {0}|Rerolled affixes: {0}|Affixes relancés : {0}|Afijos recalculados: {0}|Neu gewürfelte Affixe: {0}|再抽選する付加効果：{0}
+Equipaggiamento consigliato|Recommended equipment|Équipement conseillé|Equipo recomendado|Empfohlene Ausrüstung|おすすめの装備
+Mantieni quello attuale|Keep your current equipment|Gardez l’équipement actuel|Mantén el equipo actual|Aktuelle Ausrüstung behalten|現在の装備を維持
+Differenza minima|Small difference|Différence minime|Diferencia mínima|Geringer Unterschied|差はわずか
+Confronto in corso…|Comparing equipment…|Comparaison en cours…|Comparando equipo…|Ausrüstung wird verglichen…|装備を比較中…
+Confronto non disponibile|Comparison unavailable|Comparaison indisponible|Comparación no disponible|Vergleich nicht verfügbar|比較できません
+Più vittorie nelle prove.|More wins in the trials.|Plus de victoires dans les essais.|Más victorias en las pruebas.|Mehr Siege in den Versuchen.|試行での勝利数が増加。
+Meno vittorie nelle prove.|Fewer wins in the trials.|Moins de victoires dans les essais.|Menos victorias en las pruebas.|Weniger Siege in den Versuchen.|試行での勝利数が減少。
+Più esperienza considerando il recupero.|More experience accounting for recovery.|Plus d’expérience en tenant compte des soins.|Más experiencia contando la recuperación.|Mehr Erfahrung unter Berücksichtigung der Erholung.|回復コストを含めた経験値が増加。
+Meno esperienza considerando il recupero.|Less experience accounting for recovery.|Moins d’expérience en tenant compte des soins.|Menos experiencia contando la recuperación.|Weniger Erfahrung unter Berücksichtigung der Erholung.|回復コストを含めた経験値が減少。
+Vittorie in meno turni.|Wins in fewer turns.|Victoires en moins de tours.|Victorias en menos turnos.|Siege in weniger Runden.|少ないターンで勝利。
+Servono più turni per vincere.|More turns needed to win.|Plus de tours nécessaires pour gagner.|Se necesitan más turnos para ganar.|Mehr Runden bis zum Sieg nötig.|勝利に必要なターン数が増加。
+Più monete dopo il recupero.|More coins after recovery.|Plus de pièces après les soins.|Más monedas tras recuperarte.|Mehr Münzen nach der Erholung.|回復後に残るコインが増加。
+Meno monete dopo il recupero.|Fewer coins after recovery.|Moins de pièces après les soins.|Menos monedas tras recuperarte.|Weniger Münzen nach der Erholung.|回復後に残るコインが減少。
+Risultati troppo vicini per consigliare il cambio.|Results too close to recommend a change.|Résultats trop proches pour conseiller un changement.|Resultados demasiado similares para recomendar el cambio.|Ergebnisse zu ähnlich für eine Wechselempfehlung.|結果が近いため変更はおすすめしません。
+Prestazioni simili nelle prove.|Similar performance in the trials.|Performances similaires dans les essais.|Rendimiento similar en las pruebas.|Ähnliche Leistung in den Versuchen.|試行での性能はほぼ同じ。
+Nessuna configurazione vince entro il limite di turni.|Neither setup wins within the turn limit.|Aucune configuration ne gagne dans la limite de tours.|Ninguna configuración gana dentro del límite de turnos.|Keine Konfiguration siegt innerhalb des Rundenlimits.|どちらの装備もターン制限内に勝利できません。
+Vittorie stimate|Estimated wins|Victoires estimées|Victorias estimadas|Geschätzte Siege|推定勝率
+XP per 100 passi con recupero|XP per 100 steps with recovery|XP pour 100 pas avec soins|XP por 100 pasos con recuperación|EP pro 100 Schritte mit Erholung|回復込みの100歩あたり経験値
+Turni medi per scontro|Average turns per battle|Tours moyens par combat|Turnos medios por combate|Runden pro Kampf im Mittel|戦闘あたりの平均ターン数
+Prove a vita piena, senza pozioni: tre scontri consecutivi contro normali, élite e custodi. Il recupero è convertito in passi; gli esiti restano una stima.|Full-health trials without potions: three consecutive battles against normal enemies, elites and guardians. Recovery is converted to steps; results remain estimates.|Essais à pleine vie, sans potions : trois combats consécutifs contre des ennemis normaux, des élites et des gardiens. Les soins sont convertis en pas ; les résultats restent des estimations.|Pruebas con vida completa y sin pociones: tres combates seguidos contra enemigos normales, élites y guardianes. La recuperación se convierte en pasos; los resultados son estimaciones.|Versuche mit voller Gesundheit, ohne Tränke: drei Kämpfe in Folge gegen normale Gegner, Elitegegner und Wächter. Erholung wird in Schritte umgerechnet; Ergebnisse bleiben Schätzungen.|全回復・ポーションなしで通常敵、エリート、守護者との3連戦を試行。回復コストを歩数に換算した推定です。
+Confronto non conclusivo|Inconclusive comparison|Comparaison non concluante|Comparación no concluyente|Vergleich ohne klares Ergebnis|比較結果は不確定
+Scegli l’oggetto|Choose an item|Choisissez l’objet|Elige el objeto|Gegenstand auswählen|装備を選択
+Passa su un oggetto per vederne le caratteristiche.|Hover over an item to view its attributes.|Survolez un objet pour voir ses attributs.|Pasa sobre un objeto para ver sus atributos.|Für Werte den Zeiger auf einen Gegenstand bewegen.|装備にカーソルを合わせると能力を表示します。
+Categorie di equipaggiamento|Equipment categories|Catégories d’équipement|Categorías de equipo|Ausrüstungskategorien|装備カテゴリー
+Equipaggiamento da riforgiare|Equipment to reforge|Équipement à reforger|Equipo para reforjar|Ausrüstung zum Neuschmieden|再鍛造する装備
+Tutti|All|Tous|Todos|Alle|すべて
+Accessori|Accessories|Accessoires|Accesorios|Accessoires|装飾品
+Lv. {0}|Lv. {0}|Niv. {0}|Nv. {0}|St. {0}|レベル{0}
+Pagina precedente|Previous page|Page précédente|Página anterior|Vorherige Seite|前のページ
+Pagina successiva|Next page|Page suivante|Página siguiente|Nächste Seite|次のページ
+Pezzo selezionato|Selected item|Objet sélectionné|Objeto seleccionado|Ausgewählter Gegenstand|選択中の装備
+Il preventivo viene verificato alla conferma|The quote is checked on confirmation|Le devis est vérifié à la confirmation|El presupuesto se comprueba al confirmar|Das Angebot wird bei Bestätigung geprüft|確定時に見積もりを再確認します
+Costo base|Base cost|Coût de base|Coste base|Grundkosten|基本費用
+Adeguamento di livello|Level upgrade|Mise à niveau|Aumento de nivel|Stufenanpassung|レベル引き上げ
+Totale|Total|Total|Total|Gesamt|合計
+Scegli un pezzo dalla griglia. Il livello sale fino a quello dell’eroe, con un costo aggiuntivo.|Choose an item from the grid. Its level rises to your hero’s level for an additional cost.|Choisissez un objet dans la grille. Son niveau rejoint celui du héros moyennant un supplément.|Elige un objeto de la cuadrícula. Su nivel sube al del héroe por un coste adicional.|Wähle einen Gegenstand im Raster. Gegen Aufpreis steigt er auf die Stufe des Helden.|一覧から装備を選ぶと、追加費用で英雄と同じレベルに引き上げられます。
+Rarità, modello, slot, set, incantamento e rifinitura conservati.|Rarity, model, slot, set, enchantment and refinement are preserved.|Rareté, modèle, emplacement, ensemble, enchantement et amélioration conservés.|Se conservan rareza, modelo, ranura, conjunto, encantamiento y refinamiento.|Seltenheit, Modell, Platz, Set, Verzauberung und Verfeinerung bleiben erhalten.|レア度・種類・装備枠・セット・付呪・精錬段階を維持します。
+Bonus di profondità conservato.|Depth bonus preserved.|Bonus de profondeur conservé.|Se conserva el bonus de profundidad.|Tiefenbonus bleibt erhalten.|深度ボーナスを維持します。
+Il preventivo di riforgiatura è cambiato. Seleziona di nuovo il pezzo.|The reforging quote changed. Select the item again.|Le devis de reforge a changé. Sélectionnez à nouveau l’objet.|El presupuesto de reforja ha cambiado. Selecciona el objeto de nuevo.|Das Angebot zum Neuschmieden hat sich geändert. Wähle den Gegenstand erneut.|再鍛造の見積もりが変わりました。装備を選び直してください。
+Richiesta di riforgiatura non valida.|Invalid reforging request.|Demande de reforge invalide.|Solicitud de reforja no válida.|Ungültige Anfrage zum Neuschmieden.|再鍛造のリクエストが無効です。
 `.trim().split('\n').map(row=>row.split('|'));

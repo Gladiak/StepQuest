@@ -4,14 +4,15 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const os = require('node:os');
 const { createGarminClient, GarminError } = require('../lib/garmin.cjs');
-const { today, shiftDate, dateRange } = require('../lib/dates.cjs');
-const { stepsCsv } = require('../lib/csv.cjs');
+const { today } = require('../lib/dates.cjs');
 const { createStepsRepository } = require('../lib/steps-repository.cjs');
 const { createStepsService } = require('../lib/steps-service.cjs');
 const { createGameStepsService } = require('../lib/game-steps-service.cjs');
 const { createCharactersRepository, CharacterError } = require('../lib/characters.cjs');
 const { createCredentialsRepository } = require('../lib/credentials-repository.cjs');
 const { createGameRepository, GameError } = require('../lib/game-repository.cjs');
+const { createComparisonService } = require('../lib/comparison-service.cjs');
+const comparisonService = createComparisonService();
 const {prepareSave,restoreSave}=require('../lib/save-protection.cjs');
 let characters, credentials, game, activeCharacter=null, sessionStarted=0;
 function flushSession(stop=false){
@@ -26,7 +27,7 @@ function smokeReport(stage,details={}){if(smoke&&process.env.STEPQUEST_SMOKE_REP
 if(smoke)app.disableHardwareAcceleration();
 protocol.registerSchemesAsPrivileged([{ scheme: 'stepquest', privileges: { standard: true, secure: true, supportFetchAPI: true } }]);
 app.setName('StepQuest');
-let window, client, repository, stepsService, smokeDirectory, snapshot = null, busy = false, storage = 'session', storageNotice = '';
+let window, client, repository, stepsService, smokeDirectory, busy = false, storage = 'session', storageNotice = '';
 // Chromium chooses its profile before ready; isolate browser preferences as well as SQLite.
 if(smoke){smokeDirectory=require('node:fs').mkdtempSync(path.join(os.tmpdir(),'stepquest-smoke-'));app.setPath('userData',smokeDirectory);app.setPath('sessionData',smokeDirectory);}
 smokeReport('startup');
@@ -67,7 +68,7 @@ async function loadKey() {
   return key;
 }
 function getStatus() {
-  return { ...client.status(), ...stepsService.info(), storage, storageNotice, today: today(), defaultFrom: shiftDate(today(), -6), timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone };
+  return { ...client.status(), ...stepsService.info(), storage, storageNotice, today: today(), timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone };
 }
 function handle(channel, action) {
   ipcMain.handle(channel, async (event, input) => {
@@ -101,6 +102,12 @@ function registerHandlers() {
   for(const [channel,method]of [['guild-accept','acceptGuild'],['guild-claim','claimGuild'],['guild-abandon','abandonGuild'],['guild-title','equipGuildTitle']])handle('game:'+channel,input=>game[method](actor(),input));
   handle('game:smith-quote',input=>game.previewCraft(actor(),input));
   handle('game:state',()=>game.state(actor()));
+  handle('game:compare-items',async input=>{
+    const id=actor(),batch=game.comparisonInput(id,input);
+    const items=await Promise.all(batch.items.map(async item=>({id:item.id,comparisons:await Promise.all(item.comparisons.map(async c=>({slot:c.slot,assessment:c.eligible&&!c.equipped?await comparisonService.assess(c.input,{priority:input.priority===true}):null})))})));
+    if(actor()!==id)throw new GameError('Personaggio cambiato. Aggiorna il confronto.','STALE_COMPARISON');
+    return {context:batch.context,items};
+  });
   handle('game:refine-item',input=>game.refineItem(actor(),input));
   handle('game:research-reward',input=>game.chooseResearchReward(actor(),input));
   handle('game:save-loot-filter',input=>game.saveLootFilter(actor(),input));
@@ -115,23 +122,6 @@ function registerHandlers() {
   const gameSteps=createGameStepsService({game,repository,stepsService,actor,today});
   handle('game:sync-steps',input=>exclusive(()=>gameSteps.sync(input)));
   handle('garmin:status', getStatus);
-  function validateRange(input) {
-    if (!input || typeof input.from !== 'string' || typeof input.to !== 'string') throw new GarminError('INVALID_DATE', 'Seleziona un intervallo di date valido.');
-    if (input.to > today()) throw new GarminError('INVALID_DATE', 'La data finale non può essere nel futuro.');
-    try { dateRange(input.from, input.to); }
-    catch (error) { throw new GarminError('INVALID_DATE', error.message); }
-  }
-  handle('garmin:cache', input => exclusive(() => {
-    validateRange(input);
-    const result = stepsService.read(input.from, input.to);
-    snapshot = result.cache.storedDays ? result : null;
-    return { ...result, status: getStatus() };
-  }));
-  handle('garmin:download', input => exclusive(async () => {
-    validateRange(input);
-    snapshot = await stepsService.sync(input.from, input.to);
-    return { ...snapshot, status: getStatus() };
-  }));
   handle('garmin:save-key', key => exclusive(async () => {
     if (typeof key !== 'string' || !/^GCDC_[A-Za-z0-9+/=._-]{30,2048}$/.test(key.trim())) {
       throw new GarminError('INVALID_KEY', 'Inserisci una chiave Garmin Personal API completa, che inizi con GCDC_.');
@@ -144,19 +134,10 @@ function registerHandlers() {
     const result = stepsService.replaceAccount(candidate, key, verified,identity);
     try { await persistKey(key.trim()); }
     catch { storage = 'session'; storageNotice = 'Chiave verificata per questa sessione; salvataggio locale non riuscito.'; }
-    client = candidate; snapshot = result;
+    client = candidate;
     return { ...result, status: getStatus() };
   }));
-  handle('garmin:export', () => exclusive(async () => {
-    if (!snapshot) throw new GarminError('NO_DATA', 'Scarica prima un intervallo di passi.');
-    const { canceled, filePath } = await dialog.showSaveDialog(window, {
-      title: 'Esporta i passi', defaultPath: `stepquest-${snapshot.from}-${snapshot.to}.csv`,
-      filters: [{ name: 'CSV', extensions: ['csv'] }],
-    });
-    if (canceled || !filePath) return { canceled: true };
-    await fs.writeFile(filePath, stepsCsv(snapshot), { encoding: 'utf8', mode: 0o600 });
-    return { canceled: false };
-  }));
+
 }
 function createWindow() {
   window = new BrowserWindow({
@@ -172,7 +153,7 @@ function createWindow() {
   if (smoke) {
     smokeReport('window-created');
     let completed=false;app.on('before-quit',()=>{if(!completed){console.error('Electron smoke test stopped before completion.');app.exit(1);}});
-    require(app.isPackaged?'./packaged-smoke.cjs':process.argv.includes('--chronicles')?'../scripts/chronicle-smoke.cjs':process.argv.includes('--atlas')?'../scripts/atlas-smoke.cjs':process.argv.includes('--guild')?'../scripts/guild-smoke.cjs':process.argv.includes('--settlement')?'../scripts/settlement-smoke.cjs':process.argv.includes('--hero-layout')?'../scripts/hero-layout-smoke.cjs':process.argv.includes('--alchemy-layout')?'../scripts/alchemy-layout-smoke.cjs':'../scripts/electron-smoke.cjs')(window,app,smokeReport).then(()=>{completed=true;if(process.platform==='win32'){closeStores();app.exit(0);}else app.quit();}).catch(error=>{smokeReport('failed',{error:error.stack});console.error('Electron smoke test failed:',error.stack);app.exit(1);});
+    require(app.isPackaged?'./packaged-smoke.cjs':process.argv.includes('--reforging')?'../scripts/reforging-smoke.cjs':process.argv.includes('--comparisons')?'../scripts/comparison-smoke.cjs':process.argv.includes('--chronicles')?'../scripts/chronicle-smoke.cjs':process.argv.includes('--atlas')?'../scripts/atlas-smoke.cjs':process.argv.includes('--guild')?'../scripts/guild-smoke.cjs':process.argv.includes('--settlement')?'../scripts/settlement-smoke.cjs':process.argv.includes('--hero-layout')?'../scripts/hero-layout-smoke.cjs':process.argv.includes('--alchemy-layout')?'../scripts/alchemy-layout-smoke.cjs':'../scripts/electron-smoke.cjs')(window,app,smokeReport).then(()=>{completed=true;if(process.platform==='win32'){closeStores();app.exit(0);}else app.quit();}).catch(error=>{smokeReport('failed',{error:error.stack});console.error('Electron smoke test failed:',error.stack);app.exit(1);});
   }
 }
 app.whenReady().then(async () => {
@@ -184,10 +165,11 @@ app.whenReady().then(async () => {
   assets.set('/assets/atlas-refuge.png',['assets/atlas-refuge.png','image/png']);
   assets.set('/chronicle-art.js',['chronicle-art.js','text/javascript']);assets.set('/chronicles.js',['chronicles.js','text/javascript']);assets.set('/chronicle-locales.js',['chronicle-locales.js','text/javascript']);assets.set('/assets/chronicle-badges.png',['assets/chronicle-badges.png','image/png']);
   assets.set('/atlas.js',['atlas.js','text/javascript']);assets.set('/atlas-locales.js',['atlas-locales.js','text/javascript']);
+  assets.set('/watch-finale.js',['watch-finale.js','text/javascript']);assets.set('/watch-locales.js',['watch-locales.js','text/javascript']);assets.set('/watch-finale.css',['watch-finale.css','text/css']);
   assets.set('/guild-locales.js',['guild-locales.js','text/javascript']);assets.set('/locales.js',['locales.js','text/javascript']);assets.set('/i18n.js',['i18n.js','text/javascript']);
   assets.set('/items.js',['items.js','text/javascript']);
   for(const item of ['sword','staff','bow','daggers','nature-staff','axe','armor-plate','armor-robe','armor-leather','boots','ring','amulet','potion-red','potion-blue','potion-green','food'])assets.set(`/assets/items/${item}.png`,[`assets/items/${item}.png`,'image/png']);
-  assets.set('/action-icons.js',['action-icons.js','text/javascript']);assets.set('/game.js',['game.js','text/javascript']);assets.set('/game.css',['game.css','text/css']);
+  assets.set('/action-icons.js',['action-icons.js','text/javascript']);assets.set('/inventory-sales.js',['inventory-sales.js','text/javascript']);assets.set('/comparisons.js',['comparisons.js','text/javascript']);assets.set('/item-details.js',['item-details.js','text/javascript']);assets.set('/reforging.js',['reforging.js','text/javascript']);assets.set('/game.js',['game.js','text/javascript']);assets.set('/game.css',['game.css','text/css']);
   for(const scene of ['home','market','wilds','alchemy','mine','smith','arena','guild','watch','chronicles'])assets.set(`/assets/scene-${scene}.png`,[`assets/scene-${scene}.png`,'image/png']);
   for(const font of ['CinzelDecorative-Regular','Cinzel','IMFellEnglish']) assets.set(`/assets/fonts/${font}.ttf`,[`assets/fonts/${font}.ttf`,'font/ttf']);
   for(const svg of ['frame','parchment','seal']) assets.set(`/assets/ui/${svg}.svg`,[`assets/ui/${svg}.svg`,'image/svg+xml']);
@@ -225,6 +207,7 @@ app.whenReady().then(async () => {
 app.on('window-all-closed', () => { if (process.platform !== 'darwin') app.quit(); });
 function closeStores(){clearInterval(sessionTimer);flushSession(true);for(const store of [characters,credentials,game,repository])try{store?.close();}catch{}characters=credentials=game=repository=null;}
 app.on('will-quit', () => {
+  comparisonService.close();
   closeStores();
   if (smokeDirectory) require('node:fs').rmSync(smokeDirectory, { recursive: true, force: true });
 });

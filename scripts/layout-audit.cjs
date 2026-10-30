@@ -5,7 +5,12 @@ module.exports=async(window,label)=>{
   const failures=[];let controls=0,slots=0;
   const visible=n=>{const r=n.getBoundingClientRect();return r.width>0&&r.height>0&&!n.closest('[hidden],dialog:not([open])');};
   const box=n=>{const r=n.getBoundingClientRect(),s=getComputedStyle(n);return {left:r.left+parseFloat(s.borderLeftWidth)+parseFloat(s.paddingLeft),right:r.right-parseFloat(s.borderRightWidth)-parseFloat(s.paddingRight),top:r.top+parseFloat(s.borderTopWidth)+parseFloat(s.paddingTop),bottom:r.bottom-parseFloat(s.borderBottomWidth)-parseFloat(s.paddingBottom)};};
-  const ranges=node=>{const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT),out=[];for(let text;text=walker.nextNode();)if(text.textContent.trim()){const r=document.createRange();r.selectNodeContents(text);for(const rect of r.getClientRects())out.push({rect,parent:text.parentElement,text:text.textContent.trim()});}return out;};
+  const ranges=node=>{const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT),out=[];for(let text;text=walker.nextNode();)if(text.textContent.trim()){const r=document.createRange();r.selectNodeContents(text);const parent=text.parentElement,style=getComputedStyle(parent),clamped=Number.parseInt(style.webkitLineClamp,10)>0&&['hidden','clip'].includes(style.overflowY),clip=clamped?parent.getBoundingClientRect():null;for(const measured of r.getClientRects()){
+   // Chromium reports ranges for lines hidden by an intentional line clamp.
+   // Keep ordinary overflowing text detectable, and measure only visible clamp lines.
+   const rect=clip?{left:measured.left,right:measured.right,top:Math.max(measured.top,clip.top),bottom:Math.min(measured.bottom,clip.bottom)}:measured;
+   if(rect.bottom>rect.top)out.push({rect,parent,text:text.textContent.trim()});
+  }}return out;};
   for(const button of document.querySelectorAll('button')){
    if(!visible(button))continue;controls++;const bounds=box(button);
    for(const {rect,parent,text} of ranges(button)){
