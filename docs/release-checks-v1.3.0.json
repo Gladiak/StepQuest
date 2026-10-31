@@ -1,0 +1,50 @@
+{
+  "version": "1.3.0",
+  "checkedOn": "2026-10-31",
+  "status": "prepared-for-ci",
+  "source": {
+    "tag": "v1.3.0",
+    "testedGameplayCommit": "79d68112bff5c5effb7b379910ddb4ed27ed3f14",
+    "changesSinceGameplayVerification": "Version metadata and release documentation only."
+  },
+  "tests": {
+    "unitAndIntegration": {
+      "passed": 287,
+      "failed": 0,
+      "verifiedForVersion": "1.3.0"
+    },
+    "renderer": {
+      "layoutScreens": 650,
+      "contrastScreens": 650,
+      "rendererErrors": 0,
+      "languages": [
+        "it",
+        "en",
+        "fr",
+        "es",
+        "de",
+        "ja"
+      ],
+      "note": "Full local source verification of the committed gameplay. The release workflow repeats the complete Electron suite."
+    },
+    "economy": {
+      "checkpoints": 24,
+      "craftResaleChecks": 30,
+      "negativeBalances": 0,
+      "report": "docs/release-economy-v1.3.0.json"
+    },
+    "packaged": {
+      "status": "pending-cross-platform-ci",
+      "targets": [
+        "mac-arm64",
+        "mac-x64",
+        "windows-x64",
+        "linux-x64"
+      ]
+    }
+  },
+  "publication": {
+    "published": false,
+    "url": "https://github.com/Gladiak/StepQuest/releases/tag/v1.3.0"
+  }
+}

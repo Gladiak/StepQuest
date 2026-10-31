@@ -383,7 +383,7 @@ Lo scontro finale affronta il Custode del Faro, con sprite e fondale originali. 
 
 Sei capitoli della provincia conclusi e Custode sconfitto sbloccano il titolo cosmetico «Cronista del Rifugio», selezionabile dalla Gilda o dall’Atlante. I due incontri sono facoltativi per questo traguardo. Non ci sono nuove richieste Garmin, contatori di movimento o dati geografici. `atlas_migrations=1` conserva visite, scelte, fotografie dei viaggi e traguardi ed è incluso nel backup preventivo. Le traduzioni coprono le sei lingue del gioco.
 
-### Il Faro: finale della provincia (Unreleased)
+### Il Faro: finale della provincia (v1.3.0)
 
 La chiamata del cartografo compare al Rifugio dopo il primo capitolo Gilda e si legge prima della partenza dall’Atlante. Il requisito rimane un capitolo, l’ingresso 75 passi e il viaggio quattro tappe. La partenza fissa una fotografia v2 della provincia. Nessun nuovo dato Garmin o contatore di movimento è necessario.
 
