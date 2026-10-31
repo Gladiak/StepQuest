@@ -1,17 +1,24 @@
 {
   "version": "1.3.0",
   "checkedOn": "2026-10-31",
-  "status": "prepared-for-ci",
+  "status": "published-cross-platform-verified",
   "source": {
     "tag": "v1.3.0",
     "testedGameplayCommit": "79d68112bff5c5effb7b379910ddb4ed27ed3f14",
-    "changesSinceGameplayVerification": "Version metadata and release documentation only."
+    "changesSinceGameplayVerification": "Version metadata and release documentation only.",
+    "commit": "36f098dd417ebaa37bff1ae93fcd483f122b3b61",
+    "state": "Tagged release source; verified publication report recorded afterwards on main."
   },
   "tests": {
     "unitAndIntegration": {
       "passed": 287,
       "failed": 0,
-      "verifiedForVersion": "1.3.0"
+      "verifiedForVersion": "1.3.0",
+      "ci": {
+        "passed": 287,
+        "failed": 0,
+        "workflowRunId": 41183314798
+      }
     },
     "renderer": {
       "layoutScreens": 650,
@@ -25,26 +32,305 @@
         "de",
         "ja"
       ],
-      "note": "Full local source verification of the committed gameplay. The release workflow repeats the complete Electron suite."
+      "note": "Full local source verification of the committed gameplay. The release workflow repeats the complete Electron suite.",
+      "ci": {
+        "layoutScreens": 650,
+        "atlas": true,
+        "chronicles": true,
+        "alchemy": true,
+        "alchemyBinding": true,
+        "alchemySavedChoices": true,
+        "expeditions": true,
+        "dailyStepsOnly": true,
+        "singleStepsAction": true,
+        "singleExchangeAction": true,
+        "cheaperMarketRefresh": true,
+        "dailyBonuses": true,
+        "singleBattleStart": true,
+        "homeInventory": true,
+        "resumeBattle": true,
+        "junkSalePreview": true,
+        "bulkSaleProtected": true,
+        "paidRest": true,
+        "emergencyRest": true,
+        "foodUseful": true,
+        "stepsImportOffline": true,
+        "stepsImportIdempotent": true,
+        "branchingEvents": true,
+        "limitedRest": true,
+        "expeditionBoss": true,
+        "expeditionRewards": true,
+        "twoRingsAndAmulet": true,
+        "perRingComparison": true,
+        "compactIconToolbar": true,
+        "detailed32pxIcons": true,
+        "noBackpackToolbar": true,
+        "buyAndEquip": true,
+        "exchangeReturnsToItem": true,
+        "restWithoutNavigation": true,
+        "hoverAndKeyboardHints": true,
+        "welcome": true,
+        "threeSlots": true,
+        "deleteConfirmation": true,
+        "starterOnlyTwoItems": true,
+        "commonNoProperties": true,
+        "pixelItemSprites": 16,
+        "monsterSprites": 3,
+        "comparisonArrows": true,
+        "conversionSlider": true,
+        "oneClickCombat": true,
+        "rarities": 6,
+        "uniqueEndgameSets": true,
+        "eliteTwoDrops": true,
+        "realPurchase": true,
+        "persistentEquip": true,
+        "claimIdempotent": true,
+        "combatVictory": true,
+        "lootPersisted": true,
+        "fixed1280x800": true,
+        "contrastScreens": 650,
+        "rendererErrors": 0,
+        "workflowRunId": 41183314798
+      }
     },
     "economy": {
       "checkpoints": 24,
       "craftResaleChecks": 30,
       "negativeBalances": 0,
-      "report": "docs/release-economy-v1.3.0.json"
+      "report": "docs/release-economy-v1.3.0.json",
+      "ci": {
+        "scenarios": 24,
+        "arbitrageChecks": 30,
+        "negativeBalances": 0,
+        "performance": [
+          {
+            "items": 8,
+            "medianStateMs": 1.74,
+            "payloadKB": 62.3
+          },
+          {
+            "items": 108,
+            "medianStateMs": 4.1,
+            "payloadKB": 274.6
+          },
+          {
+            "items": 508,
+            "medianStateMs": 13.31,
+            "payloadKB": 1123.8
+          },
+          {
+            "items": 2008,
+            "medianStateMs": 56.15,
+            "payloadKB": 4308.4
+          }
+        ],
+        "workflowRunId": 41183314798
+      }
     },
     "packaged": {
-      "status": "pending-cross-platform-ci",
-      "targets": [
-        "mac-arm64",
-        "mac-x64",
-        "windows-x64",
-        "linux-x64"
-      ]
+      "mac-arm64": {
+        "packaged": true,
+        "platform": "darwin",
+        "arch": "arm64",
+        "version": "1.3.0",
+        "mine": true,
+        "smith": true,
+        "reforging": true,
+        "arena": true,
+        "guild": true,
+        "atlas": true,
+        "chronicles": true,
+        "comparisonWorker": true,
+        "backgrounds": 6,
+        "rendererErrors": 0,
+        "sourceCheckpoint": {
+          "files": 138,
+          "sha256": "7d781af7e59e63ecbf0c297dea7acd39b990d0cea2756828227e9e761f3f684b"
+        },
+        "verified": true,
+        "workflowRunId": 41183314798,
+        "downloads": [
+          {
+            "sha256": "18144a860d80a6af55ed7492fe9fec9798dcc3fdd7c9bb05546034a4ddbf8d13",
+            "file": "StepQuest-1.3.0-mac-arm64.zip"
+          }
+        ]
+      },
+      "mac-x64": {
+        "packaged": true,
+        "platform": "darwin",
+        "arch": "x64",
+        "version": "1.3.0",
+        "mine": true,
+        "smith": true,
+        "reforging": true,
+        "arena": true,
+        "guild": true,
+        "atlas": true,
+        "chronicles": true,
+        "comparisonWorker": true,
+        "backgrounds": 6,
+        "rendererErrors": 0,
+        "sourceCheckpoint": {
+          "files": 138,
+          "sha256": "7d781af7e59e63ecbf0c297dea7acd39b990d0cea2756828227e9e761f3f684b"
+        },
+        "verified": true,
+        "workflowRunId": 41183314798,
+        "downloads": [
+          {
+            "sha256": "5dbefe0a6816e6db4fbde4878079f941912d8f8f5d3be31dd0015a65af0b4784",
+            "file": "StepQuest-1.3.0-mac-x64.zip"
+          }
+        ]
+      },
+      "windows-x64": {
+        "packaged": true,
+        "platform": "win32",
+        "arch": "x64",
+        "version": "1.3.0",
+        "mine": true,
+        "smith": true,
+        "reforging": true,
+        "arena": true,
+        "guild": true,
+        "atlas": true,
+        "chronicles": true,
+        "comparisonWorker": true,
+        "backgrounds": 6,
+        "rendererErrors": 0,
+        "sourceCheckpoint": {
+          "files": 138,
+          "sha256": "6f19625e2c0bb397a0c3a9cd0a1d3ace8df5cf28834ed346f81135971971eeb2"
+        },
+        "verified": true,
+        "workflowRunId": 41183314798,
+        "downloads": [
+          {
+            "sha256": "e1c179145b52b045f47cddae0698849f9a444d0314c5934f66632ab85c5eb49c",
+            "file": "StepQuest-1.3.0-windows-x64-portable.exe"
+          }
+        ]
+      },
+      "linux-x64": {
+        "packaged": true,
+        "platform": "linux",
+        "arch": "x64",
+        "version": "1.3.0",
+        "mine": true,
+        "smith": true,
+        "reforging": true,
+        "arena": true,
+        "guild": true,
+        "atlas": true,
+        "chronicles": true,
+        "comparisonWorker": true,
+        "backgrounds": 6,
+        "rendererErrors": 0,
+        "sourceCheckpoint": {
+          "files": 138,
+          "sha256": "7d781af7e59e63ecbf0c297dea7acd39b990d0cea2756828227e9e761f3f684b"
+        },
+        "verified": true,
+        "workflowRunId": 41183314798,
+        "downloads": [
+          {
+            "sha256": "703b9ab27ba3801c16647aaf9dd37c5b67621e33b4414af172814c84be878d8d",
+            "file": "StepQuest-1.3.0-linux-amd64.deb"
+          },
+          {
+            "sha256": "0e0f1386aa13ea775e21be96f4e91cf2c6aaac6c36027471f505be6b9a279feb",
+            "file": "StepQuest-1.3.0-linux-x86_64.AppImage"
+          },
+          {
+            "sha256": "ea7aa9bd8cb7119342e245db95697af6335eed9664415cd7585b996525935159",
+            "file": "StepQuest-1.3.0-linux-x86_64.rpm"
+          }
+        ]
+      }
     }
   },
   "publication": {
-    "published": false,
-    "url": "https://github.com/Gladiak/StepQuest/releases/tag/v1.3.0"
+    "published": true,
+    "tagCreated": true,
+    "url": "https://github.com/Gladiak/StepQuest/releases/tag/v1.3.0",
+    "publishedAt": "2026-10-31T08:20:51Z",
+    "workflow": {
+      "runId": 41183314798,
+      "url": "https://github.com/Gladiak/StepQuest/actions/runs/41183314798",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "assets": [
+      {
+        "file": "SHA256SUMS.txt",
+        "bytes": 598,
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.3.0/SHA256SUMS.txt",
+        "digest": "sha256:cdb1b3242451aa8d1fb9b96a986534afefa21a0c39c220eda7abb458a4a0793b"
+      },
+      {
+        "file": "StepQuest-1.3.0-linux-amd64.deb",
+        "bytes": 165212224,
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.3.0/StepQuest-1.3.0-linux-amd64.deb",
+        "digest": "sha256:703b9ab27ba3801c16647aaf9dd37c5b67621e33b4414af172814c84be878d8d"
+      },
+      {
+        "file": "StepQuest-1.3.0-linux-x86_64.AppImage",
+        "bytes": 191518933,
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.3.0/StepQuest-1.3.0-linux-x86_64.AppImage",
+        "digest": "sha256:0e0f1386aa13ea775e21be96f4e91cf2c6aaac6c36027471f505be6b9a279feb"
+      },
+      {
+        "file": "StepQuest-1.3.0-linux-x86_64.rpm",
+        "bytes": 153914661,
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.3.0/StepQuest-1.3.0-linux-x86_64.rpm",
+        "digest": "sha256:ea7aa9bd8cb7119342e245db95697af6335eed9664415cd7585b996525935159"
+      },
+      {
+        "file": "StepQuest-1.3.0-mac-arm64.zip",
+        "bytes": 184640780,
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.3.0/StepQuest-1.3.0-mac-arm64.zip",
+        "digest": "sha256:18144a860d80a6af55ed7492fe9fec9798dcc3fdd7c9bb05546034a4ddbf8d13"
+      },
+      {
+        "file": "StepQuest-1.3.0-mac-x64.zip",
+        "bytes": 190566597,
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.3.0/StepQuest-1.3.0-mac-x64.zip",
+        "digest": "sha256:5dbefe0a6816e6db4fbde4878079f941912d8f8f5d3be31dd0015a65af0b4784"
+      },
+      {
+        "file": "StepQuest-1.3.0-windows-x64-portable.exe",
+        "bytes": 173160659,
+        "url": "https://github.com/Gladiak/StepQuest/releases/download/v1.3.0/StepQuest-1.3.0-windows-x64-portable.exe",
+        "digest": "sha256:e1c179145b52b045f47cddae0698849f9a444d0314c5934f66632ab85c5eb49c"
+      }
+    ],
+    "checksums": [
+      {
+        "sha256": "703b9ab27ba3801c16647aaf9dd37c5b67621e33b4414af172814c84be878d8d",
+        "file": "StepQuest-1.3.0-linux-amd64.deb"
+      },
+      {
+        "sha256": "0e0f1386aa13ea775e21be96f4e91cf2c6aaac6c36027471f505be6b9a279feb",
+        "file": "StepQuest-1.3.0-linux-x86_64.AppImage"
+      },
+      {
+        "sha256": "ea7aa9bd8cb7119342e245db95697af6335eed9664415cd7585b996525935159",
+        "file": "StepQuest-1.3.0-linux-x86_64.rpm"
+      },
+      {
+        "sha256": "18144a860d80a6af55ed7492fe9fec9798dcc3fdd7c9bb05546034a4ddbf8d13",
+        "file": "StepQuest-1.3.0-mac-arm64.zip"
+      },
+      {
+        "sha256": "5dbefe0a6816e6db4fbde4878079f941912d8f8f5d3be31dd0015a65af0b4784",
+        "file": "StepQuest-1.3.0-mac-x64.zip"
+      },
+      {
+        "sha256": "e1c179145b52b045f47cddae0698849f9a444d0314c5934f66632ab85c5eb49c",
+        "file": "StepQuest-1.3.0-windows-x64-portable.exe"
+      }
+    ],
+    "checksumsVerified": true
   }
 }
