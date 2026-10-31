@@ -1,6 +1,15 @@
 'use strict';
 const { contextBridge, ipcRenderer } = require('electron');
 contextBridge.exposeInMainWorld('stepquest', Object.freeze({
+  configureProvisions:input=>ipcRenderer.invoke('game:provisions-configure',input),
+  previewProvisions:input=>ipcRenderer.invoke('game:provisions-quote',input),
+  buyProvisions:input=>ipcRenderer.invoke('game:provisions-buy',input),
+  useProvision:input=>ipcRenderer.invoke('game:provisions-use',input),
+  configureRunic:input=>ipcRenderer.invoke('game:runic-configure',input),
+  initiateRunic:input=>ipcRenderer.invoke('game:runic-initiate',input),
+  craftRune:input=>ipcRenderer.invoke('game:rune-craft',input),
+  previewRuneword:input=>ipcRenderer.invoke('game:runeword-quote',input),
+  inscribeRuneword:input=>ipcRenderer.invoke('game:runeword-inscribe',input),
   displayChronicle: input => ipcRenderer.invoke('game:chronicle-display',input),
   readChronicle: input => ipcRenderer.invoke('game:chronicle-read',input),
   startChronicleTour: () => ipcRenderer.invoke('game:chronicle-tour'),

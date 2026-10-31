@@ -2,6 +2,26 @@
 
 ## Unreleased
 
+## [1.4.0](https://github.com/Gladiak/StepQuest/releases/tag/v1.4.0) — 2026-10-31
+
+### Added
+
+- Six progressive merchant caravans with class-compatible stock, specialized accessories and a visible countdown to featured bargains. Featured gear has maximum positive affixes; advanced caravans guarantee a legendary bargain at every refresh. Healing previews show effective HP and a share of maximum health.
+- Personal prepaid provisions with a quoted purchase, a 20-ration capacity and optional post-victory resupply at 50%, 70% or 90% health. At most three rations are consumed per victory; reports show actual healing and remaining stock. Equipment trials include the selected plan and consumed-ration costs. Existing fights retain their saved rules.
+- Runic inscriptions on currently equipped weapons and body armor at the Forge: 12 personal runes and 16 runewords, eight for weapons and eight for body armor. Recipes show their exact effects, level requirements, individual stat bonuses and automatic-profile compatibility. Quoted engraving and full rune recovery preserve the original piece and its enhancements.
+- Explicit, personal automatic strategies: Aggressive keeps attacking; Prudent defends against announced heavy strikes and uses available runic purification. Battle reports show decisions, activations, effective extra damage, absorption, healing, cleanses and reasons for inactive words. Potions remain manual.
+- Optional Echoes I and II for enhanced legendary equipment and complete enhanced unique sets, unlocked at level/depth 30/60 and 45/100. Deterministic enemy intents, wounds and additional rune fragments provide advanced progression without changing ordinary paths.
+
+### Changed
+
+- Merchant sections now follow Weapons, Armor, Accessories, Potions, Food. Accessories and food have separate stock allocations; the next refresh guarantees offers in every section. A catalog migration reclassifies existing items while preserving prices, stock, wallets and paid encounters. Added a reproducible level-900 merchant design review.
+- Compact comparison arrows now appear beside prices directly in merchant lists, including downgrades and equivalent items, with pending and unavailable states. Ring recommendations prefer an equivalent replacement over a downgrade when available.
+
+- Resizable, maximizable game window with a larger initial viewport where the display allows it. Adventure panels use the extra space, keep scrolling inside their own boundaries and retain their position across updates and asynchronous quotes.
+
+- Equipment trials simulate runewords, the selected automatic strategy and Echo difficulty with matching cache invalidation. Arena trials use runewords and the selected strategy with separate health and ordinary opponents.
+- Save migration and backups include rune stock, inscriptions and combat snapshots. Bulk sales protect inscribed pieces; individual sales require extracting their runes first. The new interface is translated into all six supported languages.
+
 ## [1.3.0](https://github.com/Gladiak/StepQuest/releases/tag/v1.3.0) — 2026-10-31
 
 - Expanded the Lantern Beacon into a province finale: the cartographer’s call, playable bridge/ferry consequences, a last-flame healing or protection choice, and a two-phase Warden with announced attacks and vulnerability windows. A replayable light ceremony and personal Chronicle epilogue preserve the journey’s choices, with an optional original chime and all six languages. Existing journeys retain their saved encounters and milestones.

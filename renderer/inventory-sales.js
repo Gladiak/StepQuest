@@ -10,7 +10,7 @@ window.StepQuestInventorySales=Object.freeze({
    if(isBusy()||active())return;pauseSaleConfirmation();const request=++saleRequest,origin=root.firstElementChild,previous=document.querySelector('#game-dialog[open]');
    let preview;try{const response=await api.previewJunkSale();if(!response.ok)throw new Error(response.error.message);preview=response.value;}catch(error){if(request===saleRequest&&!signal.aborted&&origin===root.firstElementChild&&(!previous||previous.isConnected&&previous.open))dialog('Vendi equipaggiamento inferiore',error.message,null,[],returnTo);return;}
    if(request!==saleRequest||isBusy()||active()||signal.aborted||origin!==root.firstElementChild||previous&&(!previous.isConnected||!previous.open))return;
-   const content=el('div','junk-sale-preview');saleModes(content,returnTo,'inferior');
+   const content=el('div','junk-sale-preview');saleModes(content,returnTo,'inferior');content.append(el('p','help','I pezzi con parole runiche sono protetti dalla vendita in blocco.'));
    content.append(el('p','help','Conserviamo equipaggiati, consumabili, set, oggetti di livello futuro e pezzi con vantaggi diversi. Un anello viene proposto solo se inferiore in entrambi gli slot.'));
    const list=el('ul','junk-sale-list');appendSaleItems(list,preview.items);content.append(list);
    const buttons=[];if(preview.items.length){const requestId=crypto.randomUUID();buttons.push(button(`Vendi ${preview.items.length} oggetti · ${fmt(preview.coins)} monete`,()=>run(()=>api.sellJunk({token:preview.token,requestId}),`Venduti ${preview.items.length} oggetti inferiori · +${fmt(preview.coins)} monete.`,returnTo),'','confirm-junk-sale'));}
@@ -33,7 +33,7 @@ window.StepQuestInventorySales=Object.freeze({
    content.append(el('p','help','Esclusi equipaggiati, incantati, rifiniti e pezzi con una preparazione alchemica in sospeso. La selezione comprende anche set, oggetti migliori e di livello futuro.'));
    const summary=el('p','sale-summary'),list=el('ul','junk-sale-list');summary.setAttribute('aria-live','polite');content.append(summary,list);
    const confirm=button('Conferma vendita',()=>{if(!preview?.items.length)return;const current=preview;run(()=>api.sellRarity({...current.filter,token:current.token,requestId:crypto.randomUUID()}),`Venduti ${current.items.length} oggetti · +${fmt(current.coins)} monete.`,returnTo);},'','confirm-rarity-sale');confirm.disabled=true;
-   dialog('Vendi per rarità','Seleziona una o più rarità, poi conferma una sola vendita.',content,[confirm],returnTo);const d=document.getElementById('game-dialog');d.dataset.panel='rarity-sale';
+   content.append(el('p','help','I pezzi con parole runiche sono protetti dalla vendita in blocco.'));dialog('Vendi per rarità','Seleziona una o più rarità, poi conferma una sola vendita.',content,[confirm],returnTo);const d=document.getElementById('game-dialog');d.dataset.panel='rarity-sale';
    async function refresh(){
     const request=++saleRequest;preview=null;confirm.disabled=true;list.replaceChildren();Object.assign(d.dataset,{saleRarities:selected.join(','),saleConsumables:String(includeConsumables)});
     if(!selected.length){summary.textContent='Seleziona almeno una rarità da vendere.';return;}

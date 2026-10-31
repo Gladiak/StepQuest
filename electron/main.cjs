@@ -1,5 +1,5 @@
 'use strict';
-const { app, BrowserWindow, ipcMain, protocol, session, dialog, Menu, shell } = require('electron');
+const { app, BrowserWindow, ipcMain, protocol, session, dialog, Menu, shell, screen } = require('electron');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const os = require('node:os');
@@ -94,6 +94,8 @@ function registerHandlers() {
   handle('characters:select',id=>{if(typeof id!=='string')throw new CharacterError('Personaggio non valido.');const c=characters.get(id);flushSession(true);activeCharacter=c.id;sessionStarted=performance.now();const stepsImport=gameSteps.claimCached();return {...characters.get(c.id),stepsImport};});
   handle('characters:leave',()=>{flushSession(true);return true;});
   const actor=()=>{if(!activeCharacter)throw new GameError('Seleziona prima un personaggio.');return activeCharacter;};
+  for(const [channel,method]of [['provisions-configure','configureProvisions'],['provisions-quote','previewProvisions'],['provisions-buy','buyProvisions'],['provisions-use','useProvision']])handle('game:'+channel,input=>game[method](actor(),input));
+  for(const [channel,method]of [['runic-configure','configureRunic'],['runic-initiate','initiateRunic'],['rune-craft','craftRune'],['runeword-quote','previewRuneword'],['runeword-inscribe','inscribeRuneword']])handle('game:'+channel,input=>game[method](actor(),input));
   handle('game:chronicle-display',input=>game.displayChronicle(actor(),input));
   handle('game:chronicle-read',input=>game.readChronicle(actor(),input));
   handle('game:chronicle-tour',()=>game.startChronicleTour(actor()));
@@ -140,11 +142,13 @@ function registerHandlers() {
 
 }
 function createWindow() {
+  const work=screen.getPrimaryDisplay().workAreaSize;
   window = new BrowserWindow({
-    width: 1280, height: 800, useContentSize: true, resizable: false, maximizable: false, fullscreenable: false,
+    width: smoke?1280:Math.max(1280,Math.min(1440,work.width-32)), height: smoke?800:Math.max(800,Math.min(900,work.height-60)), useContentSize: true, resizable: true, maximizable: true, fullscreenable: false,
     backgroundColor: '#171c1e', title: 'StepQuest', show: false, icon: path.join(__dirname,'../renderer/assets/app-icon.png'),
     webPreferences: { preload: path.join(__dirname, 'preload.cjs'), contextIsolation: true, nodeIntegration: false, sandbox: true, webSecurity: true, backgroundThrottling: !smoke },
   });
+  const outer=window.getSize(),content=window.getContentSize();window.setMinimumSize(1280+outer[0]-content[0],800+outer[1]-content[1]);
   window.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
   window.webContents.on('will-navigate', (event, url) => { if (url !== APP_URL) event.preventDefault(); });
   window.once('ready-to-show', () => { if (!smoke) window.show();else if(process.platform==='win32')window.showInactive(); });
@@ -153,7 +157,7 @@ function createWindow() {
   if (smoke) {
     smokeReport('window-created');
     let completed=false;app.on('before-quit',()=>{if(!completed){console.error('Electron smoke test stopped before completion.');app.exit(1);}});
-    require(app.isPackaged?'./packaged-smoke.cjs':process.argv.includes('--reforging')?'../scripts/reforging-smoke.cjs':process.argv.includes('--comparisons')?'../scripts/comparison-smoke.cjs':process.argv.includes('--chronicles')?'../scripts/chronicle-smoke.cjs':process.argv.includes('--atlas')?'../scripts/atlas-smoke.cjs':process.argv.includes('--guild')?'../scripts/guild-smoke.cjs':process.argv.includes('--settlement')?'../scripts/settlement-smoke.cjs':process.argv.includes('--hero-layout')?'../scripts/hero-layout-smoke.cjs':process.argv.includes('--alchemy-layout')?'../scripts/alchemy-layout-smoke.cjs':'../scripts/electron-smoke.cjs')(window,app,smokeReport).then(()=>{completed=true;if(process.platform==='win32'){closeStores();app.exit(0);}else app.quit();}).catch(error=>{smokeReport('failed',{error:error.stack});console.error('Electron smoke test failed:',error.stack);app.exit(1);});
+    require(app.isPackaged?'./packaged-smoke.cjs':process.argv.includes('--merchant')?'../scripts/merchant-smoke.cjs':process.argv.includes('--scrolling')?'../scripts/scrolling-smoke.cjs':process.argv.includes('--runic')?'../scripts/runic-smoke.cjs':process.argv.includes('--reforging')?'../scripts/reforging-smoke.cjs':process.argv.includes('--comparisons')?'../scripts/comparison-smoke.cjs':process.argv.includes('--chronicles')?'../scripts/chronicle-smoke.cjs':process.argv.includes('--atlas')?'../scripts/atlas-smoke.cjs':process.argv.includes('--guild')?'../scripts/guild-smoke.cjs':process.argv.includes('--settlement')?'../scripts/settlement-smoke.cjs':process.argv.includes('--hero-layout')?'../scripts/hero-layout-smoke.cjs':process.argv.includes('--alchemy-layout')?'../scripts/alchemy-layout-smoke.cjs':'../scripts/electron-smoke.cjs')(window,app,smokeReport).then(()=>{completed=true;if(process.platform==='win32'){closeStores();app.exit(0);}else app.quit();}).catch(error=>{smokeReport('failed',{error:error.stack});console.error('Electron smoke test failed:',error.stack);app.exit(1);});
   }
 }
 app.whenReady().then(async () => {
@@ -165,6 +169,7 @@ app.whenReady().then(async () => {
   assets.set('/assets/atlas-refuge.png',['assets/atlas-refuge.png','image/png']);
   assets.set('/chronicle-art.js',['chronicle-art.js','text/javascript']);assets.set('/chronicles.js',['chronicles.js','text/javascript']);assets.set('/chronicle-locales.js',['chronicle-locales.js','text/javascript']);assets.set('/assets/chronicle-badges.png',['assets/chronicle-badges.png','image/png']);
   assets.set('/atlas.js',['atlas.js','text/javascript']);assets.set('/atlas-locales.js',['atlas-locales.js','text/javascript']);
+  for(const file of ['runic','runic-locales','scroll-state','merchant','merchant-locales'])assets.set('/'+file+'.js',[file+'.js','text/javascript']);assets.set('/runic.css',['runic.css','text/css']);assets.set('/merchant.css',['merchant.css','text/css']);
   assets.set('/watch-finale.js',['watch-finale.js','text/javascript']);assets.set('/watch-locales.js',['watch-locales.js','text/javascript']);assets.set('/watch-finale.css',['watch-finale.css','text/css']);
   assets.set('/guild-locales.js',['guild-locales.js','text/javascript']);assets.set('/locales.js',['locales.js','text/javascript']);assets.set('/i18n.js',['i18n.js','text/javascript']);
   assets.set('/items.js',['items.js','text/javascript']);

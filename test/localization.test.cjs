@@ -3,7 +3,7 @@ const {test}=require('node:test');const assert=require('node:assert/strict');con
 function load(saved='it'){
  const store=new Map([['stepquest.language',saved]]),body={nodeType:1,closest:()=>false,getAttribute:()=>null},document={body,documentElement:{},createTreeWalker:()=>({nextNode:()=>null}),dispatchEvent:()=>{}};
  const context=vm.createContext({window:{},document,localStorage:{getItem:k=>store.get(k),setItem:(k,v)=>store.set(k,v)},MutationObserver:class{observe(){}},Node:{ELEMENT_NODE:1,TEXT_NODE:3},NodeFilter:{SHOW_ELEMENT:1,SHOW_TEXT:4},CustomEvent:class{}});
- for(const file of ['locales','guild-locales','atlas-locales','chronicle-locales','watch-locales','i18n'])vm.runInContext(fs.readFileSync(`renderer/${file}.js`,'utf8'),context);
+ for(const file of ['locales','guild-locales','atlas-locales','chronicle-locales','watch-locales','runic-locales','merchant-locales','i18n'])vm.runInContext(fs.readFileSync(`renderer/${file}.js`,'utf8'),context);
  return {i18n:context.window.StepQuestI18n,rows:context.window.StepQuestTranslations,document,store};
 }
 test('all six languages have complete catalog entries and preserve interpolated player data',()=>{
@@ -29,6 +29,11 @@ test('native menus keep editing roles and translated labels in all supported lan
  const {menuTemplate}=require('../lib/ui-menu.cjs');for(const language of ['it','en','fr','es','de','ja']){const menu=menuTemplate(language,'darwin');assert.equal(menu.length,2);assert.deepEqual(menu[1].submenu.filter(item=>item.role).map(item=>item.role),['undo','redo','cut','copy','paste','selectAll']);assert.equal(menu[0].submenu.at(-1).role,'quit');}assert.throws(()=>menuTemplate('invalid'));
 });
 test('alchemy recipes and every reagent are translated in all languages',()=>{const keys=new Set(load().rows.map(row=>row[0])),{REAGENTS,RECIPES}=require('../lib/alchemy-catalog.cjs');for(const entry of [...REAGENTS,...RECIPES])assert.ok(keys.has(entry.name),entry.name);});
+test('all caravan identities, descriptions, specializations and supply results translate',()=>{const {rows,i18n}=load(),keys=new Set(rows.map(row=>row[0])),{TIERS,PURPOSES}=require('../lib/merchant-catalog.cjs');for(const text of [...TIERS.flatMap(t=>[t.name,t.text]),...Object.values(PURPOSES).map(p=>p.name)])assert.ok(keys.has(text),text);for(const language of ['en','fr','es','de','ja']){i18n.setLanguage(language);assert.notEqual(i18n.translate('Provviste: 3 razioni · +75 vita · 2 rimaste'),'Provviste: 3 razioni · +75 vita · 2 rimaste');}});
+test('every runeword, echo, inactive explanation and rune report translates in all six languages',()=>{
+ const {i18n,rows}=load(),keys=new Set(rows.map(r=>r[0])),{WORDS,ECHOES}=require('../lib/runic-catalog.cjs');for(const text of [...WORDS,...ECHOES].flatMap(w=>[w.name,w.description]))assert.ok(keys.has(text),text);
+ for(const locale of ['en','fr','es','de','ja']){i18n.setLanguage(locale);for(const text of ['Runa ritrovata: Sol','Rune: 3 attivazioni · +25 danni · 60 assorbiti','Scontro concluso prima di accumulare tre attacchi riusciti.','Auto Aggressivo non usa la difesa. Questa parola richiede una difesa.'])assert.notEqual(i18n.translate(text),text,locale+': '+text);}
+});
 
 test('all Guild stories, endings and titles are translated',()=>{const keys=new Set(load().rows.map(row=>row[0])),{CONTRACTS,STORIES}=require('../lib/guild-catalog.cjs');for(const text of [...STORIES.flatMap(s=>[s.name,s.title]),...CONTRACTS.flatMap(q=>[q.name,q.description,...q.choices.flatMap(c=>[c.label,c.text])])])assert.ok(keys.has(text),text);});
 

@@ -1,0 +1,185 @@
+{
+  "scope": "Production caravan stock, six classes and seven progression checkpoints. Synthetic data only; no upgrade probability claim.",
+  "seed": 71931,
+  "refreshesPerHero": 30,
+  "classes": [
+    "guardian",
+    "arcanist",
+    "ranger",
+    "rogue",
+    "druid",
+    "berserker"
+  ],
+  "checkpoints": [
+    {
+      "level": 1,
+      "tier": "wanderer",
+      "stocks": 180,
+      "gear": 1440,
+      "featured": 180,
+      "rarities": {
+        "common": 571,
+        "uncommon": 869
+      },
+      "prices": {
+        "min": 63,
+        "max": 151,
+        "mean": 115
+      },
+      "provisionUnitCost": 14,
+      "rarityPercent": {
+        "common": 39.65,
+        "uncommon": 60.35
+      },
+      "refreshCost": 13
+    },
+    {
+      "level": 4,
+      "tier": "embers",
+      "stocks": 180,
+      "gear": 1440,
+      "featured": 90,
+      "rarities": {
+        "uncommon": 619,
+        "rare": 695,
+        "common": 126
+      },
+      "prices": {
+        "min": 103,
+        "max": 389,
+        "mean": 301
+      },
+      "provisionUnitCost": 21,
+      "rarityPercent": {
+        "uncommon": 42.99,
+        "rare": 48.26,
+        "common": 8.75
+      },
+      "refreshCost": 22
+    },
+    {
+      "level": 15,
+      "tier": "stars",
+      "stocks": 180,
+      "gear": 1440,
+      "featured": 60,
+      "rarities": {
+        "rare": 702,
+        "mythic": 394,
+        "uncommon": 213,
+        "legendary": 131
+      },
+      "prices": {
+        "min": 729,
+        "max": 2707,
+        "mean": 1314
+      },
+      "provisionUnitCost": 60,
+      "rarityPercent": {
+        "rare": 48.75,
+        "mythic": 27.36,
+        "uncommon": 14.79,
+        "legendary": 9.1
+      },
+      "refreshCost": 55
+    },
+    {
+      "level": 45,
+      "tier": "champions",
+      "stocks": 180,
+      "gear": 1440,
+      "featured": 90,
+      "rarities": {
+        "legendary": 338,
+        "mythic": 740,
+        "rare": 362
+      },
+      "prices": {
+        "min": 3002,
+        "max": 7037,
+        "mean": 4173
+      },
+      "provisionUnitCost": 168,
+      "rarityPercent": {
+        "legendary": 23.47,
+        "mythic": 51.39,
+        "rare": 25.14
+      },
+      "refreshCost": 145
+    },
+    {
+      "level": 150,
+      "tier": "marvels",
+      "stocks": 180,
+      "gear": 1440,
+      "featured": 180,
+      "rarities": {
+        "mythic": 754,
+        "legendary": 686
+      },
+      "prices": {
+        "min": 12952,
+        "max": 22193,
+        "mean": 14813
+      },
+      "provisionUnitCost": 546,
+      "rarityPercent": {
+        "mythic": 52.36,
+        "legendary": 47.64
+      },
+      "refreshCost": 460
+    },
+    {
+      "level": 500,
+      "tier": "eternity",
+      "stocks": 180,
+      "gear": 1440,
+      "featured": 180,
+      "rarities": {
+        "legendary": 1007,
+        "mythic": 433
+      },
+      "prices": {
+        "min": 42436,
+        "max": 72713,
+        "mean": 51359
+      },
+      "provisionUnitCost": 1805,
+      "rarityPercent": {
+        "legendary": 69.93,
+        "mythic": 30.07
+      },
+      "refreshCost": 1510
+    },
+    {
+      "level": 900,
+      "tier": "eternity",
+      "stocks": 180,
+      "gear": 1440,
+      "featured": 180,
+      "rarities": {
+        "legendary": 1014,
+        "mythic": 426
+      },
+      "prices": {
+        "min": 76132,
+        "max": 130450,
+        "mean": 91518
+      },
+      "provisionUnitCost": 3243,
+      "rarityPercent": {
+        "legendary": 70.42,
+        "mythic": 29.58
+      },
+      "refreshCost": 2710
+    }
+  ],
+  "checks": [
+    "12 offers in 3/3/2/3/1 categories",
+    "class and level eligibility",
+    "persistent advertised featured cadence",
+    "maximum positive featured affixes",
+    "bounded ordinary affixes and guaranteed core/signature properties",
+    "no unique stock or resale profit"
+  ]
+}

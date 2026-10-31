@@ -30,6 +30,18 @@ test('comparison renderer: equivalent refreshes reuse results without new IPC',a
  f.setGame(state('A'));f.controller.prepare(f.game.inventory[0]);f.controller.request(f.game.inventory[0]);await delay(5);
  assert.equal(f.calls.length,1);assert.equal(f.game.inventory[0].comparison.arrows,1);
 });
+test('comparison renderer: runewords invalidate candidate cache even with identical capped stats',async t=>{
+ const f=fixture(t);f.controller.request(f.game.inventory[0]);await delay(5);f.respond(0);await delay(5);
+ const changed=state('A');changed.inventory[0].runeword={id:'ember',trigger:'third',effect:'damage',value:.25};f.setGame(changed);f.controller.prepare(f.game.inventory[0]);assert.equal(f.game.inventory[0].comparison.assessment,null);f.controller.request(f.game.inventory[0]);await delay(5);assert.equal(f.calls.length,2);f.respond(1,'worse');await delay(5);assert.equal(f.game.inventory[0].comparison.assessment.recommendation,'worse');
+});
+
+test('comparison renderer: ring advice prefers a neutral slot over a downgrade and the smaller loss when both are worse',async t=>{
+ for(const [recommendations,gains]of [[['worse','same'],[-20,0]],[['worse','worse'],[-20,-2]]]){
+  const f=fixture(t),game=state('rings'),item=game.inventory[0];item.comparisons=['ring1','ring2'].map((slot,index)=>({...item.comparison,slot,current:{id:'old-'+index}}));item.comparison=item.comparisons[0];f.setGame(game);f.controller.request(item);await delay(5);
+  f.callbacks[0]({ok:true,value:{context:'rings',items:[{id:item.id,comparisons:item.comparisons.map((c,index)=>({slot:c.slot,assessment:{recommendation:recommendations[index],gainPercent:gains[index],arrows:0}}))}]}});await delay(5);
+  assert.equal(item.comparison.slot,'ring2');assert.equal(item.comparison.assessment.recommendation,recommendations[1]);
+ }
+});
 
 test('comparison renderer: background scan finishes even when the bag exceeds the bounded cache',async()=>{
  const tasks=[],calls=[],abort=new AbortController();let nextId=0;

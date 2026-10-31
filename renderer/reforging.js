@@ -13,7 +13,7 @@ window.StepQuestReforging=Object.freeze({
   function screen({left,bench,right}){
    const g=getGame(),inventory=new Map(g.inventory.map(item=>[item.id,item])),filter=state.reforgeFilter||'all';
    const targets=g.smith.reforges.map(quote=>({...quote,item:inventory.get(quote.id)})).filter(q=>q.item&&matches(q.item,filter));
-   const target=targets.find(q=>q.id===state.reforgeItem)||targets[0];if(target)state.reforgeItem=target.id;
+   const target=targets.find(q=>q.id===state.reforgeItem)||targets[0];if(target){state.reforgeItem=target.id;right.dataset.scrollResetKey=target.id;}
    left.append(el('p','settlement-muted','Scegli un pezzo dalla griglia. Il livello sale fino a quello dell’eroe, con un costo aggiuntivo.'),el('p','settlement-muted','La riforgiatura non assegna esperienza al Fabbro.'));
    bench.append(titled('Scegli l’oggetto','Passa su un oggetto per vederne le caratteristiche.'));
    const filters=el('nav','reforge-filters');filters.setAttribute('aria-label','Categorie di equipaggiamento');

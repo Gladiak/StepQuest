@@ -8,13 +8,13 @@ window.StepQuestComparisons=Object.freeze({
    if(next.comparisonContext!==game?.comparisonContext){epoch++;queue=[];failed.clear();backgroundCursor=0;}
    game=next;index=new Map([...game.inventory,...game.merchant.offers,...(game.research.pending?.options||[]),...Object.values(game.equipment)].map(item=>[item.id,item]));
   }
-  const signature=item=>JSON.stringify([game.comparisonContext,item.id,item.comparisons?.map(c=>[c.slot,c.current?.id,c.eligible,c.equipped,c.changes])]);
+  const signature=item=>JSON.stringify([game.comparisonContext,item.id,item.runeword||null,item.comparisons?.map(c=>[c.slot,c.current?.id,c.eligible,c.equipped,c.changes])]);
   function apply(item,assessments){
    for(const c of item.comparisons||[]){c.assessment=assessments?.find(a=>a.slot===c.slot)?.assessment||null;c.arrows=c.eligible&&!c.equipped?(c.assessment?.arrows||0):0;}
    // Empty slots remain the default. Otherwise prefer a measured recommendation;
    // explicit ring buttons still let the player choose either replacement.
    const choices=item.comparisons||[],empty=choices.find(c=>!c.current);
-   const preferred=empty||choices.filter(c=>c.assessment?.recommendation==='better').sort((a,b)=>(b.assessment.metrics?.after.winRate||0)-(a.assessment.metrics?.after.winRate||0)||(b.assessment.metrics?.after.xpPer100Steps||0)-(a.assessment.metrics?.after.xpPer100Steps||0))[0];
+   const preferred=empty||choices.filter(c=>c.assessment?.recommendation==='better').sort((a,b)=>(b.assessment.metrics?.after.winRate||0)-(a.assessment.metrics?.after.winRate||0)||(b.assessment.metrics?.after.xpPer100Steps||0)-(a.assessment.metrics?.after.xpPer100Steps||0))[0]||choices.find(c=>c.eligible&&c.assessment?.recommendation==='same')||choices.filter(c=>c.eligible&&c.assessment?.recommendation==='worse').sort((a,b)=>(b.assessment.gainPercent||0)-(a.assessment.gainPercent||0))[0];
    if(!item.equippedSlot&&preferred)item.comparison=preferred;
   }
   function prepare(item){sync();const entry=cache.get(signature(item));if(entry)apply(item,entry);return item;}

@@ -29,6 +29,6 @@ test('migrazione colori v4: aggiorna i mitici senza alterare oggetti, saldi o sc
  sql.exec("UPDATE item_rarities SET color_light='#713009',color_dark='#ffb774' WHERE id='mythic';DELETE FROM game_migrations WHERE version>=5;");
  game=createGameRepository(file,{rng:()=>.5});
  const mythic=game.state(hero.id).rarities.find(r=>r.id==='mythic');assert.equal(mythic.dark,'#ff8a1f');assert.equal(mythic.light,'#6b2300');
- assert.deepEqual(snapshot(),before);assert.equal(sql.prepare('SELECT max(version) v FROM game_migrations').get().v,9);
+ assert.deepEqual(snapshot(),before);assert.equal(sql.prepare('SELECT max(version) v FROM game_migrations').get().v,10);
  game.close();game=createGameRepository(file,{rng:()=>.5});assert.deepEqual(snapshot(),before);
 });

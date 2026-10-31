@@ -38,18 +38,18 @@ Import today's steps from your Garmin account and spend them on battles, expedit
 
 ## Download and play
 
-Download **v1.3.0** from the [Releases page](https://github.com/Gladiak/StepQuest/releases/tag/v1.3.0). See the [release notes](docs/release-notes-v1.3.0.md) for the Beacon finale, equipment comparisons, reforging and save compatibility details. Each release includes a `SHA256SUMS.txt` file for verifying the downloads.
+Download **v1.4.0** from the [Releases page](https://github.com/Gladiak/StepQuest/releases/tag/v1.4.0). See the [release notes](docs/release-notes-v1.4.0.md) for runewords, Echo challenges, progressive merchant caravans, provisions and save compatibility details. Each release includes a `SHA256SUMS.txt` file for verifying the downloads.
 
 | Platform | Download |
 | --- | --- |
-| macOS — Apple Silicon | `StepQuest-1.3.0-mac-arm64.zip` |
-| macOS — Intel | `StepQuest-1.3.0-mac-x64.zip` |
-| Windows — x64 portable | `StepQuest-1.3.0-windows-x64-portable.exe` |
-| Linux — x64 AppImage | `StepQuest-1.3.0-linux-x86_64.AppImage` |
-| Debian / Ubuntu — x64 | `StepQuest-1.3.0-linux-amd64.deb` |
-| Fedora / RPM distributions — x64 | `StepQuest-1.3.0-linux-x86_64.rpm` |
+| macOS — Apple Silicon | `StepQuest-1.4.0-mac-arm64.zip` |
+| macOS — Intel | `StepQuest-1.4.0-mac-x64.zip` |
+| Windows — x64 portable | `StepQuest-1.4.0-windows-x64-portable.exe` |
+| Linux — x64 AppImage | `StepQuest-1.4.0-linux-x86_64.AppImage` |
+| Debian / Ubuntu — x64 | `StepQuest-1.4.0-linux-amd64.deb` |
+| Fedora / RPM distributions — x64 | `StepQuest-1.4.0-linux-x86_64.rpm` |
 
-On macOS, extract the ZIP and move **StepQuest.app** to Applications. On Windows, run the portable executable. On Linux, install the DEB/RPM package or make the AppImage executable with `chmod +x StepQuest-1.3.0-linux-x86_64.AppImage` and run it. AppImage may require your distribution's FUSE compatibility package.
+On macOS, extract the ZIP and move **StepQuest.app** to Applications. On Windows, run the portable executable. On Linux, install the DEB/RPM package or make the AppImage executable with `chmod +x StepQuest-1.4.0-linux-x86_64.AppImage` and run it. AppImage may require your distribution's FUSE compatibility package.
 
 The macOS package is ad-hoc signed and not notarized; Windows signing is not configured. Your operating system may display a security warning or require explicit approval before opening the app.
 

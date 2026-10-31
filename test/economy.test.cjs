@@ -51,7 +51,7 @@ test('migrazione economia v5: nuove tariffe, senza cambiare saldi, storico o sco
  const before=snapshot();f.sql.exec('DELETE FROM game_migrations WHERE version>=6');f.reopen();
  const state=f.game.state(f.hero.id);assert.deepEqual(snapshot(),before);assert.deepEqual(state.battle,old.battle);
  assert.equal(state.rules.encounter_steps,25);assert.equal(state.rules.exchange_steps,50);assert.equal(state.rules.exchange_coins,20);assert.equal(state.rules.fixture_unrelated,99);
- assert.equal(f.sql.prepare('SELECT max(version) v FROM game_migrations').get().v,9);
+ assert.equal(f.sql.prepare('SELECT max(version) v FROM game_migrations').get().v,10);
  f.reopen();assert.deepEqual(snapshot(),before);
 });
 test('migrazione mercato v6: rinnovo ridotto, scorte e saldo intatti, prezzo esatto anche senza fondi',t=>{

@@ -19,7 +19,7 @@ npm run pack
 
 `npm test` esegue test unitari e d’integrazione offline con SQLite temporanei. `test:electron` usa un profilo separato, controlla i flussi di gioco, il contrasto, gli ingombri e le sei lingue, e scrive screenshot e rapporti in `artifacts/`. `test:release` verifica scenari economici deterministici e inventari grandi. Il packaging esegue `scripts/verify-package.cjs`; `scripts/verify-runtime.cjs` verifica successivamente il runtime distribuito.
 
-I controlli UI mirati si avviano con `npm run test:electron -- --atlas`, `--chronicles`, `--guild`, `--settlement`, `--comparisons` o `--reforging`. Usano lo stesso harness in `scripts/smoke-harness.cjs`, mantenendo gli scenari nei rispettivi file `*-audit.cjs`. Lo scenario di riforgiatura verifica griglia, filtri, paginazione, popup, preventivo e adeguamento di livello nelle sei lingue.
+I controlli UI mirati si avviano con `npm run test:electron -- --atlas`, `--chronicles`, `--guild`, `--settlement`, `--comparisons`, `--reforging`, `--merchant`, `--runic` o `--scrolling`. Usano lo stesso harness in `scripts/smoke-harness.cjs`, mantenendo gli scenari nei rispettivi file `*-audit.cjs`. Lo scenario del mercante verifica carovane, cinque categorie, provviste prepagate, resoconti e frecce nella lista nelle sei lingue. `node --experimental-sqlite scripts/merchant-balance-audit.cjs` controlla gli assortimenti effettivi dalle prime fasi al livello 900; `merchant-design-audit.cjs` conserva il confronto storico con i vecchi pesi generici.
 
 Per misurare preparazione dei dati, worker e cache su inventari sintetici da oltre 2.000 oggetti: `node --experimental-sqlite scripts/comparison-performance.cjs`. Il rapporto locale è in `artifacts/comparison-performance.json`; i tempi dipendono dalla macchina. Le prove del confronto non accedono ai salvataggi personali.
 
@@ -39,11 +39,13 @@ Per misurare preparazione dei dati, worker e cache su inventari sintetici da olt
 | `lib/hero-progression.cjs` | Soglie XP e avanzamento di livello condivisi da arena e avventure |
 | `lib/item-economy.cjs`, `lib/validation.cjs` | Valore dell’equipaggiamento, prezzi di vendita e validazione UUID condivisi |
 | `lib/comparison-simulation.cjs`, `lib/comparison-worker.cjs`, `lib/comparison-service.cjs` | Prove di equipaggiamento, worker persistente e cache limitate |
+| `lib/merchant.cjs`, `lib/merchant-catalog.cjs`, `lib/provision-rules.cjs` | Carovane, occasioni, acquisti e consumo di provviste condiviso con le simulazioni |
 | `lib/combat-turn.cjs`, `lib/combat-balance.cjs` | Turno comune, difficoltà e regole di combattimento |
 | Altri moduli `lib/` | Spedizioni, alchimia, professioni, Gilda, Atlante e Cronache |
 | `renderer/app.js` | Menu, personaggi e impostazioni |
 | `renderer/game.js` | Stato della sessione UI, navigazione e schermate di gioco |
 | `renderer/comparisons.js` | Priorità dei confronti, risultati asincroni e aggiornamenti parziali della UI |
+| `renderer/merchant.js`, `renderer/merchant.css` | Carovane, sacca, preventivi e indicatori del mercato |
 | `renderer/inventory-sales.js` | Vendite in blocco, anteprime e impostazioni del filtro bottino |
 | `renderer/item-details.js` | Dettagli, confronti, set, incantamenti e rifinitura degli oggetti |
 | `renderer/reforging.js` | Griglia di selezione, popup condivisi e conferma del preventivo di riforgiatura |
@@ -77,6 +79,12 @@ Lo storico dei giorni precedenti serve alle attività della Gilda e non viene tr
 
 ## Salvataggi e compatibilità
 
+Il mercante possiede `merchant_migrations` v1, registrata nella protezione dei backup: metadati delle offerte, piani personali, lotti prepagati e ricevute UUID. Letture e preventivi non assegnano risorse e non consumano RNG. Il repository esegue acquisti e rifornimento post-vittoria nella stessa transazione di monete o ricompense. `provision-rules.cjs` definisce il consumo FIFO e la cura comune a gioco e confronti; stock, piano e potenza pozioni invalidano la cache. Le scorte precedenti mantengono prezzi e istanze fino al rinnovo, e gli scontri precedenti senza piano salvato non consumano provviste. Le regole complete sono in [merchant-review.md](merchant-review.md).
+
+Le incisioni sono gestite da `runic.cjs`, con catalogo in `runic-catalog.cjs`. `runic-combat.cjs` e `combat-tactics.cjs` vengono usati dal motore condiviso di Sentieri, Arena e confronti. I bonus delle rune entrano nell’aggregazione degli attributi dopo la decorazione delle rifiniture. I confronti devono includere le parole nei dati e nelle chiavi della cache. Lo snapshot di ogni scontro conserva parole, profilo, contatori ed effetti pronti.
+
+La migrazione `runic_migrations` è registrata anche nella protezione dei salvataggi. Rune e frammenti vengono aggiornati nella stessa transazione del portafoglio o della vittoria; le ricevute runiche impediscono consumi ripetuti. I viaggi legacy senza `echoRank` rimangono ordinari. Per regole e verifiche consultare [il sistema runico](runic-system.md).
+
 Il file `stepquest.sqlite` risiede nella directory dati di Electron, su macOS normalmente `~/Library/Application Support/StepQuest/`. Non viene incluso nel repository o nella distribuzione.
 
 L’app usa `node:sqlite` e WAL. Per un backup manuale chiudere l’app: mentre è aperta, parte dei dati può trovarsi nei file `-wal` e `-shm`. Il sistema di protezione integrato verifica i backup prima delle migrazioni e permette il recupero in caso di errore all’avvio.
@@ -85,7 +93,7 @@ Le migrazioni devono conservare gli oggetti già generati e gli stati pagati di 
 
 ## Interfaccia e asset
 
-La finestra è fissa a 1280×800, con contenitori scorrevoli per i contenuti lunghi. L’interfaccia supporta italiano, inglese, francese, spagnolo, tedesco e giapponese. Nomi e dati inseriti dall’utente devono rimanere verbatim nelle traduzioni.
+La finestra è ridimensionabile e ingrandibile, con area di gioco minima 1280×800 e apertura fino a 1440×900 compatibilmente con il monitor. I pannelli crescono con lo spazio disponibile; menu e creazione restano centrati. `scroll-state.js` conserva la posizione dei pannelli quando la stessa vista viene ricostruita, anche con preventivi asincroni, e interrompe il ripristino al primo gesto dell’utente. I dettagli di una nuova ricetta ripartono dall’inizio. L’audit `electron . --smoke-test --scrolling` verifica raggiungibilità dei controlli a 1280×800, 1440×900 e 1600×1000 nelle sei lingue. L’interfaccia supporta italiano, inglese, francese, spagnolo, tedesco e giapponese. Nomi e dati inseriti dall’utente devono rimanere verbatim nelle traduzioni.
 
 I font locali sono Cinzel Decorative, Cinzel e IM Fell English; le licenze si trovano in `renderer/assets/fonts/`. La palette usa variabili `--surface-*` per adattare testo, rarità e confronti alle superfici. I tooltip funzionano con mouse e tastiera; i dialoghi mantengono titolo e azioni visibili.
 

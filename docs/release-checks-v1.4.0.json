@@ -1,0 +1,48 @@
+{
+  "version": "1.4.0",
+  "checkedOn": "2026-10-31",
+  "status": "source-verified-awaiting-publication",
+  "source": {
+    "tag": "v1.4.0",
+    "state": "Release source prepared; CI and publication evidence will be recorded after completion."
+  },
+  "tests": {
+    "unitAndIntegration": {
+      "passed": 336,
+      "failed": 0
+    },
+    "renderer": {
+      "layoutScreens": 650,
+      "contrastScreens": 650,
+      "rendererErrors": 0,
+      "merchantScreens": 92,
+      "languages": [
+        "it",
+        "en",
+        "fr",
+        "es",
+        "de",
+        "ja"
+      ]
+    },
+    "economy": {
+      "checkpoints": 24,
+      "craftResaleChecks": 30,
+      "negativeBalances": 0,
+      "report": "docs/release-economy-v1.4.0.json"
+    },
+    "merchant": {
+      "stocks": 1260,
+      "equipment": 10080,
+      "report": "docs/merchant-balance.json"
+    },
+    "runic": {
+      "syntheticBattles": 86400,
+      "report": "docs/runic-balance.json"
+    }
+  },
+  "publication": {
+    "published": false,
+    "url": "https://github.com/Gladiak/StepQuest/releases/tag/v1.4.0"
+  }
+}

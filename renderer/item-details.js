@@ -16,7 +16,7 @@ window.StepQuestItemDetails=Object.freeze({
     const reasons={unresolved:'Nessuna configurazione vince entro il limite di turni.',wins:verdict==='better'?'Più vittorie nelle prove.':'Meno vittorie nelle prove.',progression:verdict==='better'?'Più esperienza considerando il recupero.':'Meno esperienza considerando il recupero.',speed:verdict==='better'?'Vittorie in meno turni.':'Servono più turni per vincere.',coins:verdict==='better'?'Più monete dopo il recupero.':'Meno monete dopo il recupero.',close:'Risultati troppo vicini per consigliare il cambio.',equivalent:'Prestazioni simili nelle prove.'};
     node.append(el('p','comparison-note',reasons[assessment.reason]||''));
     if(assessment.metrics){const {before,after}=assessment.metrics,metrics=el('div','comparison-metrics');
-     for(const [label,key,unit]of [['Vittorie stimate','winRate','%'],['XP per 100 passi con recupero','xpPer100Steps',''],['Turni medi per scontro','rounds','']]){const row=el('p');row.append(el('span','',label),el('strong','',`${fmt(before[key])}${unit} → ${fmt(after[key])}${unit}`));metrics.append(row);}node.append(metrics);
+     for(const [label,key,unit]of [['Vittorie stimate','winRate','%'],['XP per 100 passi con recupero','xpPer100Steps',''],['Turni medi per scontro','rounds',''],['Attivazioni runiche medie','runeActivations',''],['Razioni consumate medie','provisionUsed','']]){if(!Number.isFinite(before[key])||!Number.isFinite(after[key]))continue;const row=el('p');row.append(el('span','',label),el('strong','',`${fmt(before[key])}${unit} → ${fmt(after[key])}${unit}`));metrics.append(row);}node.append(metrics);if(g.merchant?.provisions.enabled)node.append(el('p','comparison-note','Le prove includono le razioni disponibili nella sacca e il loro costo.'));if(g.runic)node.append(el('p','comparison-note',(g.runic.profile==='prudent'?'Auto Prudente':'Auto Aggressivo')+' · '+g.runic.echoes.find(e=>e.rank===g.runic.echoRank).name));
     }
    }
    if(!c.equipped){node.append(el('p','comparison-current',`${g.slotLabels[c.slot]} · ${c.current?'Confronto con '+c.current.name:'Slot vuoto'}`));
@@ -35,8 +35,9 @@ window.StepQuestItemDetails=Object.freeze({
    if(item.depthMultiplier>1)n.append(el('p','item-requirement',`Forgiato alla profondità ${item.generationDepth} · Potenza di base e affissi ×${fmt(item.depthMultiplier)}. Valori fissati al ritrovamento.`));
    if(Object.keys(item.baseStats).length){const base=el('dl','item-stats');for(const [key,value]of Object.entries(item.baseStats)){base.append(rarity(el('dt','',g.definitions[key].label+' base'),'common'),rarity(el('dd','',fmt(value)),'common'));}n.append(base);}
    if(item.rolls.length){n.append(el('p','item-requirement',`${item.rolls.length} caratteristiche`));const rolls=el('div','rolled-properties');for(const roll of item.rolls){const a=definition(roll),row=rarity(el('div','rolled-property'),roll.rarity);row.append(el('span','',a.label),el('strong','',rollText(roll.value,a.unit)),el('small','',`${roll.value<0?'Malus':'Bonus'} · Range ${rollText(roll.min,a.unit)} … ${rollText(roll.max,a.unit)}`));rolls.append(row);}n.append(rolls);}
-   else if(!item.enchantment)n.append(el('p','item-description','Nessuna caratteristica aggiuntiva o abilità.'));
+   else if(!item.enchantment&&!item.runeword)n.append(el('p','item-description','Nessuna caratteristica aggiuntiva o abilità.'));
    if(item.enchantment)n.append(enchantmentDetails(item));
+   if(item.runeword)n.append(window.StepQuestRunic.itemDetails({item,g,el}));
    if(item.refinement?.rank)n.append(refinementDetails(item));
    if(item.effect)n.append(el('p','item-effect',effectText(item)),el('p','item-use','Un utilizzo. L’oggetto viene consumato.'));
    const comparison=comparisonDetails(item);if(comparison)n.append(comparison);

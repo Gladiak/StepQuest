@@ -93,7 +93,7 @@ Le scorte restano fino al rinnovo|Stock remains until refreshed|Le stock reste j
 Armi|Weapons|Armes|Armas|Waffen|武器
 Armature|Armor|Armures|Armaduras|Rüstungen|防具
 Pozioni|Potions|Potions|Pociones|Tränke|ポーション
-Provviste e altro|Supplies and more|Provisions et autres|Provisiones y más|Vorräte und mehr|食料など
+Cibo|Food|Nourriture|Comida|Nahrung|食料
 Rinnova|Refresh|Renouveler|Renovar|Erneuern|更新
 Rinnova il mercato|Refresh the market|Renouveler le marché|Renovar el mercado|Markt erneuern|市場を更新
 Nuove scorte casuali: {0} monete.|New random stock: {0} coins.|Nouveau stock aléatoire : {0} pièces.|Nuevas existencias aleatorias: {0} monedas.|Neue zufällige Vorräte: {0} Münzen.|ランダムな品揃えに更新：{0}コイン。
